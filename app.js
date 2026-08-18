@@ -1,3 +1,10 @@
+const authCallbackHash = new URLSearchParams(window.location.hash.replace(/^#/, ''));
+const hasAuthCallback = ['access_token', 'refresh_token', 'type', 'error', 'error_code']
+  .some((key) => authCallbackHash.has(key));
+if (hasAuthCallback) {
+  window.location.replace(`/club/${window.location.search}${window.location.hash}`);
+}
+
 const SITE_CONFIG = Object.freeze({
   registrationUrl: '/club/',
   registrationReady: true,
