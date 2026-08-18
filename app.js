@@ -1,0 +1,135 @@
+const SITE_CONFIG = Object.freeze({
+  registrationUrl: '',
+  registrationReady: false,
+  registrationUrlStatus: 'disabled-unverified',
+  registrationOwner: 'Club SolarPunk Mx',
+  paymentHandledHere: false,
+  accountCreationHandledHere: false
+});
+
+window.SOLAR_PUNK_SITE_CONFIG = SITE_CONFIG;
+
+const root = document.documentElement;
+const header = document.querySelector('[data-header]');
+const journey = document.querySelector('[data-journey]');
+const journeyStages = [...document.querySelectorAll('[data-stage]')];
+const assembly = document.querySelector('[data-assembly]');
+const assemblyParts = [...document.querySelectorAll('[data-assembly-part]')];
+const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+
+for (const link of document.querySelectorAll('[data-cta]')) {
+  link.href = SITE_CONFIG.registrationReady ? SITE_CONFIG.registrationUrl : '#registro';
+  link.dataset.endpointStatus = SITE_CONFIG.registrationUrlStatus;
+  link.addEventListener('click', (event) => {
+    if (!SITE_CONFIG.registrationReady) event.preventDefault();
+    document.dispatchEvent(new CustomEvent('solarpunk:registration-intent', {
+      detail: {
+        destination: SITE_CONFIG.registrationUrl,
+        destinationStatus: SITE_CONFIG.registrationUrlStatus
+      }
+    }));
+  });
+}
+
+const ctaStatus = document.querySelector('[data-cta-status]');
+if (ctaStatus && SITE_CONFIG.registrationUrlStatus === 'verified') {
+  ctaStatus.textContent = 'Registro disponible en la plataforma de miembros.';
+}
+
+let ticking = false;
+
+function clamp(value, min = 0, max = 1) {
+  return Math.min(max, Math.max(min, value));
+}
+
+function updateAssembly(progress) {
+  if (!assembly || !assemblyParts.length) return;
+  const remaining = 1 - progress;
+  const scale = 0.82 + progress * 0.15;
+  assembly.style.transform = `scale(${scale.toFixed(4)})`;
+  const assembled = progress >= 0.94;
+  assembly.classList.toggle('is-final', assembled);
+  assembly.classList.toggle('is-complete', assembled);
+
+  for (const part of assemblyParts) {
+    const x = Number(part.dataset.scatterX || 0) * remaining;
+    const y = Number(part.dataset.scatterY || 0) * remaining;
+    const rotation = Number(part.dataset.scatterRotate || 0) * remaining;
+    part.style.transform = `translate3d(calc(-50% + ${x.toFixed(2)}px), ${y.toFixed(2)}px, 0) rotate(${rotation.toFixed(2)}deg)`;
+  }
+}
+
+function clearAssemblyMotion() {
+  assembly?.removeAttribute('style');
+  assembly?.classList.add('is-final');
+  assembly?.classList.add('is-complete');
+  assemblyParts.forEach(part => part.removeAttribute('style'));
+}
+
+function updateMotion() {
+  ticking = false;
+  const scrollY = window.scrollY;
+  const viewport = window.innerHeight || 1;
+  const heroProgress = clamp(scrollY / viewport);
+
+  root.style.setProperty('--hero-progress', heroProgress.toFixed(4));
+  header?.classList.toggle('is-scrolled', scrollY > 36);
+
+  if (!journey || !journeyStages.length) return;
+  const rect = journey.getBoundingClientRect();
+  const travel = Math.max(1, journey.offsetHeight - viewport);
+  const progress = clamp(-rect.top / travel);
+  root.style.setProperty('--journey-progress', progress.toFixed(4));
+  updateAssembly(progress);
+
+  const activeIndex = Math.min(
+    journeyStages.length - 1,
+    Math.floor(progress * journeyStages.length)
+  );
+  journeyStages.forEach((stage, index) => {
+    stage.classList.toggle('is-active', index === activeIndex);
+    stage.classList.toggle('is-past', index < activeIndex);
+  });
+}
+
+function requestMotionUpdate() {
+  if (ticking || reducedMotion.matches) return;
+  ticking = true;
+  requestAnimationFrame(updateMotion);
+}
+
+if (!reducedMotion.matches) {
+  addEventListener('scroll', requestMotionUpdate, { passive: true });
+  addEventListener('resize', requestMotionUpdate, { passive: true });
+  updateMotion();
+}
+
+reducedMotion.addEventListener?.('change', () => {
+  root.removeAttribute('style');
+  if (reducedMotion.matches) clearAssemblyMotion();
+  else updateMotion();
+});
+
+if (reducedMotion.matches) clearAssemblyMotion();
+
+const revealObserver = new IntersectionObserver((entries, observer) => {
+  for (const entry of entries) {
+    if (!entry.isIntersecting) continue;
+    entry.target.classList.add('is-visible');
+    observer.unobserve(entry.target);
+  }
+}, { threshold: 0.12, rootMargin: '0px 0px -5% 0px' });
+
+document.querySelectorAll('.section-pad, .schedule article, .tier, .faq-list details').forEach((element) => {
+  element.classList.add('reveal');
+  revealObserver.observe(element);
+});
+
+for (const detail of document.querySelectorAll('details')) {
+  detail.addEventListener('toggle', () => {
+    if (!detail.open) return;
+    document.querySelectorAll('details[open]').forEach((other) => {
+      if (other !== detail) other.open = false;
+    });
+  });
+}
