@@ -20,24 +20,19 @@ No requiere instalación, compilación, paquetes de terceros, CDN ni servicios e
 - `assets/`: hero responsive y seis WebP de la secuencia del Huerto.
 - `SECURITY.md`: frontera de seguridad y reglas de publicación.
 
-## Activar el CTA
+## CTA de producción
 
-El respaldo conserva el registro desactivado por seguridad:
+El CTA se mantiene configurado hacia la plataforma educativa en el mismo origen:
 
 ```js
 const SITE_CONFIG = Object.freeze({
-  registrationUrl: '',
-  registrationReady: false,
-  registrationUrlStatus: 'disabled-unverified'
+  registrationUrl: '/club/',
+  registrationReady: true,
+  registrationUrlStatus: 'verified'
 });
 ```
 
-Sólo después de verificar el destino HTTPS:
-
-1. definir `registrationUrl`;
-2. cambiar `registrationReady` a `true`;
-3. cambiar `registrationUrlStatus` a `verified`;
-4. comprobar navegación sin enviar datos reales.
+La publicación debe comprobar la navegación `landing → /club/` en HTTPS sin enviar datos reales. Si el destino deja de estar disponible o verificado, el CTA debe volver a estado desactivado antes de desplegar.
 
 Nunca incluir claves, tokens, identificadores privados ni datos personales en esta configuración.
 
@@ -55,7 +50,7 @@ Revisar como mínimo:
 - teclado y foco visible;
 - `prefers-reduced-motion: reduce`;
 - ausencia de overflow horizontal y errores de consola;
-- CTA bloqueado mientras `registrationReady` sea `false`.
+- CTA dirigido a `/club/` y marcado como `verified` sólo cuando la plataforma pública responde correctamente.
 
 ## Activos
 

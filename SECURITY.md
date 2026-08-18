@@ -13,7 +13,7 @@ Este repositorio contiene únicamente un sitio informativo estático. No debe re
 
 ## Configuración del registro
 
-El CTA está desactivado por defecto. Su destino sólo puede activarse después de verificar dominio, HTTPS, privacidad, términos y flujo de registro. No se deben transportar datos personales en query strings.
+El CTA de producción apunta a `/club/` en el mismo origen. Sólo puede permanecer activo mientras estén verificados dominio, HTTPS, privacidad, términos y flujo de registro. No se deben transportar datos personales en query strings.
 
 ## Antes de publicar
 

@@ -1,7 +1,7 @@
 const SITE_CONFIG = Object.freeze({
-  registrationUrl: '',
-  registrationReady: false,
-  registrationUrlStatus: 'disabled-unverified',
+  registrationUrl: '/club/',
+  registrationReady: true,
+  registrationUrlStatus: 'verified',
   registrationOwner: 'Club SolarPunk Mx',
   paymentHandledHere: false,
   accountCreationHandledHere: false
