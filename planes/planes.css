@@ -1,0 +1,95 @@
+/* Página Planes — solo layout específico de planes/; la base visual vive en ../styles.css */
+
+body.planes-page {
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+  background: var(--paper);
+  color: var(--ink);
+  color-scheme: light;
+}
+
+body.planes-page :focus-visible { outline-color: var(--forest); }
+
+.planes-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 22px;
+  width: 100%;
+  padding: 24px max(24px, calc((100vw - 1320px) / 2));
+}
+
+.planes-header-cta { min-height: 44px; padding: 0 20px; text-decoration: none; }
+
+.planes-main { flex: 1; }
+
+.planes-intro > p:last-child { color: #515950; font-size: 1.05rem; line-height: 1.6; }
+
+.planes-ladder {
+  grid-template-columns: repeat(2, 1fr);
+  max-width: 900px;
+  margin-top: 90px;
+}
+
+.planes-tier-featured { min-height: 330px; }
+
+.planes-tier-regular { min-height: 260px; }
+
+.planes-modalities {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 28px;
+  max-width: 900px;
+  margin-top: 70px;
+  padding-top: 40px;
+  border-top: 1px solid #aeb4a5;
+}
+
+.planes-modalities article { padding: 0; background: none; border: 0; }
+
+.planes-modalities h3 {
+  margin: 0 0 10px;
+  font-size: clamp(1.5rem, 2.4vw, 2.3rem);
+  line-height: 1.05;
+  letter-spacing: -.04em;
+}
+
+.planes-modalities p { margin: 0; color: #515950; line-height: 1.6; }
+
+.planes-note {
+  max-width: 760px;
+  margin: 45px 0 0;
+  font-size: .8rem;
+  color: #667064;
+}
+
+.planes-footer {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 30px;
+  width: 100%;
+  min-height: 150px;
+  padding: 40px max(24px, calc((100vw - 1320px) / 2));
+  border-top: 1px solid #aeb4a5;
+  color: #515950;
+}
+
+.planes-footer > p { margin: 0; font-size: .86rem; text-align: right; color: #667064; }
+
+@media (max-width: 900px) {
+  .planes-ladder, .planes-modalities { grid-template-columns: 1fr; max-width: none; }
+  .planes-ladder { margin-top: 55px; }
+  .planes-modalities { margin-top: 45px; gap: 34px; }
+  .planes-tier-featured, .planes-tier-regular { min-height: 250px; }
+  .planes-footer { grid-template-columns: 1fr; gap: 18px; }
+  .planes-footer > p { text-align: left; }
+}
+
+@media (max-width: 720px) {
+  .planes-header { padding: 16px 18px; }
+  .planes-ladder { margin-top: 45px; }
+  .planes-tier-featured, .planes-tier-regular { padding: 28px; }
+  .planes-footer { padding: 35px 18px; }
+}

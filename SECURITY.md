@@ -13,7 +13,7 @@ Este repositorio contiene únicamente un sitio informativo estático. No debe re
 
 ## Configuración del registro
 
-El CTA de producción apunta a `/club/` en el mismo origen. Sólo puede permanecer activo mientras estén verificados dominio, HTTPS, privacidad, términos y flujo de registro. No se deben transportar datos personales en query strings.
+El CTA lleva a la página estática de Planes en el mismo origen (`/planes/`). El sitio no procesa pagos, cuentas ni datos personales; los precios y modalidades son informativos y no transaccionales hasta el gate de integración.
 
 ## Antes de publicar
 

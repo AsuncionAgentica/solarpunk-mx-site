@@ -17,23 +17,24 @@ No requiere instalación, compilación, paquetes de terceros, CDN ni servicios e
 - `index.html`: contenido y semántica.
 - `styles.css`: diseño responsive, accesibilidad y motion.
 - `app.js`: configuración del CTA y ensamblaje controlado por scroll.
+- `planes/`: página informativa de Planes (artes visuales en `planes/planes.css`).
 - `assets/`: hero responsive y seis WebP de la secuencia del Huerto.
 - `README.md`: guía de ejecución, frontera funcional y despliegue público autorizado.
 - `vercel.json`: headers de seguridad para el hosting estático.
 
-## CTA de producción
+## CTA y página de Planes
 
-El CTA se mantiene configurado hacia la plataforma educativa en el mismo origen:
+El CTA lleva a la página informativa de Planes en el mismo origen:
 
 ```js
 const SITE_CONFIG = Object.freeze({
-  registrationUrl: '/club/',
+  registrationUrl: '/planes/',
   registrationReady: true,
   registrationUrlStatus: 'verified'
 });
 ```
 
-La publicación debe comprobar la navegación `landing → /club/` en HTTPS sin enviar datos reales. Si el destino deja de estar disponible o verificado, el CTA debe volver a estado desactivado antes de desplegar.
+`planes/index.html` replica el contenido aprobado de membresías: propósito, precio temprano $1,500 MXN/mes (primeros 10 lugares), precio regular $2,500 MXN/mes y modalidades Virtual y Presencial. Es puramente informativo: no hay registro, pago, cuentas ni proveedores conectados, y los CTAs de modalidad no forman parte de esta página. Si el destino deja de estar disponible, el CTA debe volver a estado desactivado antes de desplegar.
 
 Nunca incluir claves, tokens, identificadores privados ni datos personales en esta configuración.
 
@@ -51,7 +52,7 @@ Revisar como mínimo:
 - teclado y foco visible;
 - `prefers-reduced-motion: reduce`;
 - ausencia de overflow horizontal y errores de consola;
-- CTA dirigido a `/club/` y marcado como `verified` sólo cuando la plataforma pública responde correctamente; mientras no exista un destino público verificado, queda desactivado.
+- CTA dirigido a `/planes/` (página estática en el repo) y marcado como `verified`; mientras no exista un destino disponible, queda desactivado.
 
 ## Activos
 

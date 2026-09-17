@@ -6,9 +6,9 @@ if (hasAuthCallback) {
 }
 
 const SITE_CONFIG = Object.freeze({
-  registrationUrl: '/club/',
-  registrationReady: false,
-  registrationUrlStatus: 'unavailable',
+  registrationUrl: '/planes/',
+  registrationReady: true,
+  registrationUrlStatus: 'verified',
   registrationOwner: 'Club SolarPunk Mx',
   paymentHandledHere: false,
   accountCreationHandledHere: false
