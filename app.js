@@ -7,8 +7,8 @@ if (hasAuthCallback) {
 
 const SITE_CONFIG = Object.freeze({
   registrationUrl: '/club/',
-  registrationReady: true,
-  registrationUrlStatus: 'verified',
+  registrationReady: false,
+  registrationUrlStatus: 'unavailable',
   registrationOwner: 'Club SolarPunk Mx',
   paymentHandledHere: false,
   accountCreationHandledHere: false

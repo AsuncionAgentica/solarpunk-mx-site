@@ -22,7 +22,7 @@ El CTA de producción apunta a `/club/` en el mismo origen. Sólo puede permanec
 - aplicar CSP y headers de seguridad en la infraestructura;
 - comprobar que no existan `.env`, logs, dumps, capturas, masters ni notas internas;
 - verificar el CTA sin enviar datos reales;
-- obtener aprobación explícita para despliegue y DNS.
+- obtener aprobación explícita para publicación pública, despliegue y cualquier cambio de DNS.
 
 ## Reportes
 

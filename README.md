@@ -18,7 +18,8 @@ No requiere instalación, compilación, paquetes de terceros, CDN ni servicios e
 - `styles.css`: diseño responsive, accesibilidad y motion.
 - `app.js`: configuración del CTA y ensamblaje controlado por scroll.
 - `assets/`: hero responsive y seis WebP de la secuencia del Huerto.
-- `SECURITY.md`: frontera de seguridad y reglas de publicación.
+- `README.md`: guía de ejecución, frontera funcional y despliegue público autorizado.
+- `vercel.json`: headers de seguridad para el hosting estático.
 
 ## CTA de producción
 
@@ -50,7 +51,7 @@ Revisar como mínimo:
 - teclado y foco visible;
 - `prefers-reduced-motion: reduce`;
 - ausencia de overflow horizontal y errores de consola;
-- CTA dirigido a `/club/` y marcado como `verified` sólo cuando la plataforma pública responde correctamente.
+- CTA dirigido a `/club/` y marcado como `verified` sólo cuando la plataforma pública responde correctamente; mientras no exista un destino público verificado, queda desactivado.
 
 ## Activos
 
@@ -58,4 +59,4 @@ El Huerto Autónomo es una visualización conceptual generada, no una fotografí
 
 ## Distribución
 
-Repositorio privado de trabajo. No redistribuir ni publicar el código o los activos sin autorización del titular del proyecto.
+Repositorio público autorizado por el titular del proyecto para publicar la landing informativa. Antes de cada despliegue deben cumplirse las verificaciones de `SECURITY.md`; nunca incorporar secretos, datos personales, flujos de pago ni cuentas a este repositorio.
