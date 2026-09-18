@@ -17,7 +17,7 @@ No requiere instalación, compilación, paquetes de terceros, CDN ni servicios e
 - `index.html`: contenido y semántica.
 - `styles.css`: diseño responsive, accesibilidad y motion.
 - `app.js`: configuración del CTA y ensamblaje controlado por scroll.
-- `planes/`: página informativa de Planes (artes visuales en `planes/planes.css`).
+- `planes/`: página informativa de Planes (artes visuales en `planes/planes.css`, selección de modalidad en `planes/planes.js`).
 - `assets/`: hero responsive y seis WebP de la secuencia del Huerto.
 - `README.md`: guía de ejecución, frontera funcional y despliegue público autorizado.
 - `vercel.json`: headers de seguridad para el hosting estático.
@@ -34,7 +34,7 @@ const SITE_CONFIG = Object.freeze({
 });
 ```
 
-`planes/index.html` replica el contenido aprobado de membresías: propósito, precio temprano $1,500 MXN/mes (primeros 10 lugares), precio regular $2,500 MXN/mes y modalidades Virtual y Presencial. Es puramente informativo: no hay registro, pago, cuentas ni proveedores conectados, y los CTAs de modalidad no forman parte de esta página. Si el destino deja de estar disponible, el CTA debe volver a estado desactivado antes de desplegar.
+`planes/index.html` presenta la membresía: precio de lanzamiento $1,500 MXN/mes, precio regular $2,500 MXN/mes y modalidades Virtual y Presencial, con selección local mediante los botones Elegir Virtual / Elegir Presencial (estado `aria-pressed`, sin navegación). Es puramente informativa: no hay registro, pago, cuentas ni proveedores conectados, y la selección no dirige a Login, Checkout, Stripe, `/club/` ni dominios externos.
 
 Nunca incluir claves, tokens, identificadores privados ni datos personales en esta configuración.
 

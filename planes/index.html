@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Planes de membresía del Club SolarPunk Mx: precio por orden de entrada, lugares tempranos $1,500 MXN/mes, precio regular $2,500 MXN/mes y modalidades Virtual y Presencial.">
+  <meta name="description" content="Planes de membresía del Club SolarPunk Mx: precio de lanzamiento $1,500 MXN/mes, precio regular $2,500 MXN/mes y modalidades Virtual y Presencial.">
   <meta name="theme-color" content="#f1f0e6">
   <title>Planes | SolarPunk Mx</title>
   <link rel="icon" href="../favicon.svg" type="image/svg+xml">
@@ -26,12 +26,11 @@
       <div class="membership-intro planes-intro">
         <p class="section-index">04 / Membresía mensual</p>
         <h2 id="planes-title">Entra temprano.<br>Paga menos.</h2>
-        <p>Todos reciben la misma experiencia. El precio cambia por orden de entrada, no por nivel de acceso.</p>
       </div>
 
       <div class="price-stairs planes-ladder" aria-label="Escalera de precios de lanzamiento">
         <article class="tier tier-three planes-tier-featured">
-          <p>Primeros 10 lugares</p>
+          <p>Lanzamiento</p>
           <strong><sup>$</sup>1,500</strong>
           <span>MXN / mes</span>
         </article>
@@ -42,17 +41,19 @@
         </article>
       </div>
 
-      <div class="planes-modalities" aria-label="Modalidades de la membresía">
-        <article>
+      <div class="planes-modalities" role="group" aria-label="Elige tu modalidad">
+        <article class="planes-modality">
           <h3>Virtual</h3>
           <p>Contenido digital y eventos virtuales.</p>
+          <button type="button" class="planes-choose" data-modality="Virtual" aria-pressed="false">Elegir Virtual</button>
         </article>
-        <article>
+        <article class="planes-modality">
           <h3>Presencial</h3>
           <p>El mismo contenido y eventos en Xalapa.</p>
+          <button type="button" class="planes-choose" data-modality="Presencial" aria-pressed="false">Elegir Presencial</button>
         </article>
       </div>
-      <p class="planes-note">Página informativa de la membresía. El registro web de la primera generación todavía no está abierto.</p>
+      <p class="planes-selection-status" role="status"></p>
     </section>
   </main>
 
@@ -60,5 +61,6 @@
     <a class="brand" href="../"><span class="brand-mark" aria-hidden="true">SP</span><span class="brand-name">SolarPunk <i>Mx</i></span></a>
     <p>IA profesional para proyectos con impacto positivo.</p>
   </footer>
+  <script src="planes.js" defer></script>
 </body>
 </html>
