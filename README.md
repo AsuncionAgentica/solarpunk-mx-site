@@ -24,17 +24,23 @@ No requiere instalación, compilación, paquetes de terceros, CDN ni servicios e
 
 ## CTA y página de Planes
 
-El CTA lleva a la página informativa de Planes en el mismo origen:
+El CTA lleva a la plataforma de miembros del club (WordPress staging) con identidad Privy: `https://wp-test.test.solarpunk.empresaagentica.com/club/login/`.
+
+**Punto único de configuración:** `CLUB_ORIGIN` y `SITE_CONFIG.registrationUrl` en `app.js`. Cambias la URL en ese único lugar y los tres CTA del landing y los botones de modalidad de `planes/` se actualizan (los botones de modalidad componen su propia URL de destino a partir de `window.SOLAR_PUNK_SITE_CONFIG.clubOrigin`, que `app.js` expone). No hay secretos en ninguna URL: son parámetros públicos de navegación (`sp_next=payment`, `sp_plan=virtual|presencial`).
 
 ```js
+// Punto único de configuración: app.js (la constante CLUB_ORIGIN se comparte con planes/planes.js vía window.SOLAR_PUNK_SITE_CONFIG)
+const CLUB_ORIGIN = 'https://wp-test.test.solarpunk.empresaagentica.com';
+
 const SITE_CONFIG = Object.freeze({
-  registrationUrl: '/planes/',
+  clubOrigin: CLUB_ORIGIN,
+  registrationUrl: `${CLUB_ORIGIN}/club/login/`,
   registrationReady: true,
   registrationUrlStatus: 'verified'
 });
 ```
 
-`planes/index.html` presenta la membresía: precio de lanzamiento $1,500 MXN/mes, precio regular $2,500 MXN/mes y modalidades Virtual y Presencial, con selección local mediante los botones Elegir Virtual / Elegir Presencial (estado `aria-pressed`, sin navegación). Es puramente informativa: no hay registro, pago, cuentas ni proveedores conectados, y la selección no dirige a Login, Checkout, Stripe, `/club/` ni dominios externos.
+`planes/index.html` presenta la membresía: precio de lanzamiento $1,500 MXN/mes, precio regular $2,500 MXN/mes y modalidades Virtual y Presencial. Los botones Elegir Virtual / Elegir Presencial reconectan con el flujo real del club: llevan a la superficie de login en el origen del club (`/club/login/`) preservando la intención de plan en la query (`sp_next=payment`, `sp_plan=virtual|presencial`), para que una persona que llega del landing pueda iniciar sesión y continuar hacia pago. Ningún dato sensible viaja en la URL.
 
 Nunca incluir claves, tokens, identificadores privados ni datos personales en esta configuración.
 
@@ -52,7 +58,7 @@ Revisar como mínimo:
 - teclado y foco visible;
 - `prefers-reduced-motion: reduce`;
 - ausencia de overflow horizontal y errores de consola;
-- CTA dirigido a `/planes/` (página estática en el repo) y marcado como `verified`; mientras no exista un destino disponible, queda desactivado.
+- CTA dirigido a la plataforma de miembros del club: `SITE_CONFIG.registrationUrl` = `${CLUB_ORIGIN}/club/login/` en `app.js` (punto único de configuración), marcado como `verified`.
 
 ## Activos
 

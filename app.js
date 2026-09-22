@@ -5,8 +5,13 @@ if (hasAuthCallback) {
   window.location.replace(`/club/${window.location.search}${window.location.hash}`);
 }
 
+// Punto único de configuración del destino de membresía (URL real del club).
+// Cambia sólo esta constante si el club se sirve en otro dominio; ninguna URL lleva secretos.
+const CLUB_ORIGIN = 'https://wp-test.test.solarpunk.empresaagentica.com';
+
 const SITE_CONFIG = Object.freeze({
-  registrationUrl: '/planes/',
+  clubOrigin: CLUB_ORIGIN,
+  registrationUrl: `${CLUB_ORIGIN}/club/login/`,
   registrationReady: true,
   registrationUrlStatus: 'verified',
   registrationOwner: 'Club SolarPunk Mx',
