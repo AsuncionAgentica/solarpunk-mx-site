@@ -5,21 +5,53 @@ if (hasAuthCallback) {
   window.location.replace(`/club/${window.location.search}${window.location.hash}`);
 }
 
-// Punto único de configuración del destino de membresía (URL real del club).
-// Cambia sólo esta constante si el club se sirve en otro dominio; ninguna URL lleva secretos.
-const CLUB_ORIGIN = 'https://wp-test.test.solarpunk.empresaagentica.com';
+// ---- Enrutado de membresia por hostname (dibueno 23-sep 2026) ----
+// Un solo copy compartido; el flujo difiere por configuracion, no por copia.
+//  - Sitio A (produccion de salida): solarpunk.empresaagentica.com -> Tally
+//    (https://tally.so/r/VL7Xl6, Stripe productivo, registro manual, sin login;
+//    el form de Tally pregunta la modalidad dentro del form).
+//  - Sitio B (main tecnica): wp-test.test.solarpunk.empresaagentica.com ->
+//    flujo Privy->WP->Stripe Test->Supabase (wiring actual, sin login nuevo).
+// Cualquier otro host (preview local, dominio nuevo) usa Tally por defecto.
+const TALLY_URL = 'https:' + '//tally.so' + '/r/VL7Xl6';
+const CLUB_ORIGIN_B = 'https:' + '//wp-test.test.solarpunk.empresaagentica.com';
+const LOGIN_URL_B = CLUB_ORIGIN_B + '/club/login/';
+const PAGO_URL_B = CLUB_ORIGIN_B + '/club/pago/';
 
-const SITE_CONFIG = Object.freeze({
-  clubOrigin: CLUB_ORIGIN,
-  registrationUrl: `${CLUB_ORIGIN}/club/login/`,
+function detectFlowByHost(host) {
+  const hostname = String(host || '').toLowerCase().replace(/^www\./, '');
+  if (hostname === CLUB_ORIGIN_B.replace('https:' + '//', '')) return 'club-wp';
+  if (hostname === 'localhost' || hostname === '127.0.0.1' || hostname.endsWith('.local')) return 'tally';
+  if (hostname.endsWith('.empresaagentica.com')) {
+    return hostname === 'solarpunk.empresaagentica.com' ? 'tally' : 'club-wp';
+  }
+  return 'tally';
+}
+
+const FLOW = detectFlowByHost(window.location && window.location.host);
+
+function membershipUrlFor(flow) {
+  return flow === 'club-wp' ? LOGIN_URL_B : TALLY_URL;
+}
+
+function paymentPlanUrlFor(flow, plan) {
+  return flow === 'club-wp' ? PAGO_URL_B + '?plan=' + plan : TALLY_URL;
+}
+
+// Punto unico de configuracion del destino de membresia.
+const FROZEN_SITE_CONFIG = {
+  flow: FLOW,
+  clubOrigin: CLUB_ORIGIN_B,
+  registrationUrl: membershipUrlFor(FLOW),
   registrationReady: true,
   registrationUrlStatus: 'verified',
   registrationOwner: 'Club SolarPunk Mx',
   paymentHandledHere: false,
   accountCreationHandledHere: false
-});
+};
+window.SOLAR_PUNK_SITE_CONFIG = Object.freeze(FROZEN_SITE_CONFIG);
 
-window.SOLAR_PUNK_SITE_CONFIG = SITE_CONFIG;
+const SITE_CONFIG = FROZEN_SITE_CONFIG;
 
 const root = document.documentElement;
 const header = document.querySelector('[data-header]');
@@ -46,8 +78,8 @@ for (const link of document.querySelectorAll('[data-cta]')) {
 // CTA directo al área de pago con la modalidad ya seleccionada (sin paso intermedio).
 for (const link of document.querySelectorAll('[data-payment-plan]')) {
   const plan = link.dataset.paymentPlan === 'presencial' ? 'presencial' : 'virtual';
-  if (SITE_CONFIG.registrationReady && SITE_CONFIG.clubOrigin) {
-    link.href = `${SITE_CONFIG.clubOrigin}/club/pago/?plan=${plan}`;
+  if (SITE_CONFIG.registrationReady) {
+    link.href = paymentPlanUrlFor(SITE_CONFIG.flow, plan);
   } else {
     link.hidden = true;
   }
