@@ -85,11 +85,6 @@ for (const link of document.querySelectorAll('[data-payment-plan]')) {
   }
 }
 
-const ctaStatus = document.querySelector('[data-cta-status]');
-if (ctaStatus && SITE_CONFIG.registrationUrlStatus === 'verified') {
-  ctaStatus.textContent = 'Registro disponible en la plataforma de miembros.';
-}
-
 let ticking = false;
 
 function clamp(value, min = 0, max = 1) {

@@ -170,8 +170,8 @@ details p { max-width: 750px; margin: -4px 0 32px; color: var(--muted); line-hei
 
 footer { width: var(--page); margin: 0 auto; min-height: 190px; display: grid; grid-template-columns: .7fr 1fr .7fr; align-items: center; gap: 30px; border-top: 1px solid var(--line); }
 footer > p { margin: 0; color: var(--muted); }
-.footer-social { display: flex; flex-wrap: wrap; justify-content: flex-end; align-items: center; gap: 10px 16px; color: var(--muted); font-size: .76rem; }
-.footer-social > span { width: 100%; color: var(--acid); font-size: .67rem; letter-spacing: .12em; text-transform: uppercase; }
+.footer-social { display: flex; flex-direction: column; align-items: flex-end; gap: 10px 16px; color: var(--muted); font-size: .76rem; }
+.footer-social > span { width: auto; color: var(--acid); font-size: .67rem; letter-spacing: .12em; text-transform: uppercase; }
 .footer-social a { color: var(--paper); text-decoration: none; border-bottom: 1px solid rgba(233,239,223,.3); transition: color .2s ease, border-color .2s ease; }
 .footer-social a:hover, .footer-social a:focus-visible { color: var(--acid); border-color: currentColor; }
 .footer-social a:focus-visible { outline: 2px solid var(--acid); outline-offset: 4px; }
