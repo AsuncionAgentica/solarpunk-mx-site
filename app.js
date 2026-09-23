@@ -43,6 +43,16 @@ for (const link of document.querySelectorAll('[data-cta]')) {
   });
 }
 
+// CTA directo al área de pago con la modalidad ya seleccionada (sin paso intermedio).
+for (const link of document.querySelectorAll('[data-payment-plan]')) {
+  const plan = link.dataset.paymentPlan === 'presencial' ? 'presencial' : 'virtual';
+  if (SITE_CONFIG.registrationReady && SITE_CONFIG.clubOrigin) {
+    link.href = `${SITE_CONFIG.clubOrigin}/club/pago/?plan=${plan}`;
+  } else {
+    link.hidden = true;
+  }
+}
+
 const ctaStatus = document.querySelector('[data-cta-status]');
 if (ctaStatus && SITE_CONFIG.registrationUrlStatus === 'verified') {
   ctaStatus.textContent = 'Registro disponible en la plataforma de miembros.';
