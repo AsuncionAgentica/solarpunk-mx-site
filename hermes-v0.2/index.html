@@ -99,34 +99,184 @@
     </div>
   </section>
 
-  <!-- 2. COMPARANDO AGENTES (en revisión: se publicará una comparativa verificada) -->
+  <!-- 2. COMPARANDO AGENTES -->
   <section id="comparando">
     <div class="wrap">
       <div class="sec-head">
         <p class="kicker">Comparando agentes</p>
-        <h2>Qué es Hermes y qué no es</h2>
-        <p class="lede">Antes de comparar, una aclaración honesta. No todos los productos que la gente llama "IA" hacen lo mismo, y compararlos de frente mezcla cosas distintas.</p>
+        <h2>Comparar peras con peras</h2>
+        <p class="lede">No todos los productos que llamamos "IA" hacen lo mismo. Los separamos en dos grupos que sí son comparables entre sí. Dentro de cada tabla, todo compite de tú a tú.</p>
       </div>
-      <div class="grid grid-2">
-        <article class="card">
-          <h3>Hay tres familias distintas</h3>
-          <ul>
-            <li><b>Asistentes alojados.</b> Viven en la nube del proveedor: ChatGPT, Gemini, Claude en su web, Muse, DeepSeek. Conversan y te ayudan, pero corren en sus servidores y con sus reglas.</li>
-            <li><b>Agentes de ejecución instalables.</b> Los instalas y ejecutan tareas en tu equipo: Hermes Agent, Claude Code, Codex, OpenClaw, Cursor. Aquí la diferencia no es si ejecutan (varios lo hacen), sino dónde, con qué alcance y con qué control.</li>
-            <li><b>Modelos.</b> Son el motor con el que cualquiera de los anteriores piensa. Un mismo modelo puede correr dentro de un asistente alojado o dentro de un agente en tu máquina.</li>
-          </ul>
-        </article>
-        <article class="card top-acid">
-          <h3>Dónde encaja Hermes, sin exagerar</h3>
-          <ul>
-            <li>Es un <b>agente de ejecución instalable</b>, de código abierto (MIT): corre en tu equipo o tu servidor.</li>
-            <li>Acepta <b>muchos modelos</b>, incluidos modelos locales, así que no lo ata a un solo proveedor.</li>
-            <li>Su ecosistema es abierto: cualquiera puede escribir plugins, MCPs y habilidades.</li>
-            <li>No es el más fácil de arrancar sin apoyo técnico, y no tiene el soporte corporativo ni las integraciones empresariales de los grandes. Eso también es parte de la verdad.</li>
-          </ul>
-        </article>
+
+      <h3 class="mt-xl">Grupo A · Agentes que instalas y ejecutan en tu equipo</h3>
+      <p class="lede">Aquí la pregunta no es si ejecutan comandos (varios lo hacen), sino con qué alcance, con qué control y con qué modelo.</p>
+      <div class="table-wrap">
+        <table class="cmp">
+          <caption>Instantánea documental al 06 de octubre de 2026, con fuente oficial de cada producto. No es una prueba de rendimiento. "No consta" significa que la fuente oficial consultada no lo declara, no que no exista.</caption>
+          <thead>
+            <tr>
+              <th scope="col">Producto</th>
+              <th scope="col" class="hermes-h">Hermes Agent</th>
+              <th scope="col">Claude Code</th>
+              <th scope="col">OpenAI Codex</th>
+              <th scope="col">OpenClaw</th>
+              <th scope="col">Cursor Agent</th>
+              <th scope="col">Aider</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">Corre y ejecuta en tu equipo</th>
+              <td class="yes">Sí, autoalojado</td>
+              <td class="yes">Sí: lee código, edita y ejecuta comandos</td>
+              <td class="yes">Sí: inspecciona, edita y ejecuta lo instalado</td>
+              <td class="yes">Sí, gateway local</td>
+              <td class="yes">Sí: edita y corre terminal</td>
+              <td class="yes">Sí, en la terminal</td>
+            </tr>
+            <tr>
+              <th scope="row">Control y aprobaciones (documentados)</th>
+              <td class="nv">No consta una matriz única por plataforma</td>
+              <td class="yes">Permisos por defecto, <code lang="en">--allowedTools</code>, modos</td>
+              <td class="yes">Sandbox <code lang="en">workspace-write</code>/<code lang="en">danger-full-access</code>, aprobación</td>
+              <td class="nv">Límites por herramienta: no consta tabla única</td>
+              <td class="yes">Modos: Auto-review, Allowlist, Run Everything</td>
+              <td class="nv">No consta en la fuente consultada</td>
+            </tr>
+            <tr>
+              <th scope="row">Modelos que acepta</th>
+              <td class="yes">Muchos proveedores y locales (Ollama, llama.cpp)</td>
+              <td class="part">Proveedores de terceros; local no consta</td>
+              <td class="part">Modelos OpenAI; local no consta</td>
+              <td class="yes">Muchos; local por Ollama</td>
+              <td class="part">Varios proveedores; local no consta</td>
+              <td class="yes">Varios; local por Ollama documentado</td>
+            </tr>
+            <tr>
+              <th scope="row">Memoria entre sesiones</th>
+              <td class="yes">Sí; el repo declara memoria persistente</td>
+              <td class="yes"><code lang="en">CLAUDE.md</code> + auto memory</td>
+              <td class="part"><code lang="en">codex resume</code>; memoria semántica no consta</td>
+              <td class="part">El estado vive en tu máquina; alcance no consta</td>
+              <td class="part">Checkpoints de sesión; entre sesiones no consta</td>
+              <td class="part">Contexto del repo; entre sesiones no consta</td>
+            </tr>
+            <tr>
+              <th scope="row">Licencia y control</th>
+              <td class="yes">MIT, código abierto</td>
+              <td class="no">Propietario</td>
+              <td class="no">Propietario</td>
+              <td class="yes">MIT, código abierto</td>
+              <td class="no">Propietario</td>
+              <td class="yes">Apache 2.0, código abierto</td>
+            </tr>
+            <tr>
+              <th scope="row">Precio del software</th>
+              <td class="yes">$0 (pagas modelo/infra si usas la nube)</td>
+              <td class="part">Desde $20/mes (Pro)</td>
+              <td class="part">Según plan de ChatGPT o API</td>
+              <td class="yes">$0 (sitio: sin suscripción)</td>
+              <td class="part">Desde $20/mes (Pro)</td>
+              <td class="yes">$0 (pagas el modelo)</td>
+            </tr>
+            <tr>
+              <th scope="row">100% local, sin enviar datos al proveedor</th>
+              <td class="yes">Sí, con modelo local</td>
+              <td class="part">No consta modo offline completo</td>
+              <td class="part">No consta offline completo</td>
+              <td class="yes">Sí con Ollama local</td>
+              <td class="nv">No consta</td>
+              <td class="yes">Sí con Ollama local</td>
+            </tr>
+          </tbody>
+        </table>
       </div>
-      <p class="note"><b>Estamos preparando una comparativa verificada.</b> Publicaremos una tabla producto por producto, con cada afirmación respaldada en la fuente oficial de cada proveedor y con su fecha. Preferimos tardar y ser exactos que publicar algo que suene bien pero no sea cierto. Mientras tanto: la mejor comparación es que pruebes el que más te llame, con tus propias tareas.</p>
+
+      <h3 class="mt-xl">Grupo B · Asistentes alojados del proveedor</h3>
+      <p class="lede">Estos viven en la nube del proveedor. No los ponemos contra los del Grupo A porque no son la misma cosa: son productos de conversación, no agentes que instales.</p>
+      <div class="table-wrap">
+        <table class="cmp">
+          <caption>Misma fecha (06-oct-2026) y mismas fuentes oficiales. Aquí "No consta" es frecuente: son productos que no documentan ejecución en tu equipo porque no es su función.</caption>
+          <thead>
+            <tr>
+              <th scope="col">Producto</th>
+              <th scope="col">ChatGPT</th>
+              <th scope="col">Claude (app)</th>
+              <th scope="col">Gemini</th>
+              <th scope="col">DeepSeek (app)</th>
+              <th scope="col">Muse (Meta)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">Dónde corre</th>
+              <td class="part">Nube de OpenAI</td>
+              <td class="part">Nube de Anthropic</td>
+              <td class="part">Nube de Google</td>
+              <td class="part">Nube de DeepSeek</td>
+              <td class="part">Nube de Meta</td>
+            </tr>
+            <tr>
+              <th scope="row">Ejecuta en tu equipo</th>
+              <td class="nv">No consta en la app</td>
+              <td class="part">Crea archivos, pero no es la shell de tu equipo</td>
+              <td class="nv">No consta</td>
+              <td class="nv">No consta</td>
+              <td class="nv">No consta</td>
+            </tr>
+            <tr>
+              <th scope="row">Memoria entre conversaciones</th>
+              <td class="yes">Sí (según plan)</td>
+              <td class="yes">Sí, declarada</td>
+              <td class="nv">No consta</td>
+              <td class="part">Gestionas/borras historial; semántica no consta</td>
+              <td class="nv">No consta</td>
+            </tr>
+            <tr>
+              <th scope="row">Modelos</th>
+              <td class="part">Solo OpenAI</td>
+              <td class="part">Solo Claude</td>
+              <td class="part">Solo Google</td>
+              <td class="part">Solo DeepSeek</td>
+              <td class="part">Solo Meta</td>
+            </tr>
+            <tr>
+              <th scope="row">Licencia</th>
+              <td class="no">Propietario</td>
+              <td class="no">Propietario</td>
+              <td class="no">Propietario</td>
+              <td class="no">Propietario (modelo abierto aparte)</td>
+              <td class="no">Propietario (Llama aparte)</td>
+            </tr>
+            <tr>
+              <th scope="row">Plan gratuito</th>
+              <td class="yes">Sí</td>
+              <td class="yes">Sí</td>
+              <td class="yes">Sí</td>
+              <td class="yes">Sí (la app)</td>
+              <td class="yes">Sí</td>
+            </tr>
+            <tr>
+              <th scope="row">100% local</th>
+              <td class="no">No</td>
+              <td class="no">No</td>
+              <td class="no">No</td>
+              <td class="no">No; sus datos pueden procesarse fuera</td>
+              <td class="no">No</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="legend">
+        <span><i class="sw-success"></i> Sí, documentado</span>
+        <span><i class="sw-sun"></i> Con condiciones o parcial</span>
+        <span><i class="sw-error"></i> No</span>
+        <span><i class="sw-nv"></i> No consta en la fuente oficial</span>
+      </div>
+
+      <p class="note"><b>Dónde Hermes no gana.</b> Hay que decirlo: en control documentado de permisos y sandbox, Claude Code y Codex publican matrices explícitas que Hermes todavía no documenta igual de claro. En experiencia integrada y soporte corporativo, los productos de los grandes van por delante. Y "software gratis" no significa "modelo gratis": en Hermes el costo del modelo o del servidor corre por tu cuenta. Hermes gana en otra cosa: es el único de este grupo que es código abierto, acepta modelos de cualquier proveedor o locales, y no depende de que una empresa decida mantenerlo vivo.</p>
+      <p class="micro">Cada celda proviene de la documentación oficial de cada producto consultada el 06 de octubre de 2026. Las capacidades y los precios cambian: verifica en la fuente del proveedor antes de decidir.</p>
     </div>
   </section>
 
