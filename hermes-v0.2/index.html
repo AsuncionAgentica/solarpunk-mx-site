@@ -50,12 +50,12 @@
       </figure>
     </div>
     <ul class="chips" aria-label="Datos del proyecto al 6 de octubre de 2026">
-      <li class="chip">GitHub: <a href="https://github.com/NousResearch/hermes-agent"><b>251&thinsp;643 estrellas</b></a></li>
+      <li class="chip">GitHub: <a href="https://github.com/NousResearch/hermes-agent"><b>251&thinsp;648 estrellas</b></a></li>
       <li class="chip">Versión actual: <b>v0.21.5</b></li>
       <li class="chip">Licencia: <a href="https://github.com/NousResearch/hermes-agent/blob/main/LICENSE"><b>MIT (código abierto)</b></a></li>
-      <li class="chip"><b>416</b> plugins de catálogo</li>
-      <li class="chip"><b>66</b> servidores MCP</li>
-      <li class="chip"><b>200+</b> modelos de IA</li>
+      <li class="chip"><b>469</b> plugins de catálogo</li>
+      <li class="chip"><b>65</b> servidores MCP</li>
+      <li class="chip"><b>300+</b> modelos de IA</li>
     </ul>
   </section>
 
@@ -136,17 +136,17 @@
             </tr>
             <tr>
               <th scope="row">Control y aprobaciones (documentados)</th>
-              <td class="yes">Sí: aprobación de comandos, sandbox de escritura y aislamiento</td>
+              <td class="yes">Sí: aprobación de comandos y aislamiento en contenedores</td>
               <td class="yes">Permisos por defecto, <code lang="en">--allowedTools</code>, modos</td>
               <td class="yes">Sandbox <code lang="en">workspace-write</code>/<code lang="en">danger-full-access</code>, aprobación</td>
               <td class="yes">Sí: permisos por herramienta y sandbox</td>
               <td class="yes">Modos: Auto-review, Allowlist, Run Everything</td>
-              <td class="nv">No consta en la fuente consultada</td>
+              <td class="yes">Sí: ejecuta shell con confirmación</td>
             </tr>
             <tr>
               <th scope="row">Modelos que acepta</th>
               <td class="yes">Muchos proveedores y locales (Ollama, llama.cpp)</td>
-              <td class="part">Proveedores de terceros; local no consta</td>
+              <td class="yes">Proveedores; también local vía Ollama</td>
               <td class="part">Modelos OpenAI; local no consta</td>
               <td class="yes">Muchos; local por Ollama</td>
               <td class="part">Varios proveedores; local no consta</td>
@@ -157,9 +157,9 @@
               <td class="yes">Sí; el repo declara memoria persistente</td>
               <td class="yes"><code lang="en">CLAUDE.md</code> + auto memory</td>
               <td class="part"><code lang="en">codex resume</code>; memoria semántica no consta</td>
-              <td class="part">El estado vive en tu máquina; alcance no consta</td>
+              <td class="yes">Sí: estado y memoria en tu máquina</td>
               <td class="part">Checkpoints de sesión; entre sesiones no consta</td>
-              <td class="part">Contexto del repo; entre sesiones no consta</td>
+              <td class="part">Contexto del proyecto; no memoria persistente</td>
             </tr>
             <tr>
               <th scope="row">Licencia y control</th>
@@ -182,7 +182,7 @@
             <tr>
               <th scope="row">100% local, sin enviar datos al proveedor</th>
               <td class="yes">Sí, con modelo local</td>
-              <td class="part">No consta modo offline completo</td>
+              <td class="part">Casi nunca; modelo local es aparte</td>
               <td class="part">No consta offline completo</td>
               <td class="yes">Sí con Ollama local</td>
               <td class="nv">No consta</td>
@@ -214,7 +214,7 @@
               <td class="part">Nube de Anthropic</td>
               <td class="part">Nube de Google</td>
               <td class="part">Nube de DeepSeek</td>
-              <td class="part">Nube de Meta</td>
+              <td class="part">VM en la nube de Meta</td>
             </tr>
             <tr>
               <th scope="row">Ejecuta en tu equipo</th>
@@ -295,7 +295,7 @@
         </article>
         <article class="card">
           <h3>Uno mismo en todos lados</h3>
-          <p>Vive en tu computadora, en un servidor (VPS) o en el celular, sin perder contexto, memoria ni capacidades cuando cambias de dispositivo.</p>
+          <p>Puedes usarlo desde tu computadora, un servidor (VPS) o el celular. La continuidad total depende de que compartan el mismo perfil y estado.</p>
         </article>
         <article class="card">
           <h3>Tu equipo de agentes</h3>
@@ -319,7 +319,7 @@
         </article>
         <article class="card">
           <h3>Fuera de la pantalla</h3>
-          <p>Se conecta con dispositivos físicos, robótica e IoT, y con servicios externos: llamadas telefónicas, pagos, contratación de personas por plataformas de trabajo por encargo, avatares generativos, modelado e impresión 3D, y más.</p>
+          <p>Mediante MCP, plugins o canales específicos puede conectarse con dispositivos físicos, IoT y servicios externos: mensajería y voz, pagos, herramientas de creación como Blender, y más. Son integraciones que se configuran, no funciones que traiga de fábrica.</p>
         </article>
       </div>
     </div>
@@ -418,7 +418,7 @@
         </article>
         <article class="card cap">
           <h3>Memoria persistente</h3>
-          <p>Recuerda tus proyectos, preferencias y decisiones entre sesiones, con perfil de usuario.</p>
+          <p>Memoria acotada y por perfil: recuerda tus proyectos, preferencias y decisiones entre sesiones.</p>
           <p class="ex"><b>Ejemplo:</b> al segundo día ya no explicas qué es tu negocio ni cómo trabajas.</p>
         </article>
         <article class="card cap">
@@ -428,7 +428,7 @@
         </article>
         <article class="card cap">
           <h3>Navegador controlado</h3>
-          <p>Opera un navegador real: da clic, escribe, y navega como si fueras un humano saltándose pruebas antibots.</p>
+          <p>Opera un navegador real: entra a páginas, da clic, escribe y extrae datos, con proveedor local o en la nube.</p>
           <p class="ex"><b>Ejemplo:</b> revisa tu landing y te manda la captura del error encontrado.</p>
         </article>
         <article class="card cap">
@@ -449,7 +449,7 @@
         <article class="card cap">
           <h3>Seguridad por diseño</h3>
           <p>Aprobación de comandos, autorización por sesión y aislamiento en contenedores.</p>
-          <p class="ex"><b>Ejemplo:</b> nada crítico se ejecuta sin que tú lo autorices.</p>
+          <p class="ex"><b>Ejemplo:</b> hay aprobación de comandos y aislamiento configurables; revisa qué permite cada plugin que actives.</p>
         </article>
         <article class="card cap">
           <h3>Escritorio nativo</h3>
@@ -477,7 +477,7 @@
       <!-- Paso 0: Nous Portal -->
       <article class="card top-acid">
         <h3>Paso 0. Tu cuenta gratuita en Nous Portal</h3>
-        <p>Crea tu cuenta en <a href="https://portal.nousresearch.com/r/solarpunk">portal.nousresearch.com/r/solarpunk</a>. La cuenta es gratis. Si decides suscribirte a sus modelos de IA, con este enlace obtienes un descuento de 15 USD en tu primer mes.</p>
+        <p>Crea tu cuenta en <a href="https://portal.nousresearch.com/r/solarpunk">portal.nousresearch.com/r/solarpunk</a>. La cuenta es gratis. Si decides suscribirte a sus modelos de IA, este enlace de invitación puede darte una promoción en tu primer mes; revisa las condiciones al crear la cuenta.</p>
         <p class="micro">Nous Portal es la plataforma de Nous Research, la empresa que creo Hermes. Con una sola cuenta alcanzas más de 200 modelos y las herramientas integradas.</p>
       </article>
 
@@ -511,7 +511,7 @@
       <p class="mt-sm">Te va a hacer una serie de preguntas. Estas son las respuestas del taller, en orden:</p>
       <ol class="steps">
         <li><strong>Proveedor:</strong> elige <b>Nous Portal</b> y completa el inicio de sesión (OAuth) en tu navegador.</li>
-        <li><strong>Modelo por defecto:</strong> busca uno que diga <b>free</b> y elígelo. Nota: elige un modelo gratis para empezar, a menos que ya tengas una suscripción activa de OpenAI u otro proveedor que no sea Anthropic. Anthropic no permite conectar sus modelos por suscripción: solo cobra por tokens usados por separado.</li>
+        <li><strong>Modelo por defecto:</strong> busca uno que diga <b>free</b> y elígelo. Nota: elige un modelo gratis para empezar, a menos que ya tengas una suscripción activa de otro proveedor. La API de Anthropic cobra por uso de tokens; para conectar una suscripción de Claude existe una integración aparte, sujeta a compatibilidad.</li>
         <li><strong>Herramientas:</strong> deja todas seleccionadas y presiona Enter.</li>
         <li><strong>Nivel de esfuerzo:</strong> elige <b>medium</b> (el punto de equilibrio entre rapidez y profundidad).</li>
         <li><strong>Terminal:</strong> elige <b>local</b>.</li>
@@ -560,19 +560,19 @@ hermes</code></div>
               <div class="code"><button class="copy" type="button">Copiar</button><code lang="en">git clone https://github.com/nesquena/hermes-webui.git hermes-webui
 cd hermes-webui
 python3 bootstrap.py</code></div>
-              <div class="os-note"><b>macOS:</b> en tu Terminal local, abre el túnel hacia el servidor: <code>ssh -N -L 8787:127.0.0.1:8787 root@TU_IP</code> y abre <b>http://127.0.0.1:8787</b> en el navegador.</div>
+              <div class="os-note"><b>macOS:</b> en tu Terminal local, abre el túnel hacia el servidor: <code>ssh -N -L 8787:127.0.0.1:8787 usuario@TU_IP</code> y abre <b>http://127.0.0.1:8787</b> en el navegador.</div>
             </div>
             <div id="panel-wl-linux" role="tabpanel" aria-labelledby="tab-wl-linux" class="hidden">
               <div class="code"><button class="copy" type="button">Copiar</button><code lang="en">git clone https://github.com/nesquena/hermes-webui.git hermes-webui
 cd hermes-webui
 python3 bootstrap.py</code></div>
-              <div class="os-note"><b>Linux:</b> abre el túnel con <code>ssh -N -L 8787:127.0.0.1:8787 root@TU_IP</code> y entra a <b>http://127.0.0.1:8787</b>.</div>
+              <div class="os-note"><b>Linux:</b> abre el túnel con <code>ssh -N -L 8787:127.0.0.1:8787 usuario@TU_IP</code> y entra a <b>http://127.0.0.1:8787</b>.</div>
             </div>
             <div id="panel-wl-win" role="tabpanel" aria-labelledby="tab-wl-win" class="hidden">
               <div class="code"><button class="copy" type="button">Copiar</button><code lang="en">git clone https://github.com/nesquena/hermes-webui.git hermes-webui
 cd hermes-webui
 python3 bootstrap.py</code></div>
-              <div class="os-note"><b>Windows:</b> en PowerShell abre el túnel con <code>ssh -N -L 8787:127.0.0.1:8787 root@TU_IP</code> y entra a <b>http://127.0.0.1:8787</b>. Para el panel de administración, dentro del servidor corre <code lang="en">hermes dashboard</code>.</div>
+              <div class="os-note"><b>Windows:</b> en PowerShell abre el túnel con <code>ssh -N -L 8787:127.0.0.1:8787 usuario@TU_IP</code> y entra a <b>http://127.0.0.1:8787</b>. Para el panel de administración, dentro del servidor corre <code lang="en">hermes dashboard</code>.</div>
             </div>
           </div>
         </article>
@@ -592,8 +592,8 @@ python3 bootstrap.py</code></div>
         <h3>Obtén acceso a modelos TOP gratis</h3>
         <p>Además de Nous Portal, tienes dos caminos para correr modelos potentes sin gastar de tu bolsillo:</p>
         <ul>
-          <li><b>Hive:</b> entra a <a href="https://thehive.ai/pricing">thehive.ai/pricing</a> y crea una cuenta. Al agregar una tarjeta de crédito te da 50 USD en créditos gratis. La tarjeta funciona como protección antispam, no te cobran nada. Guarda esos créditos para correr modelos potentes más adelante.</li>
-          <li><b>NVIDIA NIM:</b> entra a <a href="https://build.nvidia.com/">build.nvidia.com</a>, crea tu cuenta y accede a crédito gratuito para probar modelos de NVIDIA.</li>
+          <li><b>Hive:</b> entra a <a href="https://thehive.ai/pricing">thehive.ai/pricing</a> y crea una cuenta. Al agregar un método de pago anuncia 50 USD o más en créditos gratis, sujeto a elegibilidad y términos. La tarjeta funciona como protección antispam. Guarda esos créditos para correr modelos potentes más adelante.</li>
+          <li><b>NVIDIA NIM:</b> entra a <a href="https://build.nvidia.com/">build.nvidia.com</a>, crea tu cuenta y usa sus APIs serverless gratuitas para desarrollo, con los límites vigentes de NVIDIA.</li>
         </ul>
         <p class="micro">Ambos sirven para explorar sin costo. Cuando necesites más volumen, cualquiera de los dos escala a un plan de pago.</p>
       </article>
