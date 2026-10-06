@@ -93,112 +93,34 @@
     </div>
   </section>
 
-  <!-- 2. COMPARANDO AGENTES -->
+  <!-- 2. COMPARANDO AGENTES (en revisión: se publicará una comparativa verificada) -->
   <section id="comparando">
     <div class="wrap">
       <div class="sec-head">
         <p class="kicker">Comparando agentes</p>
-        <h2>Qué puede hacer cada uno</h2>
-        <p class="lede">Aquí no comparamos qué tan bien escriben los modelos. Comparamos qué puede hacer el agente de escritorio por ti: si recuerda, si ejecuta en tu equipo, si se conecta con tus servicios y si corre en tu propia máquina. Cuando un dato no está confirmado por una fuente primaria, lo decimos: <span class="serif">no verificado</span>.</p>
+        <h2>Qué es Hermes y qué no es</h2>
+        <p class="lede">Antes de comparar, una aclaración honesta. No todos los productos que la gente llama "IA" hacen lo mismo, y compararlos de frente mezcla cosas distintas.</p>
       </div>
-      <div class="table-wrap">
-        <table class="cmp">
-          <caption>Capacidades documentadas públicamente al 06 de octubre de 2026. Es una comparación de funciones, no de calidad de los modelos. Verifica cada dato en la fuente oficial del proveedor antes de decidir.</caption>
-          <thead>
-            <tr>
-              <th scope="col">Capacidad</th>
-              <th scope="col" class="hermes-h">Hermes Agent</th>
-              <th scope="col">Anthropic (Claude)</th>
-              <th scope="col">OpenAI (ChatGPT / Codex)</th>
-              <th scope="col">DeepSeek</th>
-              <th scope="col">OpenClaw</th>
-              <th scope="col">Meta (Meta AI / Llama)</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <th scope="row">Memoria persistente entre sesiones</th>
-              <td class="yes">Sí, memoria curada y perfil de usuario</td>
-              <td class="yes">Sí en Claude Code, por proyecto</td>
-              <td class="part">Parcial, según cuenta y modo</td>
-              <td class="nv">No verificado</td>
-              <td class="yes">Sí, con archivos e índice</td>
-              <td class="nv">No verificado</td>
-            </tr>
-            <tr>
-              <th scope="row">Ejecuta comandos y controla tu equipo</th>
-              <td class="yes">Sí: terminal, archivos y escritorio</td>
-              <td class="part">Sí en Claude Code, con permisos y sandbox</td>
-              <td class="part">Sí en Codex, con aprobaciones</td>
-              <td class="nv">No verificado</td>
-              <td class="yes">Sí, con sandbox y permisos</td>
-              <td class="nv">No verificado</td>
-            </tr>
-            <tr>
-              <th scope="row">Conexión a servicios externos (teléfono, pagos, automatización)</th>
-              <td class="yes">Sí por MCP y automatización; telefonía y pagos nativos no verificados</td>
-              <td class="part">Sí por MCP (Drive, Jira, Slack)</td>
-              <td class="part">Parcial, con conectores y plugins</td>
-              <td class="nv">No verificado</td>
-              <td class="part">Sí por plugins; pagos no verificados</td>
-              <td class="nv">No verificado</td>
-            </tr>
-            <tr>
-              <th scope="row">Acceso a modelos de IA (incluye modelos locales)</th>
-              <td class="yes">200+ modelos y modelos locales</td>
-              <td class="part">Solo modelos Claude</td>
-              <td class="part">Solo modelos OpenAI</td>
-              <td class="part">Solo DeepSeek; pesos abiertos aparte</td>
-              <td class="yes">Varios proveedores y locales</td>
-              <td class="part">Llama (modelo); Meta AI alojado</td>
-            </tr>
-            <tr>
-              <th scope="row">Licencia y control</th>
-              <td class="yes">Código abierto (MIT). Tú lo controlas</td>
-              <td class="no">Propietario, depende del proveedor</td>
-              <td class="no">Propietario, depende del proveedor</td>
-              <td class="part">App propietaria; pesos con licencia propia</td>
-              <td class="yes">Código abierto (licencia por verificar)</td>
-              <td class="part">Meta AI propietario; Llama con licencia propia</td>
-            </tr>
-            <tr>
-              <th scope="row">Precio de referencia</th>
-              <td class="yes">Gratis; modelos y hosting opcionales</td>
-              <td class="part">Suscripción (monto no verificado)</td>
-              <td class="part">Suscripción (monto no verificado)</td>
-              <td class="part">App gratis anunciada; actual no verificado</td>
-              <td class="yes">Gratis; el costo depende de los modelos</td>
-              <td class="part">Llama sin costo de licencia; infraestructura aparte</td>
-            </tr>
-            <tr>
-              <th scope="row">Recursos disponibles (plugins, MCPs, habilidades)</th>
-              <td class="yes">416 plugins, 66 MCP, habilidades abiertas</td>
-              <td class="part">MCP abierto; ecosistema del producto cerrado</td>
-              <td class="part">Plugins anunciados; inventario no verificado</td>
-              <td class="nv">No verificado</td>
-              <td class="yes">Plugins y catálogo comunitario</td>
-              <td class="nv">No verificado</td>
-            </tr>
-            <tr>
-              <th scope="row">Corre local sin fuga de datos</th>
-              <td class="yes">Sí, con modelo y backend local</td>
-              <td class="no">No; el modelo corre en la nube</td>
-              <td class="no">No; el producto es remoto</td>
-              <td class="nv">No verificado (pesos sí, app no)</td>
-              <td class="yes">Sí, con matices de configuración</td>
-              <td class="part">Llama sí por separado; Meta AI no verificado</td>
-            </tr>
-          </tbody>
-        </table>
+      <div class="grid grid-2">
+        <article class="card">
+          <h3>Hay tres familias distintas</h3>
+          <ul>
+            <li><b>Asistentes alojados.</b> Viven en la nube del proveedor: ChatGPT, Gemini, Claude en su web, Meta AI, DeepSeek. Conversan y te ayudan, pero corren en sus servidores y con sus reglas.</li>
+            <li><b>Agentes de ejecución instalables.</b> Los instalas y ejecutan tareas en tu equipo: Hermes Agent, Claude Code, Codex, OpenClaw, Cursor. Aquí la diferencia no es si ejecutan (varios lo hacen), sino dónde, con qué alcance y con qué control.</li>
+            <li><b>Modelos.</b> Son el motor con el que cualquiera de los anteriores piensa. Un mismo modelo puede correr dentro de un asistente alojado o dentro de un agente en tu máquina.</li>
+          </ul>
+        </article>
+        <article class="card top-acid">
+          <h3>Dónde encaja Hermes, sin exagerar</h3>
+          <ul>
+            <li>Es un <b>agente de ejecución instalable</b>, de código abierto (MIT): corre en tu equipo o tu servidor.</li>
+            <li>Acepta <b>muchos modelos</b>, incluidos modelos locales, así que no lo ata a un solo proveedor.</li>
+            <li>Su ecosistema es abierto: cualquiera puede escribir plugins, MCPs y habilidades.</li>
+            <li>No es el más fácil de arrancar sin apoyo técnico, y no tiene el soporte corporativo ni las integraciones empresariales de los grandes. Eso también es parte de la verdad.</li>
+          </ul>
+        </article>
       </div>
-      <div class="legend">
-        <span><i class="sw-success"></i> Sí, completo</span>
-        <span><i class="sw-sun"></i> Parcial o con condiciones</span>
-        <span><i class="sw-error"></i> No disponible</span>
-        <span><i class="sw-nv"></i> No verificado en fuente primaria</span>
-      </div>
-      <p class="note"><b>Nota justa:</b> cada producto tiene su punto fuerte y aquí medimos funciones de agente, no la inteligencia del modelo. «No verificado» significa que no encontramos una fuente primaria suficiente, no que la función no exista. Cuando un proveedor es propietario, decimos que depende de él; eso es una condición contractual, no una acusación de mala conducta. Muchos de estos servicios cambian seguido: revisa la documentación oficial y elige con información.</p>
-      <p class="micro mt-sm">La fila de Hermes se basa en la documentación y el repositorio oficiales de Nous Research. Las demás filas se basan en la documentación oficial de Anthropic, OpenAI, DeepSeek, OpenClaw y Meta consultada el 06 de octubre de 2026.</p>
+      <p class="note"><b>Estamos preparando una comparativa verificada.</b> Publicaremos una tabla producto por producto, con cada afirmación respaldada en la fuente oficial de cada proveedor y con su fecha. Preferimos tardar y ser exactos que publicar algo que suene bien pero no sea cierto. Mientras tanto: la mejor comparación es que pruebes el que más te llame, con tus propias tareas.</p>
     </div>
   </section>
 
