@@ -1,10 +1,15 @@
 /* ======================================================================
-   construyamos.js — página /construyamos/ (AG-SPX-CONSTRUYAMOS-01)
+   construyamos.js — página /construyamos/ (AG-SPX-CONSTRUYAMOS-01b)
    JS local sin librerías, sin fetch, sin eval (CSP: script-src 'self').
+   CSP-compliant: ninguna asignación a element.style ni <style> inyectado
+   (la CSP de producción es style-src 'self'). El estado visual pasa por
+   clases CSS (classList) o por atributos de presentación SVG
+   (setAttribute), que NO son estilos inline.
    Genera 3 gráficas SVG propias:
      1. Efecto tijera — doble eje, serie 2021-2026, cruce 2023/2024.
      2. Deuda cognitiva — medidores animados (MIT 55% / 83.3%).
      3. Economía agéntica — barras horizontales animadas + contadores.
+   Las reglas de las clases SVG viven en construyamos.css.
    Patrón reveal con IntersectionObserver (copia de app.js del sitio).
    Respeta prefers-reduced-motion.
    ====================================================================== */
@@ -26,43 +31,29 @@
     return String(n).replace('.', ',');
   }
 
-  // Estilos SVG por clase en vez de atributos de estilo inline;
-  // las reglas viven en construyamos.css (nada de style= en el DOM).
-  function injectSvgClasses(svg) {
-    const style = el('style', {}, null);
-    style.textContent =
-      '.axis-line{stroke:rgba(11,16,12,.25);stroke-width:1}' +
-      '.grid-line{stroke:rgba(11,16,12,.10);stroke-width:1}' +
-      '.axis-text{font-family:Arial,Helvetica,sans-serif;font-size:11px;fill:#59615a}' +
-      '.year-text{font-family:Arial,Helvetica,sans-serif;font-size:12px;font-weight:700;fill:#0b100c}' +
-      '.serie-empleo{fill:none;stroke:#173c2d;stroke-width:3;stroke-linecap:round;stroke-linejoin:round}' +
-      '.serie-ia{fill:none;stroke:#4a6d39;stroke-width:3;stroke-linecap:round;stroke-linejoin:round}' +
-      '.dot-empleo{fill:#173c2d;stroke:#f1f0e6;stroke-width:2}' +
-      '.dot-ia{fill:#4a6d39;stroke:#f1f0e6;stroke-width:2}' +
-      '.hit-zone{fill:transparent;cursor:crosshair}' +
-      '.cross-line{stroke:#b3541e;stroke-width:1.5;stroke-dasharray:5 4}' +
-      '.cross-label{font-family:Arial,Helvetica,sans-serif;font-size:11px;font-weight:700;fill:#b3541e}' +
-      '.bar-fill{fill:#173c2d}' +
-      '.bar-fill-acid{fill:#173c2d}' +
-      '.bar-label{font-family:Arial,Helvetica,sans-serif;font-size:11.5px;fill:#0b100c;font-weight:700}' +
-      '.bar-src{font-family:Arial,Helvetica,sans-serif;font-size:11px;fill:#59615a}' +
-      '.hover-guide{stroke:rgba(11,16,12,.35);stroke-width:1;stroke-dasharray:3 3;opacity:0}';
-    svg.appendChild(style);
-  }
-
-  // ---------- Tooltip local compartido ----------
-  function makeTip(host) {
-    const tip = document.createElement('div');
-    tip.className = 'cjs-svg-tip';
-    host.appendChild(tip);
+  // ---------- Tooltip SVG local (CSP-safe) ----------
+  // Vive dentro del SVG: se mueve con setAttribute('transform', ...)
+  // (atributo permitido) y se muestra/oculta con la clase .is-on.
+  function makeTip(svg, W, H) {
+    const TIP_W = 186, TIP_H = 58, PAD = 11;
+    const g = el('g', { class: 'cjs-svg-tip-g', 'aria-hidden': 'true' }, svg);
+    el('rect', { x: 0, y: 0, width: TIP_W, height: TIP_H, rx: 3 }, g);
+    const title = el('text', { x: PAD, y: 18, class: 'tip-title' }, g);
+    const row1 = el('text', { x: PAD, y: 35, class: 'tip-row' }, g);
+    const row2 = el('text', { x: PAD, y: 49, class: 'tip-row' }, g);
     return {
-      show(html, cx, cy) {
-        tip.innerHTML = html;
-        tip.style.left = cx + 'px';
-        tip.style.top = cy + 'px';
-        tip.style.opacity = '1';
+      show(year, valA, valB, sx, sy) {
+        title.textContent = year;
+        row1.textContent = valA;
+        row2.textContent = valB;
+        // Cerca del borde derecho se voltea a la izquierda del cursor.
+        const flip = sx + PAD + TIP_W > W - 4;
+        const tx = flip ? sx - PAD - TIP_W : sx + PAD;
+        const ty = Math.max(4, Math.min(sy - 10, H - TIP_H - 4));
+        g.setAttribute('transform', 'translate(' + tx + ',' + ty + ')');
+        g.classList.add('is-on');
       },
-      hide() { tip.style.opacity = '0'; }
+      hide() { g.classList.remove('is-on'); }
     };
   }
 
@@ -85,7 +76,6 @@
     const yR = (v) => M.top + ih - (v / 35) * ih;   // eje derecho 0-35%
 
     const svg = el('svg', { viewBox: '0 0 ' + W + ' ' + H, role: 'presentation' });
-    injectSvgClasses(svg);
 
     // rejilla + ticks izquierdos (0..10, paso 2)
     for (let v = 0; v <= 10; v += 2) {
@@ -128,15 +118,13 @@
     // series
     const pEmpleo = DATA.map((d, i) => (i ? 'L' : 'M') + x(i) + ' ' + yL(d.empleo)).join(' ');
     const pIa = DATA.map((d, i) => (i ? 'L' : 'M') + x(i) + ' ' + yR(d.ia)).join(' ');
-    const lineE = el('path', { d: pEmpleo, class: 'serie-empleo cjs-svg-line' }, svg);
-    const lineI = el('path', { d: pIa, class: 'serie-ia cjs-svg-line' }, svg);
-
-    // longitud de trazo para la animación de dibujado
-    lineE.style.setProperty('--len', '800');
-    lineI.style.setProperty('--len', '800');
+    // pathLength=100 normaliza el trazo para la animación de dibujado
+    // (los valores --len en CSS inline quedaron prohibidos por la CSP).
+    const lineE = el('path', { d: pEmpleo, class: 'serie-empleo cjs-svg-line', pathLength: '100' }, svg);
+    const lineI = el('path', { d: pIa, class: 'serie-ia cjs-svg-line', pathLength: '100' }, svg);
 
     // puntos + zonas de hover
-    const tip = makeTip(host);
+    const tip = makeTip(svg, W, H);
     const guide = el('line', { x1: 0, y1: M.top, x2: 0, y2: M.top + ih, class: 'hover-guide' }, svg);
     DATA.forEach((d, i) => {
       el('circle', { cx: x(i), cy: yL(d.empleo), r: 5, class: 'dot-empleo cjs-svg-dot' }, svg);
@@ -147,19 +135,22 @@
         class: 'hit-zone'
       }, svg);
       zone.addEventListener('mousemove', (ev) => {
-        const rect = host.getBoundingClientRect();
+        // Coordenadas del cursor convertidas al sistema del viewBox.
+        const box = svg.getBoundingClientRect();
+        const scale = W / box.width;
+        const sx = (ev.clientX - box.left) * scale;
+        const sy = (ev.clientY - box.top) * scale;
         guide.setAttribute('x1', x(i)); guide.setAttribute('x2', x(i));
-        guide.style.opacity = '1';
+        guide.classList.add('is-on');
         tip.show(
-          '<strong>' + d.year + '</strong><br>' +
-          'Empleo nivel inicial: ' + fmt(d.empleo.toFixed(1)) + '%<br>' +
+          d.year,
+          'Empleo nivel inicial: ' + fmt(d.empleo.toFixed(1)) + '%',
           'Desplazamiento IA: ' + fmt(d.ia.toFixed(1)) + '%',
-          ev.clientX - rect.left + 14,
-          ev.clientY - rect.top - 10
+          sx, sy
         );
       });
       zone.addEventListener('mouseleave', () => {
-        guide.style.opacity = '0';
+        guide.classList.remove('is-on');
         tip.hide();
       });
     });
@@ -183,7 +174,6 @@
     const maxW = W - labelW - valW - 20;
 
     const svg = el('svg', { viewBox: '0 0 ' + W + ' ' + H, role: 'presentation' });
-    injectSvgClasses(svg);
 
     ROWS.forEach((r, i) => {
       const yy = i * rowH + 26;
@@ -206,7 +196,6 @@
   // ---------- Animaciones de barras ----------
   function animateBars(frame) {
     frame.querySelectorAll('.cjs-svg-bar').forEach((bar) => {
-      bar.style.transition = 'width 1.2s cubic-bezier(.22,.61,.36,1)';
       bar.setAttribute('width', bar.dataset.target || '0');
     });
   }
