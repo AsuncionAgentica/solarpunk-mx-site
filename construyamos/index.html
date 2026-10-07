@@ -1,0 +1,514 @@
+<!doctype html>
+<html lang="es-MX">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Laboratorio andante de innovación aplicada: pasa de consumir IA a construir con ella. Curso de IA, bus autónomo con 4 soberanías y portafolio de innovación para comunidades e instituciones.">
+  <meta name="theme-color" content="#0b100c">
+  <title>SolarPunk Mx | Construyamos — Haz que la IA trabaje contigo</title>
+  <link rel="stylesheet" href="construyamos.css">
+  <script src="construyamos.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#contenido">Saltar al contenido</a>
+
+  <header class="site-header" data-header>
+    <a class="brand" href="/" aria-label="SolarPunk Mx, inicio">
+      <span class="brand-mark" aria-hidden="true">SP</span>
+      <span class="brand-name">SolarPunk <i>Mx</i></span>
+    </a>
+    <nav aria-label="Navegación de la página">
+      <a href="#efecto-tijera">Efecto tijera</a>
+      <a href="#laboratorio">El bus</a>
+      <a href="#portafolio">Portafolio</a>
+      <a href="#curso">Curso de IA</a>
+      <a class="nav-cta" href="https://empresaagentica.com/solarpunk/" target="_blank" rel="noopener noreferrer">Registro</a>
+    </nav>
+  </header>
+
+  <main id="contenido">
+
+    <!-- ======== Hero ======== -->
+    <section class="cjs-hero" id="inicio" aria-labelledby="hero-title">
+      <div class="cjs-wrap">
+        <p class="kicker reveal">Programa de innovación aplicada · Xalapa + en línea</p>
+        <h1 id="hero-title" class="reveal">Haz que la IA trabaje <em>contigo.</em></h1>
+        <p class="cjs-hero-lead reveal">Un laboratorio andante —casa rodante con soberanía hídrica, eléctrica, alimentaria y de residuos— lleva innovación aplicada a tu comunidad estudiantil.</p>
+        <div class="cjs-hero-actions reveal">
+          <a class="button button-primary" href="https://empresaagentica.com/solarpunk/" target="_blank" rel="noopener noreferrer">Regístrate al curso de IA</a>
+          <a class="button button-ghost" href="#portafolio">Conoce el portafolio de innovación</a>
+        </div>
+        <dl class="cjs-hero-facts reveal">
+          <div>
+            <dt>Impacto</dt>
+            <dd>+3,000 personas atendidas</dd>
+          </div>
+          <div>
+            <dt>Sedes</dt>
+            <dd>8+ sedes: CDMX, EDOMEX, Puebla, Querétaro, Nuevo León, Zacatlán, Atlixco, Xalapa</dd>
+          </div>
+          <div>
+            <dt>Soberanías</dt>
+            <dd>4: agua, energía, residuos orgánicos, alimentos</dd>
+          </div>
+        </dl>
+      </div>
+    </section>
+
+    <!-- ======== 01 Problema ======== -->
+    <section class="section-pad" id="problema" aria-labelledby="problema-title">
+      <div class="cjs-wrap">
+        <p class="section-index reveal">01 · El problema — por qué importa hoy</p>
+        <h2 class="reveal" id="problema-title">La IA se consume. <br>Aquí se construye.</h2>
+        <div class="cjs-split">
+          <div class="cjs-problema-copy reveal">
+            <p>La IA generativa hoy se <strong>consume, no se construye</strong>.</p>
+            <p>Las buenas ideas se quedan en la libreta. Las soluciones de ciudad suelen llegar impuestas, no co-diseñadas.</p>
+            <p>La crisis hídrica, energética y de residuos es un problema de <strong>diseño</strong>, no de escasez.</p>
+          </div>
+          <aside class="cjs-problema-aside reveal">
+            <p class="cjs-stat-pair"><strong class="cjs-acid">450 mil</strong> empleos no abiertos <span class="cjs-vs">vs.</span> <strong class="cjs-acid">+65 mil</strong> vacantes de IA</p>
+            <p class="cjs-source">2025: no se abrieron 450 mil empleos nuevos, pero sí +65 mil plazas especializadas en IA (en 2024 solo fue la mitad). Fuente: doc del programa.</p>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======== 02 Efecto tijera ======== -->
+    <section class="section-pad cjs-light" id="efecto-tijera" aria-labelledby="tijera-title">
+      <div class="cjs-wrap">
+        <p class="section-index cjs-index-dark reveal">02 · El efecto tijera</p>
+        <h2 class="reveal" id="tijera-title">Dos curvas que se cruzan</h2>
+        <p class="cjs-lead cjs-lead-dark reveal">Mientras el crecimiento del empleo de nivel inicial cae, el desplazamiento de tareas por IA en el sector formal sube. Las líneas se cruzan entre 2023 y 2024: ese cruce es el efecto tijera.</p>
+        <div class="cjs-chart-frame reveal" data-chart="tijera" id="tijera-chart-frame">
+          <div id="tijera-chart" class="cjs-chart" role="img" aria-label="Gráfica de doble eje, serie 2021 a 2026: el crecimiento del empleo de nivel inicial baja de 9.0 a 3.0 por ciento mientras el desplazamiento de tareas por IA sube de 4.2 a 31.4 por ciento; las líneas se cruzan entre 2023 y 2024."></div>
+        </div>
+        <div class="cjs-legend reveal">
+          <span class="cjs-legend-item"><span class="cjs-legend-swatch cjs-legend-empleo" aria-hidden="true"></span>Empleo nivel inicial (en descenso)</span>
+          <span class="cjs-legend-item"><span class="cjs-legend-swatch cjs-legend-ia" aria-hidden="true"></span>Penetración de IA (en ascenso)</span>
+        </div>
+        <p class="cjs-footnote cjs-footnote-dark reveal">Empleo nivel inicial: IMCO, análisis de desempeño laboral juvenil (2026). Exposición/desplazamiento: Banco de México, <em>Tecnologías de Automatización y Empleo Bajo Riesgo: El Caso de México</em> (2026), techo estructural 31.4% en ocupaciones formales.</p>
+      </div>
+    </section>
+
+    <!-- ======== 03 Cifras clave México ======== -->
+    <section class="section-pad" id="cifras" aria-labelledby="cifras-title">
+      <div class="cjs-wrap">
+        <p class="section-index reveal">03 · Cifras clave para México</p>
+        <h2 class="reveal" id="cifras-title">Lo que muestran los datos</h2>
+        <div class="cjs-cards-grid">
+          <article class="cjs-card reveal">
+            <h3>El embudo inicial</h3>
+            <p class="cjs-card-key"><strong>9% → 3%</strong></p>
+            <p>IMCO confirma la caída del crecimiento anual del empleo de nivel inicial. La IA automatiza las tareas cognitivas básicas: captura de datos, borradores, depuración de código.</p>
+          </article>
+          <article class="cjs-card reveal">
+            <h3>Huella laboral juvenil</h3>
+            <p class="cjs-card-key"><strong>INEGI / ENOE</strong></p>
+            <p>Presión a la baja del empleo formal de adultos jóvenes; dificultad para absorber recién egresados en puestos corporativos de alta exposición tecnológica.</p>
+          </article>
+          <article class="cjs-card reveal">
+            <h3>Polarización del sector formal</h3>
+            <p class="cjs-card-key"><strong>31.4%</strong></p>
+            <p>Banxico: al ajustar por el sector informal, el riesgo real se concentra en el sector formal — 31.4% de exposición/desplazamiento de tareas.</p>
+          </article>
+          <article class="cjs-card reveal">
+            <h3>Paradoja de las vacantes</h3>
+            <p class="cjs-card-key"><strong>7×</strong></p>
+            <p>PwC, <em>Global AI Jobs Barometer</em> (2026): las ofertas que exigen habilidades avanzadas de IA se duplican y las vacantes júnior se «seniorizan» — 7× más probabilidad de pedir estrategia, arquitectura o liderazgo. Las empresas elevan la productividad del personal senior en lugar de abrir plazas júnior.</p>
+          </article>
+          <article class="cjs-card reveal">
+            <h3>Marco global</h3>
+            <p class="cjs-card-key"><strong>19%</strong></p>
+            <p>Stanford Digital Economy Lab y ADP Research (2026), <em>Canaries in the Coal Mine?</em>: brecha de empleo de 19% en profesionales de 22–25 años en sectores altamente automatizados. El ajuste ocurre por congelamiento de contratación — cierre de la rampa de entrada —, no por despidos masivos.</p>
+          </article>
+        </div>
+        <p class="cjs-section-close reveal">¿De dónde saldrá la próxima generación de directores si se destruye la rampa de entrada?</p>
+      </div>
+    </section>
+
+    <!-- ======== 04 Deuda cognitiva ======== -->
+    <section class="section-pad" id="deuda-cognitiva" aria-labelledby="deuda-title">
+      <div class="cjs-wrap">
+        <p class="section-index reveal">04 · Deuda cognitiva</p>
+        <h2 class="reveal" id="deuda-title">SIN EL IMPUESTO COGNITIVO</h2>
+        <p class="cjs-lead reveal">Los estudios neurocognitivos recientes miden el costo cognitivo de delegar el pensamiento completo a la IA. Dos hallazgos clave.</p>
+        <div class="cjs-duo-grid">
+          <div class="cjs-duo reveal">
+            <h3>MIT Media Lab — <em>Your Brain on ChatGPT</em> (Kosmyna &amp; Ganelin, 2025)</h3>
+            <div class="cjs-meter" data-meter="--55" data-meter-value="55">
+              <div class="cjs-meter-head"><span>Conectividad en redes de planificación y control ejecutivo</span><span class="cjs-meter-num" data-count="-55" data-suffix="%">0%</span></div>
+              <div class="cjs-meter-track"><div class="cjs-meter-fill cjs-meter-fill-down"></div></div>
+              <p class="cjs-meter-cap">Hasta −55% de conectividad en quienes delegaron tareas completas al LLM.</p>
+            </div>
+            <div class="cjs-meter" data-meter="--83.3" data-meter-value="83.3">
+              <div class="cjs-meter-head"><span>No pudo citar el texto que acababa de generar</span><span class="cjs-meter-num" data-count="83.3" data-suffix="%">0%</span></div>
+              <div class="cjs-meter-track"><div class="cjs-meter-fill cjs-meter-fill-up"></div></div>
+              <p class="cjs-meter-cap">83.3% de los participantes no pudo citar una sola frase del texto que acababa de generar.</p>
+            </div>
+          </div>
+          <div class="cjs-duo reveal">
+            <h3>SBS Swiss Business School — <em>AI tools in society</em> (Gerlich, 2025)</h3>
+            <p class="cjs-duo-text"><strong>Correlación negativa</strong> entre uso frecuente de IA y pensamiento crítico (n=666), mediada por <em>cognitive offloading</em>.</p>
+            <p class="cjs-duo-text">El efecto es <strong>más severo en jóvenes de 17–25 años</strong>, justamente la población que entra a la rampa de empleo.</p>
+            <p class="cjs-duo-note">Fuente: <em>Societies</em> 15(1), 2025.</p>
+          </div>
+        </div>
+        <p class="cjs-honest-note reveal">Nota honesta: ningún estudio muestra pérdida biológica de CI; los efectos documentados son desuso funcional y automatización del criterio, no una alteración estructural de la capacidad innata.</p>
+        <p class="cjs-section-close reveal">La IA debe <strong>aumentar</strong> las capacidades humanas y del planeta, no reducirlas.</p>
+      </div>
+    </section>
+
+    <!-- ======== 05 Economía agéntica ======== -->
+    <section class="section-pad cjs-light" id="economia" aria-labelledby="economia-title">
+      <div class="cjs-wrap">
+        <p class="section-index cjs-index-dark reveal">05 · La oportunidad — economía agéntica</p>
+        <h2 class="reveal" id="economia-title">La próxima ola ya cotiza</h2>
+        <p class="cjs-lead cjs-lead-dark reveal">El volumen de mercado que se abre si se aprende a construir con IA, no solo a consumirla.</p>
+        <div class="cjs-chart-frame reveal" data-chart="barras">
+          <div id="economia-chart" class="cjs-chart cjs-chart-bars" role="img" aria-label="Barras animadas con las proyecciones de economía agéntica: McKinsey 3 a 5 billones de dólares para 2030; Getnet 30 por ciento del comercio digital o más de 17.5 billones de dólares en GMV; Gartner 33 por ciento de apps empresariales con IA autónoma para 2028; BCG reducciones de 15 a 20 por ciento en costos operativos con ecosistemas multiagente."></div>
+        </div>
+        <div class="cjs-eco-cards reveal">
+          <article class="cjs-eco-card">
+            <p class="cjs-eco-src">McKinsey · 2026</p>
+            <p class="cjs-eco-num"><strong data-count="3" data-suffix="–5 B">3–5B</strong></p>
+            <p>Comercio agéntico global de 3–5 billones USD para 2030.</p>
+          </article>
+          <article class="cjs-eco-card">
+            <p class="cjs-eco-src">Getnet</p>
+            <p class="cjs-eco-num"><strong data-count="30" data-suffix="%">30%</strong></p>
+            <p>Para 2030, 30% del valor del comercio digital ejecutado o influido por IA agéntica → GMV &gt;17.5 billones USD.</p>
+          </article>
+          <article class="cjs-eco-card">
+            <p class="cjs-eco-src">Gartner</p>
+            <p class="cjs-eco-num"><strong data-count="33" data-suffix="%">33%</strong></p>
+            <p>Para 2028, 33% de apps empresariales incluirán IA autónoma y ≥15% de las decisiones diarias de negocio serán 100% autónomas.</p>
+          </article>
+          <article class="cjs-eco-card">
+            <p class="cjs-eco-src">BCG</p>
+            <p class="cjs-eco-num"><strong data-count="-15" data-suffix="% a -20%">−15%</strong></p>
+            <p>Pioneros con ecosistemas multiagente reportan −15% a −20% en costos operativos.</p>
+          </article>
+        </div>
+        <p class="cjs-footnote cjs-footnote-dark reveal">Mercado laboral sintético: agentes como empleadores y trabajadores autónomos, con micropagos en milisegundos vía stablecoins. Observatorio de IA (2026).</p>
+        <p class="cjs-section-close cjs-close-dark reveal">El futuro del país depende de estudiantes y profesionales que usen la IA para crear riqueza y bienestar común.</p>
+        <div class="reveal"><a class="button button-primary" href="https://empresaagentica.com/solarpunk/" target="_blank" rel="noopener noreferrer">Regístrate al curso de IA</a></div>
+      </div>
+    </section>
+
+    <!-- ======== 06 Laboratorio andante ======== -->
+    <section class="section-pad" id="laboratorio" aria-labelledby="bus-title">
+      <div class="cjs-wrap">
+        <p class="section-index reveal">06 · Laboratorio andante</p>
+        <h2 class="reveal" id="bus-title">SolarPunk Bus</h2>
+        <div class="cjs-split cjs-bus-grid">
+          <div class="reveal">
+            <p class="cjs-bus-claim">Primero en el mundo en integrar <strong>soberanía hídrica, eléctrica, alimentaria y de gestión de residuos</strong> en una casa rodante.</p>
+            <dl class="cjs-bus-data">
+              <div><dt>Medidas</dt><dd>11.70 m largo × 2.60 m ancho × 3.50 m alto</dd></div>
+              <div><dt>Autonomía</dt><dd>No requiere conexión eléctrica ni hidrosanitaria</dd></div>
+              <div><dt>Aula móvil</dt><dd>54 m² desplegables · 15 sillas · 5 mesas · proyector 4K</dd></div>
+            </dl>
+            <p class="cjs-bus-eco-kicker">Ecotecnias demostrables</p>
+            <ul class="cjs-chips">
+              <li>Biofiltro de aguas grises</li>
+              <li>Huerto automatizado</li>
+              <li>Baño seco autocontenido</li>
+              <li>Reactor de larva de mosca soldado negra (LMSN, aún por instalar)</li>
+              <li>Paneles fotovoltaicos</li>
+              <li>Plástico recuperado</li>
+              <li>Materiales circulares</li>
+              <li>IoT</li>
+              <li>Robots parlantes con IA</li>
+              <li>Realidad aumentada</li>
+            </ul>
+          </div>
+          <aside class="cjs-bus-aside reveal">
+            <div class="cjs-bus-note">
+              <p>Solicitamos únicamente estacionamiento; el bus no consume infraestructura.</p>
+            </div>
+            <p class="cjs-bus-links-kicker">Gira por el país</p>
+            <ul class="cjs-bus-links">
+              <li><a href="https://www.instagram.com/p/DMOuEfcx13A/" target="_blank" rel="noopener noreferrer">Tour rápido</a></li>
+              <li><a href="https://www.instagram.com/p/DQFYVMfj_FB/" target="_blank" rel="noopener noreferrer">Querétaro / BLOQUE</a></li>
+              <li><a href="https://www.instagram.com/p/DNdi33CtBAa/" target="_blank" rel="noopener noreferrer">Puebla</a></li>
+              <li><a href="https://www.instagram.com/p/DNjvlomtzEv/" target="_blank" rel="noopener noreferrer">UP Metropolitana Puebla</a></li>
+              <li><a href="https://www.instagram.com/p/DNXC5Ajt1uw/" target="_blank" rel="noopener noreferrer">San Andrés Cholula</a></li>
+              <li><a href="https://www.instagram.com/p/DM9RWYPtkMb/" target="_blank" rel="noopener noreferrer">Zacatlán</a></li>
+              <li><a href="https://www.instagram.com/p/DOKXT_VjVSF/" target="_blank" rel="noopener noreferrer">Atlixco</a></li>
+              <li><a href="https://www.instagram.com/p/DOeF4Lxkf3c/" target="_blank" rel="noopener noreferrer">UNAM</a></li>
+              <li><a href="https://www.instagram.com/p/DPAjaZejSrQ/" target="_blank" rel="noopener noreferrer">Lancaster CDMX</a></li>
+              <li><a href="https://www.instagram.com/p/DK8UQlUSgTs/" target="_blank" rel="noopener noreferrer">UAM Cuajimalpa</a></li>
+            </ul>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======== 07 Portafolio ======== -->
+    <section class="section-pad cjs-light" id="portafolio" aria-labelledby="portafolio-title">
+      <div class="cjs-wrap">
+        <p class="section-index cjs-index-dark reveal">07 · Portafolio de innovación aplicada</p>
+        <h2 class="reveal" id="portafolio-title">Cuatro familias, cada una con beneficio real</h2>
+        <div class="cjs-fam-grid">
+          <article class="cjs-fam reveal">
+            <p class="cjs-fam-name">Agua</p>
+            <p class="cjs-fam-step"><span>Problema</span>Escasez y mala calidad del agua en las casas.</p>
+            <p class="cjs-fam-step"><span>Tecnología</span>Biofiltros de aguas grises tratadas a nivel de beber, libres de químicos, bajo mantenimiento.</p>
+            <p class="cjs-fam-step cjs-fam-result"><span>Resultado</span>Agua segura en el hogar sin red de distribución nueva.</p>
+          </article>
+          <article class="cjs-fam reveal">
+            <p class="cjs-fam-name">Residuos y energía</p>
+            <p class="cjs-fam-step"><span>Problema</span>Residuos orgánicos y neumáticos sin destino productive.</p>
+            <p class="cjs-fam-step"><span>Tecnología</span>Bioconversión con larva de mosca soldado negra (residuo orgánico → fertilizante, harina hiperproteica y biocombustible); pirólisis de microondas (llantas y plásticos → combustibles y subproductos industriales).</p>
+            <p class="cjs-fam-step cjs-fam-result"><span>Resultado</span>Residuo que se vuelve materia prima y combustible.</p>
+          </article>
+          <article class="cjs-fam reveal">
+            <p class="cjs-fam-name">Alimentación y vivienda regenerativa</p>
+            <p class="cjs-fam-step"><span>Problema</span>Alimentos de distancia creciente y vivienda no regenerativa.</p>
+            <p class="cjs-fam-step"><span>Tecnología</span>Huertos con asociación de cultivos y verticales automatizados; bioconstrucción con adobe, pieles vegetales y materiales reciclados; electrodomésticos eficientes (NOM/ISO).</p>
+            <p class="cjs-fam-step cjs-fam-result"><span>Resultado</span>Comida de cerca y casas que regresan más de lo que toman.</p>
+          </article>
+          <article class="cjs-fam reveal">
+            <p class="cjs-fam-name">Ciudad inteligente y gobernanza digital</p>
+            <p class="cjs-fam-step"><span>Problema</span>Gobiernos sin herramientas para decidir con la ciudadanía.</p>
+            <p class="cjs-fam-step"><span>Tecnología</span>Decidim / Consul / GoVocal; agentes de IA para atención ciudadana, análisis y simulación; semáforos y cámaras con IA, gemelos digitales, drones, satélites, RV/RM; blockchain — certificación de propiedad intelectual con chips NFC, recaudación internacional con cripto; módulo de incubación/aceleración e impacto; módulo de consultoría (diagnóstico, piloto, hoja de ruta, certificación).</p>
+            <p class="cjs-fam-step cjs-fam-result"><span>Resultado</span>Decisiones públicas co-diseñadas y trazables.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======== 08 Oferta educativa ======== -->
+    <section class="section-pad cjs-offer" id="curso" aria-labelledby="curso-title">
+      <div class="cjs-wrap">
+        <p class="section-index cjs-index-dark reveal">08 · Oferta educativa — el Curso de IA</p>
+        <h2 class="reveal" id="curso-title">De consumir IA<br>a construir con ella</h2>
+        <div class="cjs-split cjs-offer-grid">
+          <div class="reveal">
+            <p class="cjs-offer-text">Un club-programa para pasar de consumir IA a construir con ella. No es «otro curso de IA».</p>
+            <p class="cjs-offer-hist-kicker">Historial</p>
+            <p class="cjs-offer-hist">Zócalo de Zacatlán de las Manzanas · Parque Intermunicipal de San Andrés Cholula · UAM Cuajimalpa · Politécnica Metropolitana de Puebla · secundaria de Lancaster · agrupaciones vecinales · UNAM CU.</p>
+            <p class="cjs-offer-hist-kicker">Incentivos</p>
+            <p class="cjs-offer-hist">Talleres gratuitos durante la visita del bus. Talleres adicionales desde <strong>$600 MXN</strong> por sesión de 1.5 h para grupos de hasta 25 personas.</p>
+            <p class="cjs-offer-hist-kicker">Para instituciones</p>
+            <p class="cjs-offer-hist">Permiso de estacionamiento por 5 días, difusión interna y vinculación docente.</p>
+            <p class="cjs-offer-social">Prueba social: cupo limitado — modalidad presencial en Xalapa + en línea. La imagen muestra las dos modalidades con sus beneficios.</p>
+          </div>
+          <figure class="cjs-offer-figure reveal">
+            <img src="assets/modalidades.png" alt="Dos modalidades del curso de IA: virtual y presencial, con sus beneficios y botones de registro." width="1462" height="970" loading="lazy">
+            <figcaption>Las dos modalidades del curso: virtual y presencial.</figcaption>
+          </figure>
+        </div>
+        <div class="cjs-offer-cta reveal">
+          <a class="button button-primary button-large" href="https://empresaagentica.com/solarpunk/" target="_blank" rel="noopener noreferrer">Regístrate al curso de IA</a>
+          <p class="cjs-offer-cta-note">Cupo limitado · presencial en Xalapa + en línea</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======== 09 Casos y evidencia ======== -->
+    <section class="section-pad" id="casos" aria-labelledby="casos-title">
+      <div class="cjs-wrap">
+        <p class="section-index reveal">09 · Casos y evidencia</p>
+        <h2 class="reveal" id="casos-title">La ruta, con números</h2>
+        <ol class="cjs-timeline">
+          <li class="cjs-tl-item reveal">
+            <p class="cjs-tl-place"><strong>Zacatlán de las Manzanas</strong></p>
+            <p class="cjs-tl-metric"><span class="cjs-tl-num">+500</span> personas, incluida la presidenta municipal y su Cabildo.</p>
+            <p class="cjs-tl-extra">Propuestas formales a gobierno municipal (p. ej. «Zacatlán Circular»).</p>
+          </li>
+          <li class="cjs-tl-item reveal">
+            <p class="cjs-tl-place"><strong>UP Metropolitana de Puebla</strong></p>
+            <p class="cjs-tl-metric"><span class="cjs-tl-num">200</span> universitarios <span class="cjs-tl-plus">+ 30</span> niños.</p>
+          </li>
+          <li class="cjs-tl-item reveal">
+            <p class="cjs-tl-place"><strong>San Andrés Cholula</strong></p>
+            <p class="cjs-tl-metric">Funcionarios estatales/municipales, empresarios, activistas y ciudadanos.</p>
+          </li>
+          <li class="cjs-tl-item reveal">
+            <p class="cjs-tl-place"><strong>Atlixco</strong></p>
+            <p class="cjs-tl-metric"><span class="cjs-tl-num">15</span> medios en rueda de prensa · <span class="cjs-tl-num">~400</span> participantes en tres días.</p>
+          </li>
+          <li class="cjs-tl-item reveal">
+            <p class="cjs-tl-place"><strong>UAM Cuajimalpa · IPN · UNAM CU</strong></p>
+            <p class="cjs-tl-metric">Sedes universitarias con la ruta activa.</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- ======== 10 Instructor ======== -->
+    <section class="section-pad cjs-instructor" aria-labelledby="instructor-title">
+      <div class="cjs-wrap">
+        <p class="section-index reveal">10 · Instructor y trayectoria</p>
+        <h2 class="reveal" id="instructor-title">Quién conduce esto</h2>
+        <div class="cjs-instructor-grid">
+          <figure class="cjs-instructor-photo reveal">
+            <img src="assets/instructor-humberto.jpg" alt="Mtro. Humberto Besso-Oberto Huerta" width="1000" height="1000" loading="lazy">
+            <figcaption>Mtro. Humberto Besso-Oberto Huerta</figcaption>
+          </figure>
+          <div class="cjs-instructor-copy reveal">
+            <p>El Mtro. Humberto Besso-Oberto Huerta es inventor, investigador, emprendedor y filántropo enfocado en impacto positivo.</p>
+            <p class="cjs-instructor-close">La diversidad de industrias y roles le permite coordinar equipos cruzando zonas horarias y con tecnologías de frontera.</p>
+          </div>
+        </div>
+        <details class="cjs-details reveal">
+          <summary>Trayectoria universitaria <span aria-hidden="true">+</span></summary>
+          <div class="cjs-details-body">
+            <div class="cjs-upcoming-img">
+              <p>Imagen «Ex Alumno del Mes» (pendiente: la entregará el dueño del sitio).</p>
+            </div>
+            <ul>
+              <li>Fundador de HUV ANI — primer grupo estudiantil de negocios internacionales de la UV (2009)</li>
+              <li>Co-fundador de COMPNICE (2014)</li>
+              <li>Representante de generación (2010-11) y de carrera (2012)</li>
+              <li>Coordinador Brigadista Universiada (2012)</li>
+              <li>Seleccionado Mexicano del Programa para el Fortalecimiento de la Función Pública en América Latina — Fundación Botín (2013)</li>
+              <li>Halcones UV, fútbol americano (2009-2013)</li>
+              <li>Organización de UVtón (2011: 10 mil juguetes a comunidades rurales)</li>
+              <li>Organización de decenas de eventos universitarios (2009-2014)</li>
+            </ul>
+          </div>
+        </details>
+        <details class="cjs-details reveal">
+          <summary>Trayectoria profesional <span aria-hidden="true">+</span></summary>
+          <div class="cjs-details-body">
+            <ul>
+              <li>Maestría doble en gobernanza digital e innovación en el sector público (Cum laude, 2019-2021)</li>
+              <li>Primera generación de Blockchain Academy México (2018)</li>
+              <li>Fundador de Agua Basic (2015-2016)</li>
+              <li>Mezcaloteca Macorina (2015)</li>
+              <li>Fundación Éxitos Financieros A.C. (2013)</li>
+              <li>Centro Quetzalcóatl (2012-2015)</li>
+              <li>Tallerista en el 1er Congreso Internacional de Cooperativas de Chapingo (2019)</li>
+              <li>Fundador de FARO Chetumal (2018)</li>
+              <li>CFE (2018: 40 M MXN/año ahorrados, modelo ESCO, rescate de 11 plantas)</li>
+              <li>Proof of Humanity (2021: +1,500 enrolados)</li>
+              <li>Vinculación Veracruz–Flanders (2020)</li>
+              <li>Conferencista y tallerista en Europa, Asia y América (2021-2026)</li>
+              <li>Consultoría a Estonia (Decidim, Putukaväil, 2021)</li>
+              <li>Curso en RV sobre post-capitalismo (2022)</li>
+              <li>Video-curso con David Bollier (2023)</li>
+              <li>GovHack (2024: decisiones de 6 meses a 3 días)</li>
+              <li>Consultoría al nodo belga de EBSI (2024)</li>
+              <li>Delegado de gobernanza en Scroll (2025) y Celo (2025)</li>
+              <li>Contribuidor a DAOs (2018-2025)</li>
+              <li>Consultoría en gobernanza distribuida para Zero Knowledge Network (2025)</li>
+              <li>Fundador de Urbánika (2022-2026)</li>
+              <li>Facilitación de proyectos internacionales para donaciones (2019-2026)</li>
+              <li>Inventor y diseñador del SolarPunk Bus</li>
+              <li>Autor del capítulo 25 de «Blockchain in Public Governance» (2025)</li>
+              <li>Líder de Gobernanza para NEAR.org (2025-2026, aprobación 100%)</li>
+              <li>Consultoría en recuperación de 3M USD (2026)</li>
+              <li>Desarrollo del programa SolarPunk MX</li>
+            </ul>
+          </div>
+        </details>
+      </div>
+    </section>
+
+    <!-- ======== 11 Cómo participar ======== -->
+    <section class="section-pad cjs-light" id="participar" aria-labelledby="participar-title">
+      <div class="cjs-wrap">
+        <p class="section-index cjs-index-dark reveal">11 · Cómo participar</p>
+        <h2 class="reveal" id="participar-title">Tres formas de arrancar hoy</h2>
+        <div class="cjs-cta-grid">
+          <a class="cjs-cta-card reveal" href="https://wa.me/529832011923?text=Hola%2C%20me%20gustar%C3%ADa%20hacer%20un%20tour%20al%20laboratorio%20SolarPunk%20%F0%9F%9A%8C" target="_blank" rel="noopener noreferrer">
+            <span class="cjs-cta-kicker">WhatsApp</span>
+            <strong>Agenda una visita al bus</strong>
+            <span class="cjs-cta-desc">Tour guiado por el laboratorio andante.</span>
+          </a>
+          <a class="cjs-cta-card reveal" href="https://wa.me/529832011923?text=Hola%2C%20me%20gustar%C3%ADa%20traer%20el%20bus%20a%20mi%20espacio%20%F0%9F%9A%8C" target="_blank" rel="noopener noreferrer">
+            <span class="cjs-cta-kicker">WhatsApp</span>
+            <strong>Contrata el llevar el bus</strong>
+            <span class="cjs-cta-desc">Llevamos el laboratorio y sus talleres a tu espacio.</span>
+          </a>
+          <a class="cjs-cta-card reveal" href="https://calendly.com/hbesso31/30-min" target="_blank" rel="noopener noreferrer">
+            <span class="cjs-cta-kicker">Calendly</span>
+            <strong>Agendar reunión (sin costo)</strong>
+            <span class="cjs-cta-desc">¿Te desarrollamos un proyecto? ¿Comprar el laboratorio? ¿Conferencia o taller? Solicita una reunión inicial sin costo.</span>
+          </a>
+          <a class="cjs-cta-card reveal" href="https://empresaagentica.com/solarpunk/" target="_blank" rel="noopener noreferrer">
+            <span class="cjs-cta-kicker">Curso</span>
+            <strong>Inscríbete a SolarPunk MX</strong>
+            <span class="cjs-cta-desc">Registro directo al curso de IA.</span>
+          </a>
+        </div>
+        <div class="cjs-cost-grid">
+          <div class="cjs-cost reveal">
+            <h3>Costos, sin letra pequeña</h3>
+            <ul>
+              <li><strong>Traslado del bus:</strong> $2,500 MXN, independiente de los días.</li>
+              <li><strong>Uso del bus como espacio:</strong> $500 MXN/día — al tercer día se incluye una charla o taller.</li>
+              <li><strong>Talleres y charlas:</strong> $500–$1,500 MXN por hora, según profundidad y asistentes.</li>
+              <li><strong>Esquema de intercambio:</strong> ≥50% en efectivo y el resto en especie.</li>
+            </ul>
+          </div>
+          <figure class="cjs-qr reveal">
+            <img src="assets/qr-solarpunk-ia.png" alt="Código QR al curso de IA de SolarPunk MX" width="200" height="200" loading="lazy">
+            <figcaption>Escanea para unirte al curso — apunta a https://empresaagentica.com/solarpunk</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======== 12 Preguntas frecuentes ======== -->
+    <section class="section-pad cjs-faq" id="faq" aria-labelledby="faq-title">
+      <div class="cjs-wrap">
+        <p class="section-index reveal">12 · Preguntas frecuentes</p>
+        <h2 class="reveal" id="faq-title">Lo que preguntan antes de entrar</h2>
+        <div class="cjs-faq-list">
+          <details class="reveal">
+            <summary>¿Necesito saber programar? <span aria-hidden="true">+</span></summary>
+            <p>No. El curso está diseñado para empezar sin saber programar.</p>
+          </details>
+          <details class="reveal">
+            <summary>¿Necesito instalar algo? <span aria-hidden="true">+</span></summary>
+            <p>Se indica en el propio curso, según la modalidad que elijas.</p>
+          </details>
+          <details class="reveal">
+            <summary>¿El bus necesita instalaciones del lugar? <span aria-hidden="true">+</span></summary>
+            <p>No: es autónomo en agua y energía. Solo se solicita estacionamiento.</p>
+          </details>
+          <details class="reveal">
+            <summary>¿Qué espacio requiere? <span aria-hidden="true">+</span></summary>
+            <p>Espacio abierto, para maniobrar un vehículo de 12 m.</p>
+          </details>
+          <details class="reveal">
+            <summary>¿Qué pasa si mi ciudad no está en la ruta? <span aria-hidden="true">+</span></summary>
+            <p>Existe la modalidad en línea.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======== Cierre + CTA final ======== -->
+    <section class="cjs-final" aria-labelledby="final-title">
+      <div class="cjs-wrap">
+        <h2 id="final-title" class="reveal">La IA se aprende construyendo <em>cosas que respiren.</em></h2>
+        <div class="reveal"><a class="button button-primary button-large" href="https://empresaagentica.com/solarpunk/" target="_blank" rel="noopener noreferrer">Regístrate al curso de IA</a></div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <p class="cjs-footer-contact">
+      <strong>Humberto Besso-Oberto Huerta</strong><br>
+      Fundador de Urbánika<br>
+      <a href="mailto:asuncion@empresaagentica.com">asuncion@empresaagentica.com</a><br>
+      <a href="https://empresaagentica.com" target="_blank" rel="noopener noreferrer">empresaagentica.com</a>
+    </p>
+    <p class="cjs-footer-social">
+      X e Instagram: <a href="https://x.com/UrbanikaLabs" target="_blank" rel="noopener noreferrer">@UrbanikaLabs</a> ·
+      <a href="https://www.instagram.com/UrbanikaLabs/" target="_blank" rel="noopener noreferrer">Instagram @UrbanikaLabs</a>
+    </p>
+    <div class="cjs-footer-sign">
+      <p class="cjs-footer-team">Equipo núcleo: Humberto · Irwing · Dorian · Alejandra</p>
+      <p class="cjs-footer-promise">tecnología al servicio de la vida</p>
+    </div>
+  </footer>
+
+</body>
+</html>
