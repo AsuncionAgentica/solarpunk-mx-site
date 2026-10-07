@@ -137,7 +137,7 @@ h1 em, h2 em { font-family: Georgia, 'Times New Roman', serif; font-weight: 400;
 .cjs-honest-note { max-width: 780px; margin: 46px 0 0; padding: 20px 24px; border-left: 4px solid var(--sun); background: var(--ink-soft); font-size: .88rem; line-height: 1.65; color: #d7ddcf; }
 
 /* ---- 05 economía agéntica (light) ---- */
-.cjs-eco-cards { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 2px; margin-top: 22px; }
+.cjs-eco-cards { display: grid; grid-template-columns: 1fr; gap: 2px; margin-top: 22px; max-width: 640px; }
 .cjs-eco-card { padding: 26px 24px; background: var(--paper-soft); border-top: 4px solid var(--forest); color: var(--ink); }
 .cjs-eco-src { margin: 0; font-size: .68rem; text-transform: uppercase; letter-spacing: .12em; color: #59615a; }
 .cjs-eco-num { margin: 12px 0 10px; font-family: Georgia, serif; font-size: 1.9rem; line-height: 1.1; }

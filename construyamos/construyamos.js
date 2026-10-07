@@ -5,10 +5,9 @@
    (la CSP de producción es style-src 'self'). El estado visual pasa por
    clases CSS (classList) o por atributos de presentación SVG
    (setAttribute), que NO son estilos inline.
-   Genera 3 gráficas SVG propias:
+   Genera 2 gráficas SVG propias:
      1. Efecto tijera — doble eje, serie 2021-2026, cruce 2023/2024.
      2. Deuda cognitiva — medidores animados (MIT 55% / 83.3%).
-     3. Economía agéntica — barras horizontales animadas + contadores.
    Las reglas de las clases SVG viven en construyamos.css.
    Patrón reveal con IntersectionObserver (copia de app.js del sitio).
    Respeta prefers-reduced-motion.
@@ -158,48 +157,6 @@
     host.appendChild(svg);
   }
 
-  // ---------- 3) Economía agéntica (barras horizontales) ----------
-  function buildEconomyChart() {
-    const host = document.getElementById('economia-chart');
-    if (!host) return;
-    // Escala normalizada 0-100 para comparar las 4 proyecciones.
-    const ROWS = [
-      { label: 'Comercio agéntico global (McKinsey, 2030)', src: '3–5 billones USD', pct: 100 },
-      { label: 'Comercio digital influenciado por IA (Getnet, 2030)', src: '30% del valor · GMV >17.5 B USD', pct: 30 },
-      { label: 'Apps empresariales con IA autónoma (Gartner, 2028)', src: '33%', pct: 33 },
-      { label: 'Reducción de costos con multiagente (BCG)', src: '−15% a −20%', pct: 20 }
-    ];
-    const W = 900, rowH = 74, barH = 30, labelW = 330, valW = 170;
-    const H = rowH * ROWS.length + 20;
-    const maxW = W - labelW - valW - 20;
-
-    const svg = el('svg', { viewBox: '0 0 ' + W + ' ' + H, role: 'presentation' });
-
-    ROWS.forEach((r, i) => {
-      const yy = i * rowH + 26;
-      const lt = el('text', { x: 8, y: yy + barH / 2 + 4, class: 'bar-src' }, svg);
-      lt.textContent = r.label;
-      const bar = el('rect', {
-        x: labelW, y: yy, width: 0, height: barH,
-        class: 'bar-fill ' + (i === 0 ? 'bar-fill-acid' : '')
-      }, svg);
-      bar.dataset.target = String(Math.max(8, (r.pct / 100) * maxW));
-      bar.classList.add('cjs-svg-bar');
-      const val = el('text', { x: labelW + 10, y: yy + barH / 2 + 4, class: 'bar-label' }, svg);
-      val.textContent = r.src;
-      if (r.pct < 60) val.setAttribute('x', labelW + (r.pct / 100) * maxW + 10);
-    });
-
-    host.appendChild(svg);
-  }
-
-  // ---------- Animaciones de barras ----------
-  function animateBars(frame) {
-    frame.querySelectorAll('.cjs-svg-bar').forEach((bar) => {
-      bar.setAttribute('width', bar.dataset.target || '0');
-    });
-  }
-
   // ---------- Contadores ----------
   function animateCounters(scope) {
     if (reducedMotion.matches) return;
@@ -232,8 +189,7 @@
     for (const entry of entries) {
       if (!entry.isIntersecting) continue;
       entry.target.classList.add('is-visible');
-      if (entry.target.matches('[data-chart="tijera"], [data-chart="barras"]')) {
-        if (entry.target.matches('[data-chart="barras"]')) animateBars(entry.target);
+      if (entry.target.matches('[data-chart="tijera"]')) {
         animateCounters(entry.target);
       }
       if (entry.target.matches('.cjs-meter, .cjs-eco-cards')) animateCounters(entry.target);
@@ -265,15 +221,13 @@
 
   function init() {
     buildScissorsChart();
-    buildEconomyChart();
     primeMeters();
     wireAccordions();
     wireHeader();
 
     if (reducedMotion.matches) {
-      // Sin motion: todo visible de inmediato, barras a ancho final.
+      // Sin motion: todo visible de inmediato.
       document.querySelectorAll('.reveal, .cjs-meter').forEach((n) => n.classList.add('is-visible'));
-      document.querySelectorAll('[data-chart="barras"]').forEach(animateBars);
       document.querySelectorAll('.cjs-meter').forEach((m) => m.classList.add('is-visible'));
     } else {
       document.querySelectorAll('.reveal').forEach((n) => revealObserver.observe(n));
