@@ -152,24 +152,24 @@ h1 em, h2 em { font-family: Georgia, 'Times New Roman', serif; font-weight: 400;
 /* 10 fuentes — nota al pie */
 .cjs-fuentes-nota { margin: 26px 0 0; padding: 14px 18px; border-left: 3px solid var(--sun); background: rgba(11,16,12,.05); font-size: .82rem; line-height: 1.55; color: #59615a; }
 
-/* ---- 02 Testimonios — carrusel (foto + descripción + enlace) ---- */
-.cjs-testimonios .cjs-carousel { position: relative; margin-top: 40px; }
-.cjs-car-track { display: flex; gap: 20px; overflow-x: auto; scroll-snap-type: x mandatory; scroll-behavior: smooth; padding-bottom: 8px; scrollbar-width: none; }
+/* ---- 03 Testimonios — carrusel de embeds reales de Instagram ---- */
+.cjs-testimonios .cjs-carousel { position: relative; margin-top: 36px; }
+.cjs-car-track { display: flex; gap: 24px; overflow-x: auto; scroll-snap-type: x mandatory; scroll-behavior: smooth; padding: 6px 4px 14px; scrollbar-width: none; align-items: stretch; }
 .cjs-car-track::-webkit-scrollbar { display: none; }
-.cjs-car-card { flex: 0 0 clamp(280px, 32%, 440px); scroll-snap-align: start; display: flex; flex-direction: column; background: var(--paper-soft); border-top: 5px solid var(--forest); color: var(--ink); text-decoration: none; transition: transform .2s ease, box-shadow .2s ease; }
-.cjs-car-card:hover, .cjs-car-card:focus-visible { transform: translateY(-4px); box-shadow: 0 14px 30px rgba(11,16,12,.18); }
-.cjs-car-card img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; background: #cdd2c2; }
-.cjs-car-body { display: flex; flex-direction: column; flex-grow: 1; padding: 20px 22px 22px; }
-.cjs-car-place { font-size: .68rem; text-transform: uppercase; letter-spacing: .12em; font-weight: 700; color: #4a6d39; }
-.cjs-car-desc { margin: 12px 0 18px; flex-grow: 1; font-size: .92rem; line-height: 1.55; color: #414a3c; }
-.cjs-car-cta { font-size: .82rem; font-weight: 700; color: var(--forest); }
-.cjs-car-btn { position: absolute; top: 38%; z-index: 2; width: 46px; height: 46px; display: grid; place-items: center; border: 1px solid rgba(11,16,12,.2); border-radius: 50%; background: #ffffff; color: var(--ink); font-size: 1.6rem; line-height: 1; cursor: pointer; box-shadow: 0 6px 16px rgba(11,16,12,.14); transition: transform .15s ease; }
+.cjs-ig-card { flex: 0 0 clamp(300px, 30%, 400px); scroll-snap-align: start; display: flex; flex-direction: column; margin: 0; background: var(--paper-soft); border-top: 5px solid var(--forest); }
+.cjs-ig-frame { width: 100%; aspect-ratio: 4 / 5; background: #e7e8de; overflow: hidden; }
+.cjs-ig-frame iframe { display: block; width: 100%; height: 100%; border: 0; }
+.cjs-ig-card figcaption { display: flex; flex-direction: column; flex-grow: 1; padding: 18px 20px 20px; }
+.cjs-ig-place { font-size: .68rem; text-transform: uppercase; letter-spacing: .12em; font-weight: 700; color: #4a6d39; }
+.cjs-ig-card figcaption p { margin: 10px 0 16px; flex-grow: 1; font-size: .9rem; line-height: 1.55; color: #414a3c; }
+.cjs-ig-link { font-size: .82rem; font-weight: 700; color: var(--forest); text-decoration: none; }
+.cjs-ig-link:hover, .cjs-ig-link:focus-visible { color: var(--ink); text-decoration: underline; }
+.cjs-car-btn { position: absolute; top: calc(50% - 23px); z-index: 3; width: 46px; height: 46px; display: grid; place-items: center; border: 1px solid rgba(11,16,12,.2); border-radius: 50%; background: #ffffff; color: var(--ink); font-size: 1.6rem; line-height: 1; cursor: pointer; box-shadow: 0 6px 16px rgba(11,16,12,.14); transition: transform .15s ease; }
 .cjs-car-btn:hover, .cjs-car-btn:focus-visible { transform: scale(1.06); }
-.cjs-car-prev { left: -12px; }
-.cjs-car-next { right: -12px; }
+.cjs-car-prev { left: 8px; }
+.cjs-car-next { right: 8px; }
 
-/* ---- Respaldos de clases ya no usadas (galería antigua) ---- */
-.cjs-split { display: grid; grid-template-columns: 1.5fr .9fr; gap: 7vw; align-items: start; margin-top: 56px; }
+/* ---- Split grids ---- */
 
 /* 01 problema */
 .cjs-problema-copy p { margin: 0 0 22px; font-family: Georgia, serif; font-size: 1.55rem; line-height: 1.3; }
