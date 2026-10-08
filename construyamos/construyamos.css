@@ -50,6 +50,7 @@ button, a, summary { -webkit-tap-highlight-color: transparent; }
 
 /* ---- Base tipográfica ---- */
 .kicker, .section-index { margin: 0 0 24px; text-transform: uppercase; letter-spacing: .16em; font-size: .72rem; font-weight: 700; color: var(--acid); }
+.cjs-hero-photo .kicker { text-wrap: balance; letter-spacing: .14em; }
 .section-index { color: #8f9b8d; }
 section h2 { margin: 0; font-size: clamp(2.6rem, 5vw, 5.2rem); line-height: .96; letter-spacing: -.055em; text-wrap: balance; }
 h1 em, h2 em { font-family: Georgia, 'Times New Roman', serif; font-weight: 400; color: var(--acid); font-style: italic; }
@@ -69,15 +70,18 @@ h1 em, h2 em { font-family: Georgia, 'Times New Roman', serif; font-weight: 400;
 /* ---- Hero (foto full-bleed del bus, hora azul) ---- */
 .cjs-hero-photo { position: relative; display: block; min-height: 100svh; padding: 0; overflow: hidden; border-bottom: 1px solid var(--line); background: var(--ink); }
 .cjs-hero-bg { position: absolute; inset: 0; }
-.cjs-hero-bg img { width: 100%; height: 100%; object-fit: cover; object-position: center 62%; }
-.cjs-hero-scrim { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(11,16,12,.82) 0%, rgba(11,16,12,.55) 38%, rgba(11,16,12,.24) 70%, rgba(11,16,12,.55) 100%); }
+.cjs-hero-bg img { width: 100%; height: 100%; object-fit: cover; object-position: 58% 62%; }
+.cjs-hero-scrim { position: absolute; inset: 0; background: linear-gradient(105deg, rgba(11,16,12,.88) 0%, rgba(11,16,12,.74) 30%, rgba(11,16,12,.40) 58%, rgba(11,16,12,.12) 82%, rgba(11,16,12,.05) 100%); }
 .cjs-hero-inner { position: relative; z-index: 2; display: flex; flex-direction: column; justify-content: center; min-height: 100svh; padding: 150px 0 110px; }
 .cjs-hero-photo .kicker { margin-bottom: 28px; }
 .cjs-hero-photo h1 { margin: 0; max-width: 1100px; font-size: clamp(2.4rem, 5.6vw, 5.6rem); line-height: 1.04; letter-spacing: -.045em; font-weight: 700; }
 .cjs-h1-line { display: block; text-wrap: balance; }
 .cjs-h1-line2 { margin-top: .12em; }
-.cjs-h1-num { display: inline-block; font-family: Georgia, serif; font-size: 1.28em; line-height: 1; color: var(--acid); white-space: nowrap; letter-spacing: -.02em; }
-.cjs-hero-photo .cjs-hero-cite { margin: 20px 0 0; font-size: .82rem; color: #c9cfbe; }
+.cjs-h1-num { display: inline-block; font-family: Georgia, serif; font-size: 1.28em; line-height: 1; white-space: nowrap; letter-spacing: -.02em; }
+/* Verde semántico: 450 mil = la herida (papel neutro, grande); 65 mil = la oportunidad (lima) */
+.cjs-h1-line .cjs-h1-num { color: var(--paper); }
+.cjs-h1-line2 .cjs-h1-num { color: var(--acid); }
+.cjs-hero-photo .cjs-hero-cite { margin: 20px 0 0; font-size: .82rem; color: #d5dbca; }
 .cjs-hero-photo .cjs-hero-question { margin: 44px 0 0; font-family: Georgia, serif; font-style: italic; font-size: clamp(1.7rem, 3.4vw, 2.8rem); line-height: 1.1; color: var(--acid); }
 .cjs-hero-photo .cjs-hero-lead { max-width: 700px; margin: 20px 0 0; font-size: clamp(1.06rem, 1.6vw, 1.33rem); line-height: 1.55; color: #e7e9dd; text-wrap: pretty; }
 .cjs-hero-photo .cjs-hero-lead strong { color: var(--paper); }
@@ -350,6 +354,7 @@ footer a:hover, footer a:focus-visible { color: var(--acid); border-color: curre
   section h2 { font-size: clamp(2.2rem, 10vw, 3.2rem); }
   .cjs-hero-inner { min-height: auto; padding-top: 120px; padding-bottom: 80px; }
   .cjs-hero-photo h1 { font-size: clamp(2.2rem, 9vw, 4rem); }
+  .cjs-h1-line { text-wrap: balance; }
   .cjs-hero-photo .cjs-hero-question { font-size: clamp(1.5rem, 7vw, 2.4rem); }
   .cjs-hero-actions { flex-direction: column; align-items: flex-start; gap: 6px; }
   .button { width: 100%; }
