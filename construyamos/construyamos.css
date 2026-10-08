@@ -85,6 +85,10 @@ h1 em, h2 em { font-family: Georgia, 'Times New Roman', serif; font-weight: 400;
 .cjs-hero-photo .cjs-hero-question { margin: 44px 0 0; font-family: Georgia, serif; font-style: italic; font-size: clamp(1.7rem, 3.4vw, 2.8rem); line-height: 1.1; color: var(--acid); }
 .cjs-hero-photo .cjs-hero-lead { max-width: 700px; margin: 20px 0 0; font-size: clamp(1.06rem, 1.6vw, 1.33rem); line-height: 1.55; color: #e7e9dd; text-wrap: pretty; }
 .cjs-hero-photo .cjs-hero-lead strong { color: var(--paper); }
+.cjs-hero-photo .cjs-hero-lead2 { max-width: 700px; }
+/* Divisor -PERO- entre las dos frases del hook (elemento tipográfico propio) */
+.cjs-pero { display: block; margin: .22em 0 .1em 1.4em; font-family: Arial, Helvetica, sans-serif; font-size: clamp(.9rem, 1.6vw, 1.3rem); font-weight: 700; letter-spacing: .3em; line-height: 1; color: var(--paper); }
+/* Observación: el scheduler de consultorías es punto único de configuración en el HTML (comentario junto a .cjs-hero-actions). */
 .cjs-hero-photo .cjs-hero-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 16px 24px; margin-top: 38px; }
 
 /* ---- Bloques oscuros/claros ---- */
@@ -98,7 +102,33 @@ h1 em, h2 em { font-family: Georgia, 'Times New Roman', serif; font-weight: 400;
 .cjs-problema-copy .cjs-problema-puente { margin: 0; margin-top: 34px; padding-top: 26px; border-top: 1px solid rgba(215,255,118,.35); font-family: Arial, Helvetica, sans-serif; font-size: 1.05rem; line-height: 1.6; color: var(--muted); }
 .cjs-problema-copy .cjs-problema-puente strong { color: var(--acid); }
 
-/* 05 bus oficina */
+/* 01 oportunidades — dos columnas (grafica izq + deuda cognitiva der) */
+.cjs-oportunidades-grid { display: grid; grid-template-columns: 1.05fr .95fr; gap: 5vw; align-items: start; margin-top: 56px; }
+.cjs-op-col { min-width: 0; }
+.cjs-op-col .cjs-chart-frame { margin-top: 34px; }
+.cjs-op-sub { margin: 0 0 24px; max-width: 620px; font-family: Georgia, serif; font-size: 1.4rem; line-height: 1.35; }
+.cjs-op-col .cjs-duo { border-top-color: var(--forest); }
+.cjs-duo h4 { margin: 0; font-size: .95rem; line-height: 1.45; }
+.cjs-duo h4 em { color: var(--sun); }
+
+.cjs-light .cjs-section-close strong { color: var(--forest); }
+/* After both columns, closing hook (destacado, debajo del grid) */
+.cjs-light .cjs-section-close { max-width: 900px; margin-left: auto; margin-right: auto; padding: 34px 30px; background: var(--ink); color: var(--paper); text-align: center; border-left: none; border-top: 4px solid var(--acid); }
+.cjs-light .cjs-section-close strong { color: var(--acid); }
+
+/* 02 laboratorio — tarjetas dinámicas con hover/teclado */
+.cjs-bus-claim2 { margin: 0 0 38px; max-width: 760px; font-size: 1.02rem; line-height: 1.65; color: var(--muted); }
+.cjs-lab-cards { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; margin-top: 42px; }
+.cjs-lab-card { display: flex; flex-direction: column; align-items: flex-start; padding: 30px; background: var(--ink-soft); border-top: 4px solid var(--acid); transition: transform .2s ease, background .2s ease; }
+.cjs-lab-card:nth-child(2) { border-top-color: var(--sun); }
+.cjs-lab-card:nth-child(3) { border-top-color: var(--forest); }
+.cjs-lab-card:hover, .cjs-lab-card:focus-within { transform: translateY(-6px); background: #16211a; }
+.cjs-lab-card h3 { margin: 0; font-size: 1.15rem; line-height: 1.3; letter-spacing: -.02em; }
+.cjs-lab-card-sub { margin: 8px 0 0; font-family: Georgia, serif; font-style: italic; font-size: .95rem; color: var(--acid); }
+.cjs-lab-card-text { margin: 14px 0 24px; font-size: .88rem; line-height: 1.65; color: var(--muted); flex-grow: 1; }
+.cjs-lab-card .button { margin-top: 0; padding-top: 0; padding-bottom: 0; min-height: 46px; font-size: .9rem; }
+
+/* 03 bus oficina */
 .cjs-bus-photo { margin: 56px 0 0; }
 .cjs-bus-photo img { width: 100%; height: auto; }
 .cjs-bus-photo figcaption { margin-top: 10px; font-size: .78rem; color: var(--muted); }
@@ -210,6 +240,20 @@ h1 em, h2 em { font-family: Georgia, 'Times New Roman', serif; font-weight: 400;
 .cjs-fam-result span { color: var(--forest); }
 .cjs-fam-result { font-weight: 700; }
 
+/* 04 mapa de ruta — SVG propio (sin CDN) */
+.cjs-map-frame { max-width: 760px; margin: 48px auto 0; padding: 24px; background: #ffffff; border: 1px solid rgba(11,16,12,.16); }
+.cjs-map { width: 100%; height: auto; display: block; }
+.cjs-map-land { fill: #dfe3d4; stroke: rgba(11,16,12,.35); stroke-width: .8; stroke-linejoin: round; }
+.cjs-map-dot { cursor: pointer; outline-offset: 2px; }
+.cjs-map-hit { fill: transparent; }
+.cjs-map-point { fill: #4a6d39; stroke: #ffffff; stroke-width: 1.4; transition: fill .15s ease, r .15s ease; }
+.cjs-map-point-now { fill: #173c2d; }
+.cjs-map-dot:hover .cjs-map-point, .cjs-map-dot:focus-visible .cjs-map-point { fill: var(--acid); stroke: #0b100c; }
+.cjs-map-links { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px 22px; margin: 26px 0 0; padding: 0; list-style: none; }
+.cjs-map-links a { display: inline-block; padding: 5px 0; font-size: .86rem; color: #214d3e; text-decoration: none; border-bottom: 1px solid #b8beb0; }
+.cjs-map-links a:hover, .cjs-map-links a:focus-visible { color: var(--forest); border-color: var(--forest); }
+.cjs-map-note { max-width: 820px; margin: 30px auto 0; font-size: .9rem; line-height: 1.65; color: #59615a; }
+
 /* ---- 09 línea de tiempo ---- */
 .cjs-timeline { margin: 56px 0 0; padding: 0; list-style: none; border-top: 1px solid var(--line); }
 .cjs-tl-item { display: grid; grid-template-columns: 1fr 1.4fr; gap: 30px; padding: 28px 0; border-bottom: 1px solid var(--line); }
@@ -219,13 +263,21 @@ h1 em, h2 em { font-family: Georgia, 'Times New Roman', serif; font-weight: 400;
 .cjs-tl-extra { color: var(--muted); font-size: .85rem; }
 .cjs-tl-num { display: inline-block; min-width: 74px; font-family: Georgia, serif; font-size: 1.6rem; color: var(--sun); }
 
-/* ---- 10 instructor ---- */
+/* ---- 05 instructor ---- */
 .cjs-instructor-grid { display: grid; grid-template-columns: .62fr 1.38fr; gap: 5vw; align-items: center; margin-top: 56px; }
 .cjs-instructor-photo { margin: 0; max-width: 340px; }
 .cjs-instructor-photo img { width: 100%; height: auto; }
 .cjs-instructor-photo figcaption { margin-top: 12px; font-size: .78rem; color: var(--muted); }
 .cjs-instructor-copy p:first-child { margin: 0 0 22px; font-family: Georgia, serif; font-size: 1.55rem; line-height: 1.35; }
 .cjs-instructor-close { margin: 0; font-size: .95rem; line-height: 1.65; color: var(--muted); }
+/* Trayectoria en dos columnas (universitaria | profesional) */
+.cjs-tray-grid { display: grid; grid-template-columns: .8fr 1.2fr; gap: 2px; margin-top: 56px; align-items: start; }
+.cjs-tray-col { padding: 30px; background: var(--ink-soft); border-top: 4px solid var(--forest); }
+.cjs-tray-col h3 { margin: 0 0 16px; font-size: 1.05rem; letter-spacing: -.01em; }
+.cjs-tray-col ul { margin: 0; padding: 0; list-style: none; }
+.cjs-tray-col li { padding: 9px 0; border-top: 1px solid var(--line); font-size: .88rem; line-height: 1.55; color: #c9cfbe; }
+.cjs-tray-col a { color: var(--paper); text-decoration: none; border-bottom: 1px solid rgba(233,239,223,.3); }
+.cjs-tray-col a:hover, .cjs-tray-col a:focus-visible { color: var(--acid); border-color: var(--acid); }
 .cjs-details { margin-top: 2px; padding: 26px 30px; background: var(--ink-soft); border-top: 4px solid var(--forest); }
 .cjs-details + .cjs-details { margin-top: 2px; }
 .cjs-details summary { justify-content: space-between; min-height: 44px; cursor: pointer; list-style: none; font-size: 1.15rem; font-weight: 700; }
@@ -260,6 +312,14 @@ h1 em, h2 em { font-family: Georgia, 'Times New Roman', serif; font-weight: 400;
 .cjs-fuentes-list { max-width: 820px; margin: 40px 0 0; padding: 0; list-style: none; }
 .cjs-fuentes-list li { padding: 12px 0; border-top: 1px solid #b8beb0; font-size: .88rem; line-height: 1.65; color: #3c4437; }
 .cjs-fuentes-list li:last-child { border-bottom: 1px solid #b8beb0; }
+
+/* 04 close-dark hook: strong en lima cuando vive sobre fondo ink */
+.cjs-close-dark strong { color: var(--acid); }
+
+/* cartelera — placeholder de subpágina */
+.cartelera-pad { padding-top: 180px; }
+.cartelera-hero h1 { margin: 0; font-size: clamp(2.8rem, 6vw, 5.2rem); line-height: .96; letter-spacing: -.055em; }
+.cartelera-hero .cjs-hero-actions { margin-top: 38px; }
 
 /* ---- Cierre final ---- */
 .cjs-final { padding: 130px 0; background: radial-gradient(120% 100% at 50% 0%, rgba(23,60,45,.4) 0%, transparent 60%), var(--ink); border-top: 1px solid var(--line); text-align: center; }
@@ -334,6 +394,10 @@ footer a:hover, footer a:focus-visible { color: var(--acid); border-color: curre
   .cjs-bus-photos-mini { grid-template-columns: 1fr 1fr; }
   .cjs-evidencia-grid { grid-template-columns: 1fr 1fr; }
   .cjs-split { grid-template-columns: 1fr; gap: 40px; }
+  .cjs-oportunidades-grid { grid-template-columns: 1fr; gap: 56px; }
+  .cjs-lab-cards { grid-template-columns: 1fr; }
+  .cjs-tray-grid { grid-template-columns: 1fr; gap: 2px; }
+  .cjs-pero { margin-left: 0; }
   .cjs-duo-grid { grid-template-columns: 1fr; }
   .cjs-eco-cards { grid-template-columns: 1fr 1fr; }
   .cjs-fam-grid { grid-template-columns: 1fr; }
@@ -350,6 +414,7 @@ footer a:hover, footer a:focus-visible { color: var(--acid); border-color: curre
 
 @media (max-width: 720px) {
   .brand-name { display: none; }
+  .cjs-pero { font-size: .82rem; }
   .site-header .nav-cta { font-size: .78rem; padding-inline: 16px; }
   section h2 { font-size: clamp(2.2rem, 10vw, 3.2rem); }
   .cjs-hero-inner { min-height: auto; padding-top: 120px; padding-bottom: 80px; }
