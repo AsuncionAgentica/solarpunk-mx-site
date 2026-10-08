@@ -1,13 +1,13 @@
 /* ======================================================================
-   construyamos.js — página /construyamos/ (AG-SPX-CONSTRUYAMOS-01b)
+   construyamos.js — página /construyamos/ (AG-SPX-CONSTRUYAMOS-05)
    JS local sin librerías, sin fetch, sin eval (CSP: script-src 'self').
    CSP-compliant: ninguna asignación a element.style ni <style> inyectado
    (la CSP de producción es style-src 'self'). El estado visual pasa por
    clases CSS (classList) o por atributos de presentación SVG
    (setAttribute), que NO son estilos inline.
-   Genera 2 gráficas SVG propias:
-     1. Efecto tijera — doble eje, serie 2021-2026, cruce 2023/2024.
-     2. Deuda cognitiva — medidores animados (MIT 55% / 83.3%).
+   Genera 1 gráfica SVG propia:
+     1. Tendencia de empleo — doble eje, serie 2021-2026.
+   Además anima medidores (MIT 55% / 83.3%) y contadores.
    Las reglas de las clases SVG viven en construyamos.css.
    Patrón reveal con IntersectionObserver (copia de app.js del sitio).
    Respeta prefers-reduced-motion.
@@ -56,9 +56,9 @@
     };
   }
 
-  // ---------- 1) Efecto tijera ----------
-  function buildScissorsChart() {
-    const host = document.getElementById('tijera-chart');
+  // ---------- 1) Tendencia de empleo ----------
+  function buildTrendChart() {
+    const host = document.getElementById('tendencia-chart');
     if (!host) return;
     const DATA = [
       { year: '2021', empleo: 9.0, ia: 4.2 },
@@ -68,7 +68,7 @@
       { year: '2025', empleo: 3.6, ia: 28.5 },
       { year: '2026', empleo: 3.0, ia: 31.4 }
     ];
-    const W = 900, H = 460, M = { top: 34, right: 46, bottom: 44, left: 66 };
+    const W = 900, H = 460, M = { top: 56, right: 72, bottom: 56, left: 72 };
     const iw = W - M.left - M.right, ih = H - M.top - M.bottom;
     const x = (i) => M.left + (iw * i) / (DATA.length - 1);
     const yL = (v) => M.top + ih - (v / 10) * ih;   // eje izquierdo 0-10%
@@ -108,19 +108,13 @@
       t.textContent = d.year;
     });
 
-    // línea de cruce 2023.5 (entre 2023 y 2024)
-    const cx = (x(2) + x(3)) / 2;
-    el('line', { x1: cx, y1: M.top, x2: cx, y2: M.top + ih, class: 'cross-line' }, svg);
-    const ct = el('text', { x: cx, y: M.top - 8, 'text-anchor': 'middle', class: 'cross-label' }, svg);
-    ct.textContent = '↑ cruce 2023-2024';
-
     // series
     const pEmpleo = DATA.map((d, i) => (i ? 'L' : 'M') + x(i) + ' ' + yL(d.empleo)).join(' ');
     const pIa = DATA.map((d, i) => (i ? 'L' : 'M') + x(i) + ' ' + yR(d.ia)).join(' ');
     // pathLength=100 normaliza el trazo para la animación de dibujado
     // (los valores --len en CSS inline quedaron prohibidos por la CSP).
-    const lineE = el('path', { d: pEmpleo, class: 'serie-empleo cjs-svg-line', pathLength: '100' }, svg);
-    const lineI = el('path', { d: pIa, class: 'serie-ia cjs-svg-line', pathLength: '100' }, svg);
+    el('path', { d: pEmpleo, class: 'serie-empleo cjs-svg-line', pathLength: '100' }, svg);
+    el('path', { d: pIa, class: 'serie-ia cjs-svg-line', pathLength: '100' }, svg);
 
     // puntos + zonas de hover
     const tip = makeTip(svg, W, H);
@@ -189,7 +183,7 @@
     for (const entry of entries) {
       if (!entry.isIntersecting) continue;
       entry.target.classList.add('is-visible');
-      if (entry.target.matches('[data-chart="tijera"]')) {
+      if (entry.target.matches('[data-chart="tendencia"]')) {
         animateCounters(entry.target);
       }
       if (entry.target.matches('.cjs-meter, .cjs-eco-cards')) animateCounters(entry.target);
@@ -220,7 +214,7 @@
   }
 
   function init() {
-    buildScissorsChart();
+    buildTrendChart();
     primeMeters();
     wireAccordions();
     wireHeader();
