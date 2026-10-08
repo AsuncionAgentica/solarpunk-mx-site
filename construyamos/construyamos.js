@@ -203,16 +203,30 @@
     }
   }
 
-  // ---------- Carrusel de testimonios ----------
+  // ---------- Carruseles (testimonios e instructor) ----------
   function wireCarousel() {
-    const car = document.querySelector('[data-carousel]');
-    if (!car) return;
-    const track = car.querySelector('[data-car-track]');
-    const step = () => Math.max(260, Math.round(track.clientWidth * 0.34));
-    const prev = car.querySelector('.cjs-car-prev');
-    const next = car.querySelector('.cjs-car-next');
-    if (prev) prev.addEventListener('click', () => track.scrollBy({ left: -step(), behavior: 'smooth' }));
-    if (next) next.addEventListener('click', () => track.scrollBy({ left: step(), behavior: 'smooth' }));
+    const cars = document.querySelectorAll('[data-carousel]');
+    cars.forEach((car) => {
+      const track = car.querySelector('[data-car-track]');
+      if (!track) return;
+      const first = track.querySelector(':scope > *');
+      const itemW = () => (first ? first.getBoundingClientRect().width + 22 : 340);
+      const step = () => Math.min(track.clientWidth * 0.9, itemW() * 1.0);
+      const prev = car.querySelector('.cjs-car-prev');
+      const next = car.querySelector('.cjs-car-next');
+      const scrollByDir = (dir) => track.scrollBy({ left: dir * step(), behavior: 'smooth' });
+      if (prev) prev.addEventListener('click', () => scrollByDir(-1));
+      if (next) next.addEventListener('click', () => scrollByDir(1));
+      // Reflejo de estado: deshabilitar flechas en los extremos
+      const update = () => {
+        const max = track.scrollWidth - track.clientWidth - 2;
+        if (prev) prev.classList.toggle('is-off', track.scrollLeft <= 1);
+        if (next) next.classList.toggle('is-off', track.scrollLeft >= max);
+      };
+      track.addEventListener('scroll', update, { passive: true });
+      window.addEventListener('resize', update, { passive: true });
+      update();
+    });
   }
 
   // ---------- Header con scroll ----------
