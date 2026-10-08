@@ -68,7 +68,7 @@
       { year: '2025', empleo: 3.6, ia: 28.5 },
       { year: '2026', empleo: 3.0, ia: 31.4 }
     ];
-    const W = 900, H = 460, M = { top: 56, right: 72, bottom: 56, left: 72 };
+    const W = 900, H = 460, M = { top: 76, right: 72, bottom: 56, left: 72 };
     const iw = W - M.left - M.right, ih = H - M.top - M.bottom;
     const x = (i) => M.left + (iw * i) / (DATA.length - 1);
     const yL = (v) => M.top + ih - (v / 10) * ih;   // eje izquierdo 0-10%
@@ -92,14 +92,14 @@
     el('line', { x1: M.left, y1: M.top, x2: M.left, y2: M.top + ih, class: 'axis-line' }, svg);
     el('line', { x1: W - M.right, y1: M.top, x2: W - M.right, y2: M.top + ih, class: 'axis-line' }, svg);
     el('line', { x1: M.left, y1: M.top + ih, x2: W - M.right, y2: M.top + ih, class: 'axis-line' }, svg);
-    // etiquetas de eje
-    const yl = el('text', { x: 18, y: M.top + 8, class: 'axis-text' }, svg);
+    // etiquetas de eje (2 líneas c/u, dentro del marco, sobre el área de trazado)
+    const yl = el('text', { x: M.left, y: M.top - 30, class: 'axis-text' }, svg);
     yl.textContent = 'Empleo nivel inicial';
-    const yl2 = el('text', { x: 18, y: M.top + 24, class: 'axis-text' }, svg);
+    const yl2 = el('text', { x: M.left, y: M.top - 14, class: 'axis-text' }, svg);
     yl2.textContent = '(%) · eje izq.';
-    const yr = el('text', { x: W - M.right + 8, y: M.top - 8, class: 'axis-text' }, svg);
+    const yr = el('text', { x: W - M.right, y: M.top - 30, 'text-anchor': 'end', class: 'axis-text' }, svg);
     yr.textContent = 'Desplazamiento IA';
-    const yr2 = el('text', { x: W - M.right - 116, y: M.top - 8, class: 'axis-text' }, svg);
+    const yr2 = el('text', { x: W - M.right, y: M.top - 14, 'text-anchor': 'end', class: 'axis-text' }, svg);
     yr2.textContent = '(%) · eje der.';
 
     // años
