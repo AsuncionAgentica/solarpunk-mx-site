@@ -66,18 +66,22 @@ h1 em, h2 em { font-family: Georgia, 'Times New Roman', serif; font-weight: 400;
 .button-ghost:hover { border-color: var(--acid); color: var(--acid); }
 .button-large { min-height: 62px; padding: 0 30px; font-size: 1.05rem; }
 
-/* ---- Hero (dark) ---- */
-.cjs-hero { min-height: 92svh; display: grid; align-content: center; padding: 150px 0 110px; border-bottom: 1px solid var(--line); background: radial-gradient(120% 90% at 85% 100%, rgba(23,60,45,.35) 0%, transparent 55%), var(--ink); }
-.cjs-hero h1 { max-width: 980px; margin: 0; font-size: clamp(2.8rem, 6.4vw, 6.2rem); line-height: .92; letter-spacing: -.055em; text-wrap: balance; font-weight: 700; }
-.cjs-hero h1 strong { font-weight: 700; color: var(--acid); }
-.cjs-hero-cite { margin: 18px 0 0; font-size: .82rem; color: var(--muted); }
-.cjs-hero-question { margin: 40px 0 0; font-family: Georgia, serif; font-size: clamp(1.6rem, 3.2vw, 2.6rem); line-height: 1.1; color: var(--acid); }
-.cjs-hero-lead { max-width: 640px; margin: 18px 0 0; font-size: clamp(1.06rem, 1.6vw, 1.33rem); line-height: 1.55; color: #d7ddcf; text-wrap: pretty; }
-.cjs-hero-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 16px 24px; margin-top: 38px; }
-.cjs-hero-facts { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; margin: 76px 0 0; }
-.cjs-hero-facts > div { padding: 22px 24px; background: var(--ink-soft); border-top: 3px solid var(--acid); }
-.cjs-hero-facts dt { font-size: .68rem; text-transform: uppercase; letter-spacing: .14em; color: var(--muted); }
-.cjs-hero-facts dd { margin: 8px 0 0; font-family: Georgia, serif; font-size: 1.18rem; line-height: 1.4; }
+/* ---- Hero (foto full-bleed del bus, hora azul) ---- */
+.cjs-hero-photo { position: relative; display: block; min-height: 100svh; padding: 0; overflow: hidden; border-bottom: 1px solid var(--line); background: var(--ink); }
+.cjs-hero-bg { position: absolute; inset: 0; }
+.cjs-hero-bg img { width: 100%; height: 100%; object-fit: cover; object-position: center 62%; }
+.cjs-hero-scrim { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(11,16,12,.82) 0%, rgba(11,16,12,.55) 38%, rgba(11,16,12,.24) 70%, rgba(11,16,12,.55) 100%); }
+.cjs-hero-inner { position: relative; z-index: 2; display: flex; flex-direction: column; justify-content: center; min-height: 100svh; padding: 150px 0 110px; }
+.cjs-hero-photo .kicker { margin-bottom: 28px; }
+.cjs-hero-photo h1 { margin: 0; max-width: 1100px; font-size: clamp(2.4rem, 5.6vw, 5.6rem); line-height: 1.04; letter-spacing: -.045em; font-weight: 700; }
+.cjs-h1-line { display: block; text-wrap: balance; }
+.cjs-h1-line2 { margin-top: .12em; }
+.cjs-h1-num { display: inline-block; font-family: Georgia, serif; font-size: 1.28em; line-height: 1; color: var(--acid); white-space: nowrap; letter-spacing: -.02em; }
+.cjs-hero-photo .cjs-hero-cite { margin: 20px 0 0; font-size: .82rem; color: #c9cfbe; }
+.cjs-hero-photo .cjs-hero-question { margin: 44px 0 0; font-family: Georgia, serif; font-style: italic; font-size: clamp(1.7rem, 3.4vw, 2.8rem); line-height: 1.1; color: var(--acid); }
+.cjs-hero-photo .cjs-hero-lead { max-width: 700px; margin: 20px 0 0; font-size: clamp(1.06rem, 1.6vw, 1.33rem); line-height: 1.55; color: #e7e9dd; text-wrap: pretty; }
+.cjs-hero-photo .cjs-hero-lead strong { color: var(--paper); }
+.cjs-hero-photo .cjs-hero-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 16px 24px; margin-top: 38px; }
 
 /* ---- Bloques oscuros/claros ---- */
 .cjs-light { background: var(--paper); color: var(--ink); }
@@ -85,6 +89,34 @@ h1 em, h2 em { font-family: Georgia, 'Times New Roman', serif; font-weight: 400;
 .cjs-index-dark { color: #667064; }
 .cjs-lead-dark { color: #515950; }
 .cjs-light ~ * .kicker { color: inherit; }
+
+/* 01 problema — párrafo puente final */
+.cjs-problema-copy .cjs-problema-puente { margin: 0; margin-top: 34px; padding-top: 26px; border-top: 1px solid rgba(215,255,118,.35); font-family: Arial, Helvetica, sans-serif; font-size: 1.05rem; line-height: 1.6; color: var(--muted); }
+.cjs-problema-copy .cjs-problema-puente strong { color: var(--acid); }
+
+/* 05 bus oficina */
+.cjs-bus-photo { margin: 56px 0 0; }
+.cjs-bus-photo img { width: 100%; height: auto; }
+.cjs-bus-photo figcaption { margin-top: 10px; font-size: .78rem; color: var(--muted); }
+.cjs-bus-oficina-grid { margin-top: 56px; }
+.cjs-bus-photos-mini { display: grid; grid-template-columns: 1fr 1.6fr; gap: 18px; margin-top: 34px; align-items: start; }
+.cjs-bus-photos-mini figure { margin: 0; }
+.cjs-bus-photos-mini img { width: 100%; height: auto; }
+.cjs-bus-photos-mini figcaption { margin-top: 8px; font-size: .78rem; color: var(--muted); }
+
+/* 07 evidencia */
+.cjs-evidencia { margin-top: 64px; padding-top: 42px; border-top: 1px solid var(--line); }
+.cjs-evidencia-kicker { margin: 0 0 18px; }
+.cjs-evidencia-kicker + .cjs-evidencia-links { margin-top: 0; }
+.cjs-evidencia-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin: 22px 0 0; }
+.cjs-evidencia-grid figure { margin: 0; }
+.cjs-evidencia-grid img { width: 100%; height: auto; }
+.cjs-evidencia-grid figcaption { margin-top: 8px; font-size: .78rem; color: var(--muted); }
+.cjs-evidencia-links { margin-top: 18px; }
+.cjs-evidencia .cjs-bus-eco-kicker + .cjs-evidencia-grid { margin-top: 22px; }
+
+/* 10 fuentes — nota al pie */
+.cjs-fuentes-nota { margin: 26px 0 0; padding: 14px 18px; border-left: 3px solid var(--sun); background: rgba(11,16,12,.05); font-size: .82rem; line-height: 1.55; color: #59615a; }
 
 /* ---- Split grids ---- */
 .cjs-split { display: grid; grid-template-columns: 1.5fr .9fr; gap: 7vw; align-items: start; margin-top: 56px; }
@@ -202,7 +234,7 @@ h1 em, h2 em { font-family: Georgia, 'Times New Roman', serif; font-weight: 400;
 .cjs-upcoming-img { display: grid; place-items: center; min-height: 150px; margin-bottom: 22px; border: 1px dashed rgba(238,241,229,.35); color: var(--muted); font-size: .85rem; text-align: center; padding: 24px; }
 
 /* ---- 11 participar (light) ---- */
-.cjs-cta-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 2px; margin-top: 56px; }
+.cjs-cta-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 2px; margin-top: 56px; }
 .cjs-cta-card { display: flex; flex-direction: column; padding: 26px 24px; background: var(--paper-soft); border-top: 4px solid var(--acid); color: var(--ink); text-decoration: none; transition: transform .2s ease; }
 .cjs-cta-card:nth-child(2) { border-top-color: var(--sun); }
 .cjs-cta-card:nth-child(3) { border-top-color: var(--forest); }
@@ -294,14 +326,15 @@ footer a:hover, footer a:focus-visible { color: var(--acid); border-color: curre
   .site-header { padding: 16px 18px; }
   .site-header nav > a:not(.nav-cta) { display: none; }
   .site-header nav { gap: 0; }
-  .cjs-hero { padding-top: 130px; }
-  .cjs-hero-facts { grid-template-columns: 1fr; }
+  .cjs-hero-inner { padding-top: 130px; }
+  .cjs-bus-photos-mini { grid-template-columns: 1fr 1fr; }
+  .cjs-evidencia-grid { grid-template-columns: 1fr 1fr; }
   .cjs-split { grid-template-columns: 1fr; gap: 40px; }
   .cjs-duo-grid { grid-template-columns: 1fr; }
   .cjs-eco-cards { grid-template-columns: 1fr 1fr; }
   .cjs-fam-grid { grid-template-columns: 1fr; }
   .cjs-instructor-grid { grid-template-columns: 1fr; gap: 40px; }
-  .cjs-cta-grid { grid-template-columns: 1fr 1fr; }
+  .cjs-cta-grid { grid-template-columns: 1fr; }
   .cjs-cost-grid { grid-template-columns: 1fr; gap: 40px; }
   .cjs-qr { text-align: left; }
   .cjs-qr img { margin: 0; }
@@ -315,14 +348,15 @@ footer a:hover, footer a:focus-visible { color: var(--acid); border-color: curre
   .brand-name { display: none; }
   .site-header .nav-cta { font-size: .78rem; padding-inline: 16px; }
   section h2 { font-size: clamp(2.2rem, 10vw, 3.2rem); }
-  .cjs-hero { min-height: auto; }
-  .cjs-hero h1 { font-size: clamp(2.4rem, 9.5vw, 4.6rem); }
-  .cjs-hero-question { font-size: clamp(1.5rem, 7vw, 2.4rem); }
+  .cjs-hero-inner { min-height: auto; padding-top: 120px; padding-bottom: 80px; }
+  .cjs-hero-photo h1 { font-size: clamp(2.2rem, 9vw, 4rem); }
+  .cjs-hero-photo .cjs-hero-question { font-size: clamp(1.5rem, 7vw, 2.4rem); }
   .cjs-hero-actions { flex-direction: column; align-items: flex-start; gap: 6px; }
   .button { width: 100%; }
   .section-pad { padding: 80px 0; }
   .cjs-problema-copy p { font-size: 1.3rem; }
   .cjs-chart-frame { padding: 16px; }
+  .cjs-bus-photos-mini, .cjs-evidencia-grid { grid-template-columns: 1fr; }
   .cjs-eco-cards, .cjs-cta-grid { grid-template-columns: 1fr; }
   .cjs-final { padding: 90px 0; }
 }
