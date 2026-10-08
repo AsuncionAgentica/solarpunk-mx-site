@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" role="img" aria-label="CoWork: espacio para trabajar y convivir">
+  <rect width="800" height="450" fill="#ffffff"/>
+  <path d="M-40 60 C 180 10, 420 40, 840 120" fill="none" stroke="#FF6B35" stroke-width="10" stroke-linecap="round"/>
+  <path d="M-40 420 C 220 470, 520 380, 840 340" fill="none" stroke="#FF6B35" stroke-width="10" stroke-linecap="round"/>
+  <g fill="none" stroke="#1E3A8A" stroke-width="7" stroke-linecap="round" stroke-linejoin="round">
+    <!-- window -->
+    <rect x="470" y="70" width="300" height="150" rx="12" fill="#eef1ea"/>
+    <path d="M620 70 L620 220 M470 145 L770 145" stroke-width="6"/>
+    <!-- shelf with books -->
+    <rect x="60" y="150" width="230" height="16" rx="4" fill="#eef1ea"/>
+    <path d="M80 150 L80 110 L100 110 L100 150 M108 150 L108 100 L128 100 L128 150 M136 150 L136 118 L156 118 L156 150" stroke-width="6"/>
+    <!-- shared table -->
+    <rect x="180" y="300" width="420" height="18" rx="6" fill="#eef1ea"/>
+    <path d="M210 318 L210 396 M570 318 L570 396" stroke-width="9"/>
+    <!-- two people working -->
+    <circle cx="270" cy="215" r="28" fill="#ffffff"/><path d="M240 300 C246 258, 294 258, 300 300" fill="#eef1ea"/>
+    <rect x="316" y="252" width="90" height="48" rx="6" fill="#ffffff"/>
+    <circle cx="470" cy="215" r="28" fill="#ffffff"/><path d="M440 300 C446 258, 494 258, 500 300" fill="#eef1ea"/>
+    <rect x="400" y="252" width="60" height="48" rx="6" fill="#ffffff"/>
+    <!-- coffee cup -->
+    <path d="M600 258 L636 258 L630 300 L606 300 Z" fill="#ffffff"/>
+    <path d="M636 264 q18 0 0 26"/>
+  </g>
+  <!-- sofa person with plant -->
+  <g fill="none" stroke="#1E3A8A" stroke-width="7" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="60" y="300" width="120" height="70" rx="14" fill="#eef1ea"/>
+    <circle cx="120" cy="268" r="24" fill="#ffffff"/>
+    <path d="M300 300 L300 250 M282 262 q18 -26 36 0 M278 282 q22 -20 44 0" />
+  </g>
+</svg>

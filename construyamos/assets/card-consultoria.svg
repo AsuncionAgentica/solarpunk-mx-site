@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" role="img" aria-label="Consultoría sobre innovación">
+  <rect width="800" height="450" fill="#ffffff"/>
+  <path d="M-40 60 C 180 10, 420 40, 840 120" fill="none" stroke="#FF6B35" stroke-width="10" stroke-linecap="round"/>
+  <path d="M-40 420 C 220 470, 520 380, 840 340" fill="none" stroke="#FF6B35" stroke-width="10" stroke-linecap="round"/>
+  <g fill="none" stroke="#1E3A8A" stroke-width="7" stroke-linecap="round" stroke-linejoin="round">
+    <!-- desk -->
+    <rect x="150" y="300" width="470" height="20" rx="6" fill="#eef1ea"/>
+    <path d="M180 320 L180 400 M590 320 L590 400" stroke-width="9"/>
+    <!-- laptop -->
+    <path d="M300 300 L300 250 L400 250 L400 300 Z" fill="#ffffff"/>
+    <path d="M285 300 L415 300 L420 312 L280 312 Z" fill="#eef1ea"/>
+    <path d="M315 268 L360 268 M315 282 L385 282" stroke-width="5" stroke="#1E3A8A"/>
+    <!-- person -->
+    <circle cx="235" cy="215" r="34" fill="#ffffff"/>
+    <path d="M200 300 C205 255, 265 255, 270 300" fill="#eef1ea"/>
+    <path d="M222 205 q13 -14 26 0" stroke-width="5"/>
+    <!-- plant -->
+    <path d="M640 300 L640 260 M620 270 q20 -30 40 0 M616 288 q24 -22 48 0" />
+    <path d="M614 300 L666 300 L658 262 L622 262 Z" fill="#eef1ea"/>
+    <!-- wind turbine -->
+    <path d="M120 300 L120 150"/>
+    <circle cx="120" cy="150" r="9" fill="#ffffff"/>
+    <path d="M120 150 L120 100 M120 150 L164 172 M120 150 L76 172" stroke-width="8"/>
+  </g>
+  <!-- floating AI panels -->
+  <g fill="#ffffff" stroke="#1E3A8A" stroke-width="7" stroke-linejoin="round">
+    <rect x="430" y="150" width="130" height="90" rx="10"/>
+    <rect x="585" y="185" width="120" height="80" rx="10"/>
+  </g>
+  <g stroke="#FF6B35" stroke-width="6" stroke-linecap="round" fill="none">
+    <path d="M448 214 l20 -22 l18 16 l26 -30"/>
+    <path d="M605 245 h80 M605 225 h60 M605 205 h72"/>
+  </g>
+  <g fill="none" stroke="#1E3A8A" stroke-width="6" stroke-linecap="round">
+    <path d="M455 132 q10 -22 34 -22 q-6 20 -28 24" fill="#ffffff"/>
+  </g>
+</svg>

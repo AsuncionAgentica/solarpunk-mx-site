@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" role="img" aria-label="Eventos: talleres, charlas y cine-debate">
+  <rect width="800" height="450" fill="#ffffff"/>
+  <path d="M-40 60 C 180 10, 420 40, 840 120" fill="none" stroke="#FF6B35" stroke-width="10" stroke-linecap="round"/>
+  <path d="M-40 420 C 220 470, 520 380, 840 340" fill="none" stroke="#FF6B35" stroke-width="10" stroke-linecap="round"/>
+  <g fill="none" stroke="#1E3A8A" stroke-width="7" stroke-linecap="round" stroke-linejoin="round">
+    <!-- screen -->
+    <rect x="430" y="90" width="300" height="180" rx="10" fill="#ffffff"/>
+    <path d="M560 270 L560 300 M520 300 L600 300" />
+    <path d="M470 200 l60 -50 l60 60" stroke="#FF6B35" stroke-width="8"/>
+    <circle cx="470" cy="130" r="10" fill="#FF6B35" stroke="none"/>
+    <!-- speaker -->
+    <circle cx="180" cy="150" r="30" fill="#ffffff"/>
+    <path d="M150 240 C156 195, 204 195, 210 240" fill="#eef1ea"/>
+    <path d="M210 190 L330 150 M210 210 L330 210" stroke-width="8"/>
+    <!-- audience -->
+    <g>
+      <circle cx="470" cy="360" r="24" fill="#ffffff"/><path d="M446 410 C450 380, 490 380, 494 410" fill="#eef1ea"/>
+      <circle cx="560" cy="362" r="24" fill="#ffffff"/><path d="M536 412 C540 382, 580 382, 584 412" fill="#eef1ea"/>
+      <circle cx="650" cy="360" r="24" fill="#ffffff"/><path d="M626 410 C630 380, 670 380, 674 410" fill="#eef1ea"/>
+      <circle cx="380" cy="364" r="24" fill="#ffffff"/><path d="M356 414 C360 384, 400 384, 404 414" fill="#eef1ea"/>
+    </g>
+  </g>
+  <!-- bunting flags -->
+  <path d="M60 60 C 250 110, 480 90, 740 50" fill="none" stroke="#1E3A8A" stroke-width="5"/>
+  <g stroke="#1E3A8A" stroke-width="5" stroke-linejoin="round">
+    <path d="M150 84 l24 0 l-12 26 z" fill="#FF6B35"/>
+    <path d="M300 92 l24 0 l-12 26 z" fill="#ffffff"/>
+    <path d="M450 92 l24 0 l-12 26 z" fill="#FF6B35"/>
+    <path d="M600 80 l24 0 l-12 26 z" fill="#ffffff"/>
+  </g>
+</svg>
