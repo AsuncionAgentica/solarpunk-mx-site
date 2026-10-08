@@ -14,7 +14,7 @@
   --acid: #d7ff76;
   --sun: #f6b85a;
   --forest: #173c2d;
-  --page: min(1320px, calc(100vw - 48px));
+  --page: min(1560px, calc(100vw - 40px));
   color-scheme: dark;
 }
 
@@ -56,7 +56,7 @@ section h2 { margin: 0; font-size: clamp(2.6rem, 5vw, 5.2rem); line-height: .96;
 h1 em, h2 em { font-family: Georgia, 'Times New Roman', serif; font-weight: 400; color: var(--acid); font-style: italic; }
 .cjs-lead { max-width: 700px; margin: 30px 0 0; font-size: 1.05rem; line-height: 1.6; color: var(--muted); }
 
-.section-pad { width: var(--page); margin: 0 auto; padding: 110px 0; }
+.section-pad { width: var(--page); margin: 0 auto; padding: 72px 0; }
 .cjs-wrap { width: var(--page); margin: 0 auto; }
 
 /* ---- Botones ---- */
@@ -103,9 +103,9 @@ h1 em, h2 em { font-family: Georgia, 'Times New Roman', serif; font-weight: 400;
 .cjs-problema-copy .cjs-problema-puente strong { color: var(--acid); }
 
 /* 01 oportunidades — dos columnas (grafica izq + deuda cognitiva der) */
-.cjs-oportunidades-grid { display: grid; grid-template-columns: 1.05fr .95fr; gap: 5vw; align-items: start; margin-top: 56px; }
+.cjs-oportunidades-grid { display: grid; grid-template-columns: 1.15fr .85fr; gap: 4vw; align-items: start; margin-top: 40px; }
 .cjs-op-col { min-width: 0; }
-.cjs-op-col .cjs-chart-frame { margin-top: 34px; }
+.cjs-op-col .cjs-chart-frame { margin-top: 24px; }
 .cjs-op-sub { margin: 0 0 24px; max-width: 620px; font-family: Georgia, serif; font-size: 1.4rem; line-height: 1.35; }
 .cjs-op-col .cjs-duo { border-top-color: var(--forest); }
 .cjs-duo h4 { margin: 0; font-size: .95rem; line-height: 1.45; }
@@ -113,7 +113,7 @@ h1 em, h2 em { font-family: Georgia, 'Times New Roman', serif; font-weight: 400;
 
 .cjs-light .cjs-section-close strong { color: var(--forest); }
 /* After both columns, closing hook (destacado, debajo del grid) */
-.cjs-light .cjs-section-close { max-width: 900px; margin-left: auto; margin-right: auto; padding: 34px 30px; background: var(--ink); color: var(--paper); text-align: center; border-left: none; border-top: 4px solid var(--acid); }
+.cjs-light .cjs-section-close { max-width: 100%; margin: 48px 0 0; padding: 30px 30px; background: var(--ink); color: var(--paper); text-align: center; border-left: none; border-top: 4px solid var(--acid); }
 .cjs-light .cjs-section-close strong { color: var(--acid); }
 
 /* 02 laboratorio — tarjetas dinámicas con hover/teclado */
@@ -152,7 +152,23 @@ h1 em, h2 em { font-family: Georgia, 'Times New Roman', serif; font-weight: 400;
 /* 10 fuentes — nota al pie */
 .cjs-fuentes-nota { margin: 26px 0 0; padding: 14px 18px; border-left: 3px solid var(--sun); background: rgba(11,16,12,.05); font-size: .82rem; line-height: 1.55; color: #59615a; }
 
-/* ---- Split grids ---- */
+/* ---- 02 Testimonios — carrusel (foto + descripción + enlace) ---- */
+.cjs-testimonios .cjs-carousel { position: relative; margin-top: 40px; }
+.cjs-car-track { display: flex; gap: 20px; overflow-x: auto; scroll-snap-type: x mandatory; scroll-behavior: smooth; padding-bottom: 8px; scrollbar-width: none; }
+.cjs-car-track::-webkit-scrollbar { display: none; }
+.cjs-car-card { flex: 0 0 clamp(280px, 32%, 440px); scroll-snap-align: start; display: flex; flex-direction: column; background: var(--paper-soft); border-top: 5px solid var(--forest); color: var(--ink); text-decoration: none; transition: transform .2s ease, box-shadow .2s ease; }
+.cjs-car-card:hover, .cjs-car-card:focus-visible { transform: translateY(-4px); box-shadow: 0 14px 30px rgba(11,16,12,.18); }
+.cjs-car-card img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; background: #cdd2c2; }
+.cjs-car-body { display: flex; flex-direction: column; flex-grow: 1; padding: 20px 22px 22px; }
+.cjs-car-place { font-size: .68rem; text-transform: uppercase; letter-spacing: .12em; font-weight: 700; color: #4a6d39; }
+.cjs-car-desc { margin: 12px 0 18px; flex-grow: 1; font-size: .92rem; line-height: 1.55; color: #414a3c; }
+.cjs-car-cta { font-size: .82rem; font-weight: 700; color: var(--forest); }
+.cjs-car-btn { position: absolute; top: 38%; z-index: 2; width: 46px; height: 46px; display: grid; place-items: center; border: 1px solid rgba(11,16,12,.2); border-radius: 50%; background: #ffffff; color: var(--ink); font-size: 1.6rem; line-height: 1; cursor: pointer; box-shadow: 0 6px 16px rgba(11,16,12,.14); transition: transform .15s ease; }
+.cjs-car-btn:hover, .cjs-car-btn:focus-visible { transform: scale(1.06); }
+.cjs-car-prev { left: -12px; }
+.cjs-car-next { right: -12px; }
+
+/* ---- Respaldos de clases ya no usadas (galería antigua) ---- */
 .cjs-split { display: grid; grid-template-columns: 1.5fr .9fr; gap: 7vw; align-items: start; margin-top: 56px; }
 
 /* 01 problema */
@@ -166,7 +182,7 @@ h1 em, h2 em { font-family: Georgia, 'Times New Roman', serif; font-weight: 400;
 .cjs-source { margin: 18px 0 0; font-size: .78rem; line-height: 1.6; color: var(--muted); }
 
 /* ---- 02 gráfica tendencia (light) ---- */
-.cjs-chart-frame { max-width: 900px; margin: 56px auto 0; padding: 28px; background: #ffffff; border: 1px solid rgba(11,16,12,.16); }
+.cjs-chart-frame { max-width: 100%; margin: 0; padding: 26px; background: #ffffff; border: 1px solid rgba(11,16,12,.16); }
 .cjs-chart { width: 100%; }
 .cjs-chart svg { width: 100%; height: auto; display: block; }
 .cjs-legend { display: flex; flex-wrap: wrap; gap: 14px 34px; margin-top: 22px; }
@@ -174,7 +190,7 @@ h1 em, h2 em { font-family: Georgia, 'Times New Roman', serif; font-weight: 400;
 .cjs-legend-swatch { width: 26px; height: 4px; display: inline-block; }
 .cjs-legend-empleo { background: var(--forest); }
 .cjs-legend-ia { background: var(--sun); }
-.cjs-chart-notes { max-width: 900px; margin: 34px auto 0; display: grid; gap: 18px; }
+.cjs-chart-notes { max-width: 100%; margin: 28px 0 0; display: grid; gap: 16px; }
 .cjs-chart-notes p { margin: 0; font-size: .92rem; line-height: 1.65; color: #59615a; }
 .cjs-chart-notes strong { color: var(--ink); }
 

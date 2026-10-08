@@ -203,6 +203,18 @@
     }
   }
 
+  // ---------- Carrusel de testimonios ----------
+  function wireCarousel() {
+    const car = document.querySelector('[data-carousel]');
+    if (!car) return;
+    const track = car.querySelector('[data-car-track]');
+    const step = () => Math.max(260, Math.round(track.clientWidth * 0.34));
+    const prev = car.querySelector('.cjs-car-prev');
+    const next = car.querySelector('.cjs-car-next');
+    if (prev) prev.addEventListener('click', () => track.scrollBy({ left: -step(), behavior: 'smooth' }));
+    if (next) next.addEventListener('click', () => track.scrollBy({ left: step(), behavior: 'smooth' }));
+  }
+
   // ---------- Header con scroll ----------
   function wireHeader() {
     const header = document.querySelector('[data-header]');
@@ -217,6 +229,7 @@
     buildTrendChart();
     primeMeters();
     wireAccordions();
+    wireCarousel();
     wireHeader();
 
     if (reducedMotion.matches) {
