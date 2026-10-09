@@ -69,9 +69,22 @@ h1 em, h2 em { font-family: Georgia, 'Times New Roman', serif; font-weight: 400;
 
 /* ---- Hero (foto full-bleed del bus, hora azul) ---- */
 .cjs-hero-photo { position: relative; display: block; min-height: 100svh; padding: 0; overflow: hidden; border-bottom: 1px solid var(--line); background: var(--ink); }
-.cjs-hero-bg { position: absolute; inset: 0; }
-.cjs-hero-bg img { width: 100%; height: 100%; object-fit: cover; object-position: 58% 62%; }
-.cjs-hero-scrim { position: absolute; inset: 0; background: linear-gradient(105deg, rgba(11,16,12,.88) 0%, rgba(11,16,12,.74) 30%, rgba(11,16,12,.40) 58%, rgba(11,16,12,.12) 82%, rgba(11,16,12,.05) 100%); }
+/* Fondo del hero: negro + la gráfica de pérdida de empleos como textura */
+.cjs-hero-chartbg { position: absolute; inset: 0; z-index: 1; display: flex; align-items: center; justify-content: flex-end; padding: 0 clamp(16px, 4vw, 76px); pointer-events: none; }
+.cjs-hero-chartbg .cjs-chart-frame { width: min(780px, 56vw); margin: 0; padding: 0; background: transparent; border: 0; opacity: .42; }
+.cjs-hero-chartbg .cjs-chart svg { width: 100%; height: auto; }
+/* La gráfica del hero es decorativa: se muestra ya dibujada (sin animación de reveal). */
+.cjs-hero-chartbg .cjs-svg-line { stroke-dashoffset: 0; }
+.cjs-hero-chartbg .cjs-svg-dot { opacity: 1; }
+/* Recoloreado a la paleta oscura del hero (las clases base son para fondo claro). */
+.cjs-hero-chartbg .serie-empleo { stroke: var(--paper); }
+.cjs-hero-chartbg .dot-empleo { fill: var(--paper); stroke: var(--ink); }
+.cjs-hero-chartbg .dot-ia { fill: var(--sun); stroke: var(--ink); }
+.cjs-hero-chartbg .axis-text { fill: #cdd4c6; }
+.cjs-hero-chartbg .year-text { fill: var(--paper); }
+.cjs-hero-chartbg .grid-line { stroke: rgba(238,241,229,.16); }
+.cjs-hero-chartbg .axis-line { stroke: rgba(238,241,229,.28); }
+.cjs-hero-scrim { position: absolute; inset: 0; z-index: 0; background: linear-gradient(95deg, rgba(11,16,12,.96) 0%, rgba(11,16,12,.9) 34%, rgba(11,16,12,.6) 62%, rgba(11,16,12,.28) 100%); }
 .cjs-hero-inner { position: relative; z-index: 2; display: flex; flex-direction: column; justify-content: center; min-height: 100svh; padding: 150px 0 110px; }
 .cjs-hero-photo .kicker { margin-bottom: 28px; }
 .cjs-hero-photo h1 { margin: 0; max-width: 1100px; font-size: clamp(2.4rem, 5.6vw, 5.6rem); line-height: 1.04; letter-spacing: -.045em; font-weight: 700; }
@@ -103,7 +116,7 @@ h1 em, h2 em { font-family: Georgia, 'Times New Roman', serif; font-weight: 400;
 .cjs-problema-copy .cjs-problema-puente strong { color: var(--acid); }
 
 /* 01 oportunidades — dos columnas (grafica izq + deuda cognitiva der) */
-.cjs-oportunidades-grid { display: grid; grid-template-columns: 1.15fr .85fr; gap: 4vw; align-items: start; margin-top: 40px; }
+.cjs-oportunidades-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4vw; align-items: start; margin-top: 40px; }
 .cjs-op-col { min-width: 0; }
 .cjs-op-col .cjs-chart-frame { margin-top: 24px; }
 .cjs-op-sub { margin: 0 0 24px; max-width: 620px; font-family: Georgia, serif; font-size: 1.4rem; line-height: 1.35; }
@@ -135,6 +148,12 @@ h1 em, h2 em { font-family: Georgia, 'Times New Roman', serif; font-weight: 400;
 .cjs-lab-card .button { margin-top: 0; padding-top: 0; padding-bottom: 0; min-height: 46px; font-size: .9rem; }
 .cjs-lab-card--eventos .button { background: var(--sun); }
 .cjs-lab-card--cowork .button { background: #7ec8a0; }
+
+/* KPIs del laboratorio (cifras duras, estilo cálido) */
+.cjs-lab-kpis { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; margin: 42px 0 0; }
+.cjs-lab-kpi { padding: 24px 26px; background: var(--ink-soft); border-left: 5px solid var(--sun); }
+.cjs-lab-kpi-num { margin: 0; font-family: Georgia, serif; font-size: clamp(2.1rem, 3.4vw, 3rem); line-height: 1; color: var(--acid); }
+.cjs-lab-kpi-lab { margin: 12px 0 0; font-size: .82rem; line-height: 1.55; color: var(--muted); }
 
 /* 03 bus oficina */
 .cjs-bus-photo { margin: 56px 0 0; }
@@ -436,11 +455,14 @@ footer a:hover, footer a:focus-visible { color: var(--acid); border-color: curre
   .site-header nav > a:not(.nav-cta) { display: none; }
   .site-header nav { gap: 0; }
   .cjs-hero-inner { padding-top: 130px; }
+  .cjs-hero-chartbg { align-items: flex-end; padding: 0 18px 40px; }
+  .cjs-hero-chartbg .cjs-chart-frame { width: 100%; opacity: .2; }
   .cjs-bus-photos-mini { grid-template-columns: 1fr 1fr; }
   .cjs-evidencia-grid { grid-template-columns: 1fr 1fr; }
   .cjs-split { grid-template-columns: 1fr; gap: 40px; }
   .cjs-oportunidades-grid { grid-template-columns: 1fr; gap: 56px; }
   .cjs-lab-cards { grid-template-columns: 1fr; }
+  .cjs-lab-kpis { grid-template-columns: 1fr; }
   .cjs-tray-grid { grid-template-columns: 1fr; gap: 2px; }
   .cjs-pero { margin-left: 0; }
   .cjs-duo-grid { grid-template-columns: 1fr; }
@@ -466,6 +488,7 @@ footer a:hover, footer a:focus-visible { color: var(--acid); border-color: curre
   .cjs-hero-photo h1 { font-size: clamp(2.2rem, 9vw, 4rem); }
   .cjs-h1-line { text-wrap: balance; }
   .cjs-hero-photo .cjs-hero-question { font-size: clamp(1.5rem, 7vw, 2.4rem); }
+  .cjs-hero-chartbg { display: none; }
   .cjs-hero-actions { flex-direction: column; align-items: flex-start; gap: 6px; }
   .button { width: 100%; }
   .section-pad { padding: 80px 0; }

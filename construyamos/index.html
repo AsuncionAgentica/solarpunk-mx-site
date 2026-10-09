@@ -7,8 +7,8 @@
   <meta name="theme-color" content="#0b100c">
   <title>SolarPunk Mx | Construyamos — Laboratorio de innovación aplicada</title>
   <link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2064%2064%22%3E%3Crect%20width%3D%2264%22%20height%3D%2264%22%20rx%3D%2214%22%20fill%3D%22%23d7ff76%22%2F%3E%3Ccircle%20cx%3D%2232%22%20cy%3D%2232%22%20r%3D%2215%22%20fill%3D%22none%22%20stroke%3D%22%230b100c%22%20stroke-width%3D%226%22%2F%3E%3Cpath%20d%3D%22M14%2050%20L32%2047%20L50%2050%22%20fill%3D%22none%22%20stroke%3D%22%230b100c%22%20stroke-width%3D%226%22%20stroke-linecap%3D%22round%22%2F%3E%3C%2Fsvg%3E">
-  <link rel="stylesheet" href="construyamos.css?v=20261008h">
-  <script src="construyamos.js?v=20261008g" defer></script>
+  <link rel="stylesheet" href="construyamos.css?v=20261009i">
+  <script src="construyamos.js?v=20261009j" defer></script>
 </head>
 <body>
   <a class="skip-link" href="#contenido">Saltar al contenido</a>
@@ -28,12 +28,13 @@
 
   <main id="contenido">
 
-    <!-- ======== Hero (bus full-bleed) ======== -->
+    <!-- ======== Hero (fondo negro + gráfica de pérdida de empleos) ======== -->
     <section class="cjs-hero cjs-hero-photo" id="inicio" aria-labelledby="hero-title">
-      <picture class="cjs-hero-bg" aria-hidden="true">
-        <source srcset="assets/bus-hero.webp" media="(min-width: 721px)" type="image/webp">
-        <img src="assets/bus-hero-960.webp" alt="" width="1920" height="1080" loading="eager" fetchpriority="high">
-      </picture>
+      <div class="cjs-hero-chartbg" data-chart="hero" aria-hidden="true">
+        <div class="cjs-chart-frame">
+          <div id="tendencia-chart-hero" class="cjs-chart"></div>
+        </div>
+      </div>
       <div class="cjs-hero-scrim" aria-hidden="true"></div>
       <div class="cjs-wrap cjs-hero-inner">
         <p class="kicker reveal">Programa de innovación aplicada</p>
@@ -62,13 +63,6 @@
         <div class="cjs-oportunidades-grid">
           <div class="cjs-op-col reveal">
             <p class="cjs-lead cjs-lead-dark">Cada vez hay menos oferta laboral para recién egresados y cada vez hay más desplazamiento de estas labores por IA y otras tecnologías.</p>
-            <div class="cjs-chart-frame" data-chart="tendencia" id="tendencia-chart-frame">
-              <div id="tendencia-chart" class="cjs-chart" role="img" aria-label="Gráfica de doble eje, serie 2021 a 2026: el crecimiento del empleo de nivel inicial baja de 9.0 a 3.0 por ciento mientras el desplazamiento de tareas por IA sube de 4.2 a 31.4 por ciento."></div>
-            </div>
-            <div class="cjs-legend">
-              <span class="cjs-legend-item"><span class="cjs-legend-swatch cjs-legend-empleo" aria-hidden="true"></span>Empleo nivel inicial (en descenso)</span>
-              <span class="cjs-legend-item"><span class="cjs-legend-swatch cjs-legend-ia" aria-hidden="true"></span>Desplazamiento por IA (en ascenso)</span>
-            </div>
             <div class="cjs-chart-notes">
               <p><strong>Paradoja de las vacantes (PwC, 2026).</strong> Las vacantes júnior se «seniorizan»: las ofertas con habilidades avanzadas de IA se duplican y son 7× más probables de pedir estrategia, arquitectura o liderazgo. Las empresas elevan la productividad del personal senior en lugar de abrir plazas júnior.</p>
               <p><strong>Marco global (Stanford Digital Economy Lab y ADP Research, 2026).</strong> Brecha de empleo de 19% en profesionales de 22 a 25 años en sectores altamente automatizados. El ajuste ocurre por congelamiento de contratación, no por despidos masivos.</p>
@@ -249,7 +243,8 @@
         <p class="section-index reveal">04 · El laboratorio · Consultoría, eventos y cowork</p>
         <h2 class="reveal" id="lab-title">Conoce el laboratorio de innovación aplicada</h2>
         <figure class="cjs-bus-photo reveal">
-          <img src="assets/bus-hero.webp" alt="Bus SolarPunk a hora azul en Puebla, con la lona «Ciudades inteligentes, regenerativas y participativas» y vegetación en el techo" width="1920" height="1080" loading="lazy">
+          <img src="assets/bus-explicacion.webp" alt="A la izquierda, foto real del bus SolarPunk; a la derecha, diagrama «¿Qué puedes encontrar aquí?» que explica sus ecotecnias: energía solar, biofiltro, casa inteligente con IoT, IA y blockchain, carpa para talleres, producción de alimentos, materiales de economía circular, digestor de grasa, soberanía eléctrica, bioconversión de residuos, baño seco y colector de lluvia." width="1640" height="640" loading="lazy">
+          <figcaption>El bus por fuera y, por dentro, todo lo que puedes encontrar y aprender.</figcaption>
         </figure>
         <div class="cjs-bus-oficina-grid">
           <div class="reveal">
@@ -284,8 +279,12 @@
                 </div>
               </article>
             </div>
-            <p class="cjs-bus-eco-kicker">Ecotecnias demostrables</p>
+            <p class="cjs-bus-eco-kicker">Talleres sobre demanda</p>
             <ul class="cjs-chips">
+              <li>Gobernanza vecinal</li>
+              <li>Blockchain</li>
+              <li>Diseño de ciudades inteligentes</li>
+              <li>DAO</li>
               <li>Biofiltro de aguas grises</li>
               <li>Huerto automatizado</li>
               <li>Baño seco autocontenido</li>
@@ -293,10 +292,25 @@
               <li>Paneles fotovoltaicos</li>
               <li>Plástico recuperado</li>
               <li>Materiales circulares</li>
+              <li>Biocretos (caña, coco, cáñamo)</li>
               <li>IoT</li>
-              <li>Robots parlantes con IA</li>
-              <li>Realidad aumentada</li>
+              <li>Agentes de IA</li>
+              <li>Realidad virtual/mixta/aumentada</li>
             </ul>
+            <div class="cjs-lab-kpis">
+              <div class="cjs-lab-kpi reveal">
+                <p class="cjs-lab-kpi-num">1.º</p>
+                <p class="cjs-lab-kpi-lab">en el mundo con soberanía hídrica, eléctrica y de gestión de residuos orgánicos</p>
+              </div>
+              <div class="cjs-lab-kpi reveal">
+                <p class="cjs-lab-kpi-num">450&nbsp;mil</p>
+                <p class="cjs-lab-kpi-lab">empleos perdidos en México por desplazamiento de IA (IMCO, 2026)</p>
+              </div>
+              <div class="cjs-lab-kpi reveal">
+                <p class="cjs-lab-kpi-num">30%</p>
+                <p class="cjs-lab-kpi-lab">de las transacciones globales serán hechas por agentes de IA en 2030</p>
+              </div>
+            </div>
           </div>
         </div>
       </div>

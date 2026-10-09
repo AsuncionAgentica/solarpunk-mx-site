@@ -57,8 +57,8 @@
   }
 
   // ---------- 1) Tendencia de empleo ----------
-  function buildTrendChart() {
-    const host = document.getElementById('tendencia-chart');
+  function buildTrendChart(hostId) {
+    const host = document.getElementById(hostId || 'tendencia-chart');
     if (!host) return;
     const DATA = [
       { year: '2021', empleo: 9.0, ia: 4.2 },
@@ -240,7 +240,8 @@
   }
 
   function init() {
-    buildTrendChart();
+    buildTrendChart('tendencia-chart');
+    buildTrendChart('tendencia-chart-hero');
     primeMeters();
     wireAccordions();
     wireCarousel();
