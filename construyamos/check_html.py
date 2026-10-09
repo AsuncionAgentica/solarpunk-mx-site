@@ -31,7 +31,7 @@ class P(HTMLParser):
             self.stack.pop()
 
 ok = True
-for path in ['construyamos/index.html', 'construyamos/cartelera/index.html']:
+for path in ['construyamos/index.html', 'construyamos/cartelera/index.html', 'construyamos/cowork/index.html']:
     txt = open(path, encoding='utf-8').read()
     p = P()
     p.feed(txt)
@@ -80,10 +80,40 @@ checks = [
     ('sin cierre viejo CTA curso', 'La IA se aprende construyendo' not in src),
     ('correo solarpunk', 'solarpunk@empresaagentica.com' in src and 'asuncion@empresaagentica.com' not in src),
     ('secciones 01-04 presentes', all(('%02d · ' % n) in src for n in range(1, 5))),
+    ('orden de testimonios exacto', [m.group(1) for m in re.finditer(r'instagram\.com/p/([A-Za-z0-9_-]+)/embed', src)][:9] == ['DMOuEfcx13A','DM9RWYPtkMb','DNjvlomtzEv','DQFYVMfj_FB','DPAjaZejSrQ','DK8UQlUSgTs','DOKXT_VjVSF','DNXC5Ajt1uw','DOeF4Lxkf3c']),
+    ('2o cajon con img_index=4', 'DM9RWYPtkMb/?utm_source=ig_embed&amp;ig_rid=ARXDq-IGPsjKq9QLQEgVdsd&amp;img_index=4' in src),
+    ('tarjeta Cowork enlaza subpagina', 'href="cowork/">Conoce el CoWork' in src),
     ('sin notas editoriales', not re.search(r'\b(boceto|sketch|pendiente|próximamente se|esta versión)\b', src, re.I)),
 ]
 print('DoD textual:')
 for name, passed in checks:
+    print(('  PASS ' if passed else '  FAIL ') + name)
+    ok = ok and passed
+
+# ---- DoD textual de la subpagina cowork ----
+cw = open('construyamos/cowork/index.html', encoding='utf-8').read()
+cw_checks = [
+    ('precio barra 75/h', '$75' in cw and 'hora' in cw),
+    ('precio sala 120/h por persona', '$120' in cw and 'por persona' in cw),
+    ('precio sofa 120/h', cw.count('$120') >= 2),
+    ('barra premium +30/h', '+$30' in cw),
+    ('regadera 50', '$50' in cw),
+    ('bano seco 10', '$10' in cw and 'Gratis para clientes' in cw),
+    ('impresora 3D 100/h', 'Impresora 3D' in cw and '$100 / hora' in cw),
+    ('cortadora CNC 100/h', 'Cortadora CNC' in cw),
+    ('impresion tinta 1 y 3', '$1 B/N' in cw and '$3 color' in cw),
+    ('proyector 35/h', '$35 / hora' in cw),
+    ('menu bebidas', 'Café' in cw and 'Atole' in cw and 'Aguas frescas' in cw),
+    ('menu snacks verduras', 'Cacahuates' in cw and 'pepinos' in cw),
+    ('menu comida', 'Sándwiches' in cw and 'Pasteles para campeones' in cw and 'Toasts' in cw and 'LMSN' in cw),
+    ('premium kombucha kefir', 'kombucha' in cw.lower() and 'kefir' in cw.lower()),
+    ('membresia 30 mes 10%', '$30' in cw and '10% de descuento' in cw),
+    ('membresia reservas', all(x in cw for x in ['mesa afuera','sala de juntas','sofá','impresora 3D','cortadora CNC','proyector'])),
+    ('reserva 3 pasos', 'cw-res' in cw and 'Continuar por WhatsApp' in cw),
+    ('sin notas editoriales', not re.search(r'\b(boceto|sketch|pendiente|próximamente|TBD)\b', cw, re.I)),
+]
+print('DoD cowork:')
+for name, passed in cw_checks:
     print(('  PASS ' if passed else '  FAIL ') + name)
     ok = ok and passed
 
