@@ -78,6 +78,8 @@ checks = [
     ('chips nuevos en laboratorio', all(x in src for x in ['Gobernanza vecinal','Blockchain','Diseño de ciudades inteligentes','DAO','Biocretos (caña, coco, cáñamo)'])),
     ('sin KPIs de laboratorio', 'cjs-lab-kpi' not in src),
     ('01 conserva cifras MIT y SBS', 'de conectividad en redes de planificación' in src and 'no pudo citar una sola frase' in src),
+    ('sin 7x seniorizacion', '7×' not in src),
+    ('izquierda en bloques como derecha', src.count('class="cjs-duo reveal"') == 4 and 'cjs-op-finding' in src and 'cjs-chart-notes' not in src),
     ('titulo lab correcto', 'Conoce el laboratorio de innovación aplicada' in src),
     ('3 tarjetas lab con color propio', all(x in src for x in ['cjs-lab-card--consultoria','cjs-lab-card--eventos','cjs-lab-card--cowork']) and 'Consultoría sobre innovación' in src and '>Eventos</h3>' in src and '>CoWork</h3>' in src),
     ('tarjetas lab con imagen', src.count('cjs-lab-card-img') == 3),
