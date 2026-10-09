@@ -69,22 +69,22 @@ h1 em, h2 em { font-family: Georgia, 'Times New Roman', serif; font-weight: 400;
 
 /* ---- Hero (foto full-bleed del bus, hora azul) ---- */
 .cjs-hero-photo { position: relative; display: block; min-height: 100svh; padding: 0; overflow: hidden; border-bottom: 1px solid var(--line); background: var(--ink); }
-/* Fondo del hero: negro + la gráfica de pérdida de empleos como textura */
-.cjs-hero-chartbg { position: absolute; inset: 0; z-index: 1; display: flex; align-items: center; justify-content: flex-end; padding: 0 clamp(16px, 4vw, 76px); pointer-events: none; }
-.cjs-hero-chartbg .cjs-chart-frame { width: min(780px, 56vw); margin: 0; padding: 0; background: transparent; border: 0; opacity: .42; }
+/* Fondo del hero: negro + la gráfica de pérdida de empleos ocupando casi todo */
+.cjs-hero-chartbg { position: absolute; inset: 0; z-index: 1; display: flex; align-items: center; justify-content: center; padding: 0 clamp(10px, 2.5vw, 40px); pointer-events: none; }
+.cjs-hero-chartbg .cjs-chart-frame { width: min(1520px, 100%); margin: 0; padding: 0; background: transparent; border: 0; opacity: .62; }
 .cjs-hero-chartbg .cjs-chart svg { width: 100%; height: auto; }
 /* La gráfica del hero es decorativa: se muestra ya dibujada (sin animación de reveal). */
-.cjs-hero-chartbg .cjs-svg-line { stroke-dashoffset: 0; }
-.cjs-hero-chartbg .cjs-svg-dot { opacity: 1; }
+.cjs-hero-chartbg .cjs-svg-line { stroke-dashoffset: 0; stroke-width: 4.5; }
+.cjs-hero-chartbg .cjs-svg-dot { opacity: 1; r: 6; }
 /* Recoloreado a la paleta oscura del hero (las clases base son para fondo claro). */
 .cjs-hero-chartbg .serie-empleo { stroke: var(--paper); }
 .cjs-hero-chartbg .dot-empleo { fill: var(--paper); stroke: var(--ink); }
 .cjs-hero-chartbg .dot-ia { fill: var(--sun); stroke: var(--ink); }
-.cjs-hero-chartbg .axis-text { fill: #cdd4c6; }
+.cjs-hero-chartbg .axis-text { fill: #d6dccb; }
 .cjs-hero-chartbg .year-text { fill: var(--paper); }
-.cjs-hero-chartbg .grid-line { stroke: rgba(238,241,229,.16); }
-.cjs-hero-chartbg .axis-line { stroke: rgba(238,241,229,.28); }
-.cjs-hero-scrim { position: absolute; inset: 0; z-index: 0; background: linear-gradient(95deg, rgba(11,16,12,.96) 0%, rgba(11,16,12,.9) 34%, rgba(11,16,12,.6) 62%, rgba(11,16,12,.28) 100%); }
+.cjs-hero-chartbg .grid-line { stroke: rgba(238,241,229,.18); }
+.cjs-hero-chartbg .axis-line { stroke: rgba(238,241,229,.30); }
+.cjs-hero-scrim { position: absolute; inset: 0; z-index: 0; background: linear-gradient(95deg, rgba(11,16,12,.95) 0%, rgba(11,16,12,.86) 30%, rgba(11,16,12,.5) 58%, rgba(11,16,12,.18) 100%); }
 .cjs-hero-inner { position: relative; z-index: 2; display: flex; flex-direction: column; justify-content: center; min-height: 100svh; padding: 150px 0 110px; }
 .cjs-hero-photo .kicker { margin-bottom: 28px; }
 .cjs-hero-photo h1 { margin: 0; max-width: 1100px; font-size: clamp(2.4rem, 5.6vw, 5.6rem); line-height: 1.04; letter-spacing: -.045em; font-weight: 700; }
@@ -120,9 +120,11 @@ h1 em, h2 em { font-family: Georgia, 'Times New Roman', serif; font-weight: 400;
 .cjs-op-col { min-width: 0; }
 .cjs-op-col .cjs-chart-frame { margin-top: 24px; }
 .cjs-op-sub { margin: 0 0 24px; max-width: 620px; font-family: Georgia, serif; font-size: 1.4rem; line-height: 1.35; }
-.cjs-op-col .cjs-duo { border-top-color: var(--forest); }
-.cjs-duo h4 { margin: 0; font-size: .95rem; line-height: 1.45; }
-.cjs-duo h4 em { color: var(--sun); }
+/* 01 oportunidades — evidencia cognitiva en claro (sin paneles oscuros flotantes) */
+.cjs-op-col .cjs-duo { padding: 0 0 28px; margin: 0 0 30px; background: transparent; border-top: 0; border-bottom: 1px solid rgba(11,16,12,.14); }
+.cjs-op-col .cjs-duo:last-child { padding-bottom: 0; margin-bottom: 0; border-bottom: 0; }
+.cjs-duo h4 { margin: 0 0 4px; font-size: .8rem; letter-spacing: .04em; text-transform: uppercase; color: #667064; font-weight: 700; }
+.cjs-duo h4 em { color: var(--forest); text-transform: none; }
 
 .cjs-light .cjs-section-close strong { color: var(--forest); }
 /* After both columns, closing hook (destacado, debajo del grid) */
@@ -148,12 +150,6 @@ h1 em, h2 em { font-family: Georgia, 'Times New Roman', serif; font-weight: 400;
 .cjs-lab-card .button { margin-top: 0; padding-top: 0; padding-bottom: 0; min-height: 46px; font-size: .9rem; }
 .cjs-lab-card--eventos .button { background: var(--sun); }
 .cjs-lab-card--cowork .button { background: #7ec8a0; }
-
-/* KPIs del laboratorio (cifras duras, estilo cálido) */
-.cjs-lab-kpis { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; margin: 42px 0 0; }
-.cjs-lab-kpi { padding: 24px 26px; background: var(--ink-soft); border-left: 5px solid var(--sun); }
-.cjs-lab-kpi-num { margin: 0; font-family: Georgia, serif; font-size: clamp(2.1rem, 3.4vw, 3rem); line-height: 1; color: var(--acid); }
-.cjs-lab-kpi-lab { margin: 12px 0 0; font-size: .82rem; line-height: 1.55; color: var(--muted); }
 
 /* 03 bus oficina */
 .cjs-bus-photo { margin: 56px 0 0; }
@@ -231,23 +227,20 @@ h1 em, h2 em { font-family: Georgia, 'Times New Roman', serif; font-weight: 400;
 .cjs-section-close { margin: 70px 0 0; font-family: Georgia, serif; font-size: clamp(1.5rem, 2.6vw, 2.3rem); line-height: 1.25; color: var(--paper); }
 .cjs-close-dark { color: var(--ink); }
 
-/* ---- 04 deuda cognitiva ---- */
-.cjs-duo-grid { display: grid; grid-template-columns: 1.15fr .85fr; gap: 2px; margin-top: 56px; }
-.cjs-duo { padding: 30px; background: var(--ink-soft); border-top: 4px solid var(--sun); }
-.cjs-duo h3 { margin: 0; font-size: 1rem; line-height: 1.45; }
-.cjs-duo h3 em { color: var(--acid); }
-.cjs-duo-text { margin: 18px 0 0; font-size: .95rem; line-height: 1.6; color: #d7ddcf; }
-.cjs-duo-note { margin: 18px 0 0; font-size: .78rem; color: var(--muted); }
+/* ---- 04 deuda cognitiva (en claro, integrado a la sección) ---- */
+.cjs-duo-text { margin: 16px 0 0; font-size: .95rem; line-height: 1.6; color: #414a3c; }
+.cjs-duo-note { margin: 14px 0 0; font-size: .78rem; color: #6d7568; }
 .cjs-meter { margin-top: 26px; }
 .cjs-meter:first-of-type { margin-top: 22px; }
-.cjs-meter-head { display: flex; align-items: baseline; justify-content: space-between; gap: 16px; font-size: .8rem; color: var(--muted); }
-.cjs-meter-num { font-family: Georgia, serif; font-size: 1.7rem; color: var(--acid); white-space: nowrap; }
-.cjs-meter-track { height: 10px; margin-top: 10px; background: rgba(238,241,229,.12); overflow: hidden; }
+.cjs-evi-line { display: flex; align-items: baseline; gap: 18px; }
+.cjs-meter-num { flex: 0 0 auto; font-family: Georgia, serif; font-size: clamp(2.1rem, 3.4vw, 2.9rem); line-height: 1; color: var(--forest); white-space: nowrap; }
+.cjs-meter-lab { font-size: .95rem; line-height: 1.45; color: var(--ink); }
+.cjs-meter-track { height: 9px; margin-top: 14px; background: rgba(11,16,12,.12); overflow: hidden; }
 .cjs-meter-fill { height: 100%; width: 0; background: var(--sun); transition: width 1.1s cubic-bezier(.22,.61,.36,1); }
-.cjs-meter-fill-up { background: var(--acid); }
+.cjs-meter-fill-up { background: var(--forest); }
 .cjs-meter.is-visible .cjs-meter-fill-down { width: 55%; }
 .cjs-meter.is-visible .cjs-meter-fill-up { width: 83.3%; }
-.cjs-meter-cap { margin: 8px 0 0; font-size: .78rem; color: var(--muted); }
+.cjs-meter-cap { margin: 10px 0 0; font-size: .82rem; line-height: 1.55; color: #59615a; }
 .cjs-honest-note { max-width: 780px; margin: 46px 0 0; padding: 20px 24px; border-left: 4px solid var(--sun); background: var(--ink-soft); font-size: .88rem; line-height: 1.65; color: #d7ddcf; }
 
 /* ---- 05 economía agéntica (light) ---- */
@@ -455,14 +448,13 @@ footer a:hover, footer a:focus-visible { color: var(--acid); border-color: curre
   .site-header nav > a:not(.nav-cta) { display: none; }
   .site-header nav { gap: 0; }
   .cjs-hero-inner { padding-top: 130px; }
-  .cjs-hero-chartbg { align-items: flex-end; padding: 0 18px 40px; }
-  .cjs-hero-chartbg .cjs-chart-frame { width: 100%; opacity: .2; }
+  .cjs-hero-chartbg { padding: 0 14px; }
+  .cjs-hero-chartbg .cjs-chart-frame { width: 100%; opacity: .34; }
   .cjs-bus-photos-mini { grid-template-columns: 1fr 1fr; }
   .cjs-evidencia-grid { grid-template-columns: 1fr 1fr; }
   .cjs-split { grid-template-columns: 1fr; gap: 40px; }
   .cjs-oportunidades-grid { grid-template-columns: 1fr; gap: 56px; }
   .cjs-lab-cards { grid-template-columns: 1fr; }
-  .cjs-lab-kpis { grid-template-columns: 1fr; }
   .cjs-tray-grid { grid-template-columns: 1fr; gap: 2px; }
   .cjs-pero { margin-left: 0; }
   .cjs-duo-grid { grid-template-columns: 1fr; }
