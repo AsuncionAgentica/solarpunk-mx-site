@@ -1,0 +1,720 @@
+<!DOCTYPE html>
+<html lang="es-MX">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Descubre todo lo que tu agente puede hacer por ti | Club SolarPunk Mx</title>
+  <meta name="description" content="Taller 2 del Club SolarPunk Mx: las capacidades completas de tu agente —skills, tareas programadas, plugins y MCP, modelos y sistema de memoria— como guías desplegables.">
+  <link rel="icon" href="/solarpunk/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/solarpunk/uso-correcto/uso-correcto.css">
+</head>
+<body>
+  <a class="skip" href="#contenido">Saltar al contenido principal</a>
+
+  <header class="site">
+    <div class="wrap nav">
+      <a class="wordmark" href="#top" aria-label="Club SolarPunk Mx, inicio">
+        <b>SolarPunk</b><span class="mx">Mx</span>
+      </a>
+      <nav aria-label="Secciones de la página">
+        <ul class="nav-links">
+          <li><a href="/solarpunk/">Inicio</a></li>
+          <li><a href="/solarpunk/talleres/">Talleres</a></li>
+          <li><a href="/solarpunk/hermes/">Taller 1 · Hermes</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="contenido">
+    <a id="top"></a>
+
+    <section class="uc-hero">
+      <div class="wrap">
+        <a class="uc-back" href="/solarpunk/talleres/"><span aria-hidden="true">←</span> Todos los talleres</a>
+        <p class="kicker">Taller 2 · Capacidades de tu agente</p>
+        <h1>Descubre todo lo que tu agente puede hacer por ti</h1>
+        <p class="lede">Recorre las capacidades completas de tu agente: su interfaz de trabajo, las capacidades que le enseñan oficios, las tareas que corren solas mientras duermes y el trabajo en equipo entre agentes. Todo se aprende usándolas en una tarea real que construyes tú.</p>
+        <ul class="chips" aria-label="Qué contiene esta página">
+          <li class="chip">4 guías desplegables + memoria</li>
+          <li class="chip">Abre lo que necesites aprender</li>
+          <li class="chip">Todo funciona sin internet: es material de tu agente</li>
+        </ul>
+        <p class="micro">Taller 2 · Aprende las capacidades de tu agente, su interfaz de trabajo, y cómo usarlo al máximo</p>
+      </div>
+    </section>
+
+    <section class="wrap" aria-label="Guías del taller">
+
+      <!-- ══ 01 SKILLS ══ -->
+      <details class="uc" id="skills">
+        <summary>
+          <span class="s-ind" aria-hidden="true">+</span>
+          <h2>Skills: los oficios que le enseñas a tu agente
+            <span class="s-line">Qué es una skill, cuándo sirven, cómo se usan, se crean y se cuidan.</span>
+          </h2>
+        </summary>
+        <div class="uc-body">
+          <p class="uc-intro">Una skill es un documento de conocimiento que tu Hermes carga <b>solo cuando la tarea lo pide</b>. No es un curso que memoriza: es un manual que abre cuando lo necesita. Por eso sabe hacer cosas que jamás le programaste.</p>
+          <ul class="chips" aria-label="Datos de las skills">
+            <li class="chip">Instalación bajo demanda</li>
+            <li class="chip">Estándar abierto agentskills.io</li>
+            <li class="chip">Tu agente también las escribe</li>
+          </ul>
+
+          <div class="uc-grid">
+            <div class="uc-card c1">
+              <h3><span class="uc-num">01</span>¿Qué es una skill?</h3>
+              <p class="uc-lead">Un paquete de conocimiento —normalmente un archivo <b>SKILL.md</b> más los recursos que necesite— que describe <b>cómo hacer un tipo de trabajo</b>: los pasos, las trampas conocidas y cómo comprobar que salió bien.</p>
+              <ul class="uc-list">
+                <li><b>Divulgación progresiva:</b> el agente lee primero un resumen corto y solo abre el resto si la tarea lo exige. Así no gasta contexto ni dinero cargando cosas que no va a usar.</li>
+                <li><b>Es conocimiento, no código.</b> Se escribe en lenguaje natural; tu agente lo lee y actúa.</li>
+                <li>Viven en <b>~/.hermes/skills/</b>, que es la fuente de verdad. Tu agente puede leerlas, editarlas y crear nuevas.</li>
+              </ul>
+            </div>
+            <div class="uc-card c2">
+              <h3><span class="uc-num">02</span>¿Cuándo son útiles?</h3>
+              <ul class="uc-list">
+                <li><b>Un procedimiento que repites</b> y no quieres volver a explicar cada vez.</li>
+                <li>Un trabajo con <b>reglas finas o trampas</b> que tu agente olvida si no las tiene escritas.</li>
+                <li>Un <b>estilo propio</b>: cómo redactas, cómo diseñas, cómo nombras archivos.</li>
+                <li>Una <b>herramienta externa</b> con pasos de uso y cosas que no se deben hacer.</li>
+                <li>Cuando tu agente se equivoca igual <b>dos veces</b>: es la señal de que ese conocimiento debe ser una skill.</li>
+              </ul>
+              <div class="uc-note ok"><p class="lb">Regla práctica</p><p>Lo que le explicaste <b>dos veces</b>, conviértelo en skill. Deja de repetirte y el agente deja de olvidar.</p></div>
+            </div>
+          </div>
+
+          <div class="uc-card c3">
+            <h3><span class="uc-num">03</span>Cómo usarlas</h3>
+            <p class="uc-hint">Se cargan solas cuando la tarea las pide; también puedes forzarlas.</p>
+            <div class="uc-rows">
+              <div class="uc-row"><div class="k">Automático</div><div class="v">Describe la tarea con naturalidad. Tu agente reconoce que hay una skill aplicable y la carga. <b>Es el modo normal;</b> no tienes que hacer nada.</div></div>
+              <div class="uc-row"><div class="k">hermes skills list</div><div class="v">Ver qué skills tienes instaladas.</div></div>
+              <div class="uc-row"><div class="k">hermes skills search &lt;tema&gt;</div><div class="v">Buscar en el catálogo por tema.</div></div>
+              <div class="uc-row"><div class="k">/skill &lt;nombre&gt;</div><div class="v"><span class="uc-badge b-desk">Desktop</span> Forzar una skill concreta en la sesión actual.</div></div>
+              <div class="uc-row"><div class="k">--skill blogwatcher --skill maps</div><div class="v"><b>Apilar varias</b> en un mismo trabajo: se combinan sus instrucciones.</div></div>
+              <div class="uc-row"><div class="k">/reload-skills</div><div class="v">Volver a escanear la carpeta si acabas de añadir o borrar una.</div></div>
+            </div>
+          </div>
+
+          <div class="uc-grid">
+            <div class="uc-card c4">
+              <h3><span class="uc-num">04</span>Cómo se crean</h3>
+              <p>Hay tres caminos, de menos a más trabajo:</p>
+              <ul class="uc-list">
+                <li><b>Que tu agente la escriba.</b> Dile: <i>«guarda esto como skill»</i> después de resolver algo difícil. Es la vía más común y la más valiosa: nace de problemas reales.</li>
+                <li><b>Aprenderla de una fuente.</b> Con <b>/learn</b> le das un documento, un manual o una web y lo convierte en skill; si la fuente es muy grande, la vuelve una base de conocimiento.</li>
+                <li><b>Escribirla tú.</b> Un <b>SKILL.md</b> con frontmatter (nombre, descripción) y secciones de cuándo usarla, procedimiento, trampas y verificación.</li>
+              </ul>
+              <div class="uc-note"><p class="lb">Truco</p><p>Si te encuentras repitiendo una corrección, no la repitas otra vez: pídele que la convierta en skill. Tu agente mejora contigo.</p></div>
+            </div>
+            <div class="uc-card c5">
+              <h3><span class="uc-num">05</span>Dónde conseguir más</h3>
+              <div class="uc-rows">
+                <div class="uc-row"><div class="k">Capabilities → Skills</div><div class="v"><span class="uc-badge b-desk">Desktop</span> Explorar e instalar con un clic desde la app.</div></div>
+                <div class="uc-row"><div class="k">hermes skills browse</div><div class="v">Navegar todo el catálogo disponible.</div></div>
+                <div class="uc-row"><div class="k">hermes skills install &lt;id&gt;</div><div class="v">Instalar una skill del catálogo o por URL directa de su SKILL.md.</div></div>
+                <div class="uc-row"><div class="k">hermes skills check / update</div><div class="v">Buscar y aplicar actualizaciones de las que ya tienes.</div></div>
+                <div class="uc-row"><div class="k">Bundles</div><div class="v">Grupos de skills que se instalan y activan juntas.</div></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="uc-card c2">
+            <h3><span class="uc-num">06</span>Categorías y ejemplos que sirven</h3>
+            <p class="uc-hint">Skills reales de tu instalación.</p>
+            <div class="uc-table-wrap">
+              <table class="uc-table">
+                <tr><th class="w190">Categoría</th><th class="w300">Skills de ejemplo</th><th>Para qué te sirve</th></tr>
+                <tr><td><b>Administración de proyectos</b></td><td><b>project-management</b> · <b>scrum-master</b> · <b>planning-router</b> · <b>goal-subgoal-authoring</b></td><td>Definir objetivos que se puedan aprobar o rechazar, facilitar entregas con evidencia y elegir el modo de planeación correcto antes de arrancar.</td></tr>
+                <tr><td><b>Desarrollo de software</b></td><td><b>code-review</b> · <b>sdlc-review</b> · <b>writing-plans</b> · <b>independent-delivery-review</b></td><td>Revisar código ajeno, revisar una entrega antes de aceptarla y planear implementaciones grandes con criterios explícitos.</td></tr>
+                <tr><td><b>Investigación</b></td><td><b>evidence-first-research-orchestration</b> · <b>adaptive-research-planning</b></td><td>Investigar con fuentes citadas y trazabilidad, sin inventar hallazgos.</td></tr>
+                <tr><td><b>Contenido y diseño</b></td><td><b>humanizer</b> · <b>social-graphics</b> · <b>brand-identity</b> · <b>web-design-taste-review</b></td><td>Que lo escrito se lea humano, y que el diseño tenga criterio y no solo plantilla.</td></tr>
+                <tr><td><b>Operación y seguridad</b></td><td><b>local-infra-maintenance</b> · <b>artifact-retirement</b> · <b>javascript-dependency-security-review</b></td><td>Mantener tu infraestructura, retirar artefactos sin perder respaldo y revisar dependencias antes de confiar en ellas.</td></tr>
+                <tr><td><b>Automatización de agentes</b></td><td><b>hermes-agent</b> · <b>worker-handoff-operations</b> · <b>browser-session-work</b></td><td>Configurar y extender Hermes, y entregar trabajo a otros agentes sin ambigüedad.</td></tr>
+              </table>
+            </div>
+          </div>
+
+          <div class="uc-card c5">
+            <h3><span class="uc-num">07</span>Buenas prácticas de seguridad</h3>
+            <p class="uc-hint">Una skill es instrucciones que tu agente va a obedecer.</p>
+            <div class="uc-grid uc-grid-tight">
+              <div>
+                <ul class="uc-list">
+                  <li><b>Trata toda skill externa como código.</b> Al instalar una, tu agente va a seguir sus instrucciones. Léela antes.</li>
+                  <li><b>Revisa las skills de terceros</b> que pidan credenciales, ejecutar comandos o conectarse a internet.</li>
+                  <li><b>Desconfía de lo que pida saltarse reglas</b> o desactivar confirmaciones. Eso no es una función: es una bandera roja.</li>
+                </ul>
+              </div>
+              <div>
+                <ul class="uc-list">
+                  <li><b>Nunca escribas secretos dentro de una skill.</b> Las llaves van en <b>.env</b>, no en un SKILL.md.</li>
+                  <li><b>Prefiere lo que ya viene revisado:</b> las skills incluidas y el catálogo curado pasan por revisión.</li>
+                  <li><b>Un proyecto, una carpeta.</b> Las skills locales de un proyecto se aprueban una vez y quedan aisladas de las demás.</li>
+                </ul>
+              </div>
+            </div>
+            <div class="uc-note warn"><p class="lb">Nunca hagas esto</p><p>No pegues una skill que encontraste en internet y que «arregla» algo pidiendo permisos totales, ni guardes tokens o contraseñas dentro de ella. Si una skill externa pide acceso que no necesita para su tarea, no la instales.</p></div>
+          </div>
+
+          <p class="uc-foot-src"><b>Fuente:</b> documentación oficial de Hermes Agent (skills, agentskills.io) y el catálogo instalado. Los comandos citados están verificados contra las docs locales del propio Hermes.</p>
+        </div>
+      </details>
+
+      <!-- ══ 02 CRON JOBS ══ -->
+      <details class="uc" id="cron-jobs">
+        <summary>
+          <span class="s-ind" aria-hidden="true">+</span>
+          <h2>Cron jobs: trabajo que ocurre aunque no estés
+            <span class="s-line">Qué son, cuándo sirven, cómo se crean, cuánto cuestan y cómo hacer que casi no cuesten.</span>
+          </h2>
+        </summary>
+        <div class="uc-body">
+          <p class="uc-intro">Un cron job es una tarea que tu agente ejecuta <b>solo, en el horario que tú fijas</b>: el resumen de cada mañana, la revisión semanal, el respaldo nocturno. Puede ser una conversación completa con tu agente o un simple script. Y se puede configurar para que <b>casi nunca gaste</b>.</p>
+          <ul class="chips" aria-label="Datos de los cron jobs">
+            <li class="chip">Puntual o repetitivo</li>
+            <li class="chip">Se crea hablando</li>
+            <li class="chip">Modo sin gasto de tokens</li>
+          </ul>
+
+          <div class="uc-grid">
+            <div class="uc-card c1">
+              <h3><span class="uc-num">01</span>¿Qué es un cron job?</h3>
+              <p class="uc-lead">Una tarea programada que Hermes ejecuta por su cuenta. Puede correr <b>una sola vez</b> («en 30 minutos») o <b>repetirse</b> («cada 2 horas», «cada lunes a las 9»).</p>
+              <ul class="uc-list">
+                <li><b>Corre en una sesión nueva</b>, con sus herramientas, sin que tengas que abrir nada.</li>
+                <li><b>Puede entregarte el resultado</b> en el chat donde lo creaste, en otro canal o en un archivo.</li>
+                <li><b>Puede llevar skills puestas</b>: la misma skill que usas a mano, aplicada sola cada semana.</li>
+                <li><b>Los datos quedan:</b> cada corrida deja historial, y si falla te lo dice en vez de morir en silencio.</li>
+              </ul>
+            </div>
+            <div class="uc-card c2">
+              <h3><span class="uc-num">02</span>¿Cuándo son útiles?</h3>
+              <ul class="uc-list">
+                <li><b>Vigilar algo</b> y avisarte <b>solo si cambió</b> (disco lleno, sitio caído, precio distinto).</li>
+                <li><b>Resumir de forma periódica:</b> noticias del sector, correo, tu propio avance.</li>
+                <li><b>Respaldar y ordenar</b> en horario muerto, cuando no estorba.</li>
+                <li><b>Recordatorios con consecuencia:</b> no «avísame», sino «revisa y haz esto».</li>
+                <li><b>Reportes recurrentes</b> para tu equipo o tu cliente, siempre con el mismo formato.</li>
+              </ul>
+              <div class="uc-note ok"><p class="lb">La prueba de fuego</p><p>Si lo harías <b>igual cada semana</b>, y explicarlo toma más tiempo que hacerlo tú, es un cron job.</p></div>
+            </div>
+          </div>
+
+          <div class="uc-card c3">
+            <h3><span class="uc-num">03</span>Cómo se crean y se usan</h3>
+            <p class="uc-hint">Lo más fácil: pídeselo hablando.</p>
+            <div class="uc-rows">
+              <div class="uc-row"><div class="k">«Cada lunes a las 9, resúmeme los cambios del proyecto y mándamelos.»</div><div class="v"><b>Basta con pedirlo en español.</b> Tu agente usa la herramienta de cron por dentro y lo deja armado.</div></div>
+              <div class="uc-row"><div class="k">/cron add "every 2h" "…"</div><div class="v"><span class="uc-badge b-desk">Desktop</span> Crear desde el chat con un horario explícito.</div></div>
+              <div class="uc-row"><div class="k">hermes cron create "0 9 * * *" "…"</div><div class="v"><span class="uc-badge b-cli">CLI</span> Crear desde la terminal. Acepta «30m», «every monday 9am» o la expresión clásica.</div></div>
+              <div class="uc-row"><div class="k">hermes cron list</div><div class="v">Ver todo lo que tienes programado y en qué estado está.</div></div>
+              <div class="uc-row"><div class="k">hermes cron run &lt;id&gt;</div><div class="v">Dispararlo ya, para probarlo sin esperar al horario.</div></div>
+              <div class="uc-row"><div class="k">hermes cron pause / resume &lt;id&gt;</div><div class="v">Apagarlo temporalmente sin borrarlo. <b>hermes pause</b> detiene todo de golpe.</div></div>
+            </div>
+          </div>
+
+          <div class="uc-grid">
+            <div class="uc-card c4">
+              <h3><span class="uc-num">04</span>Cómo quitarlas</h3>
+              <div class="uc-rows">
+                <div class="uc-row"><div class="k">hermes cron remove &lt;id&gt;</div><div class="v">Borra el job y lo saca del calendario.</div></div>
+                <div class="uc-row"><div class="k">hermes cron list --all</div><div class="v">Incluye los desactivados, para encontrar el que quieres eliminar.</div></div>
+                <div class="uc-row"><div class="k">Pídeselo hablando</div><div class="v">«Ya no quiero el resumen de los lunes, elimínalo». Igual de válido que el comando.</div></div>
+              </div>
+              <div class="uc-note"><p class="lb">Antes de borrar</p><p>Si solo lo estás pausando por temporada, <b>pausa en vez de borrar</b>: conservas su historial y lo reactivas con un comando.</p></div>
+            </div>
+          </div>
+
+          <div class="uc-card c5">
+            <h3><span class="uc-num">05</span>¿Cuestan tokens?</h3>
+            <p class="uc-hint">Sí, y aquí está exactamente cuándo.</p>
+            <div class="uc-grid uc-grid-tight">
+              <div>
+                <p><b>Cada corrida normal es una conversación nueva con tu agente:</b> se llama al modelo, y eso se cobra como cualquier otro turno. Un job cada 5 minutos puede costar <b>más que todo tu uso diario junto</b> porque corre 288 veces al día — y casi siempre para decir «no hay nada nuevo».</p>
+                <p><b>La entrega también cuesta.</b> Cada destino al que se envía el resultado consume un turno completo de agente. Enviar a tres lugares es pagar tres veces.</p>
+                <p><b>El formulario de herramientas también se paga:</b> si a un job pequeño le dejas herramientas pesadas activas, cada llamada arrastra un prompt más grande.</p>
+              </div>
+              <div>
+                <div class="uc-note warn"><p class="lb">El error que más dinero quema</p><p>Un job frecuente que despierta al modelo <b>para no encontrar nada</b>. Revisar cada 5 minutos «por si acaso» es el patrón más caro y más común. Casi siempre se puede convertir en un job que <b>solo despierta al agente cuando algo cambió</b>.</p></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="uc-card c2">
+            <h3><span class="uc-num">06</span>Cómo hacer que no cuesten — o que cuesten solo cuando vale la pena</h3>
+            <div class="uc-table-wrap">
+              <table class="uc-table">
+                <tr><th class="w230">Palanca</th><th class="w130">Costo</th><th>Qué hace</th></tr>
+                <tr>
+                  <td><b>Job solo-script</b><br><span class="mono-sm">--no-agent</span></td>
+                  <td><span class="uc-badge b-free">Cero tokens</span></td>
+                  <td>No hay modelo, ni proveedor, ni llamada. El script <b>es</b> el job y su salida se entrega tal cual. Para vigilancias y envíos mecánicos es lo correcto. <b>Ejemplo:</b> «avísame por Telegram si la RAM pasa de 85 %».</td>
+                </tr>
+                <tr>
+                  <td><b>Compuerta de despertar</b><br><span class="mono-sm">{"wakeAgent": false}</span></td>
+                  <td><span class="uc-badge b-free">Cero tokens<br>en el tick frío</span></td>
+                  <td>El script revisa primero y su última línea decide si el agente corre. Si nada cambió, <b>no se despierta</b> y el tick es gratuito. Es la forma correcta de tener un job cada 5 minutos sin arruinarte.</td>
+                </tr>
+                <tr>
+                  <td><b>Silencio por salida vacía</b></td>
+                  <td><span class="uc-badge b-free">Cero tokens</span></td>
+                  <td>En modo solo-script, no imprimir nada significa <b>no molestar</b>. «Solo habla cuando algo esté mal». Perfecto para vigilancias.</td>
+                </tr>
+                <tr>
+                  <td><b>Modelo económico fijo para la flota</b><br><span class="mono-sm">cron.model</span></td>
+                  <td><span class="uc-badge b-cost">Bajo</span></td>
+                  <td>Separa el modelo de tus tareas programadas del modelo con el que conversas. Tus jobs corren barato aunque tú trabajes con el modelo grande.</td>
+                </tr>
+                <tr>
+                  <td><b>Esfuerzo de razonamiento por job</b><br><span class="mono-sm">--reasoning-effort minimal</span></td>
+                  <td><span class="uc-badge b-cost">Bajo</span></td>
+                  <td>Reservas el pensamiento profundo para el análisis semanal y dejas los jobs rutinarios en nivel mínimo. La diferencia de costo es grande y casi nadie lo ajusta.</td>
+                </tr>
+                <tr>
+                  <td><b>Limitar herramientas del job</b></td>
+                  <td><span class="uc-badge b-cost">Bajo</span></td>
+                  <td>Un job de «traer noticias» no necesita navegador ni delegación. Quitárselas reduce el prompt de herramientas en <b>cada</b> llamada.</td>
+                </tr>
+                <tr>
+                  <td><b>Evento en vez de reloj</b></td>
+                  <td><span class="uc-badge b-3m">Bajo y oportuno</span></td>
+                  <td>En vez de revisar cada hora si pasó algo, el job se dispara <b>cuando el evento ocurre</b> (algo publica, cambia un archivo). Cero revisitas inútiles.</td>
+                </tr>
+              </table>
+            </div>
+            <div class="uc-note ok"><p class="lb">Regla de oro</p><p><b>El script decide gratis; el agente solo entra cuando hay algo que decidir.</b> Frecuencia alta con compuerta es más barata que frecuencia baja sin ella — y te enteras antes.</p></div>
+          </div>
+
+          <div class="uc-card c1">
+            <h3><span class="uc-num">07</span>Ejemplos que sirven de verdad</h3>
+            <p class="uc-hint">Uno para administrar proyectos, uno para desarrollar software.</p>
+            <div class="uc-table-wrap">
+              <table class="uc-table">
+                <tr><th class="w170">Ámbito</th><th class="w300">Job</th><th>Cómo se configura bien</th></tr>
+                <tr><td><b>Administración de proyectos</b></td><td>Lunes 9:00 — <b>estado del proyecto</b>: qué se movió, qué está frenado, qué necesita tu decisión</td><td>Cada semana, modelo económico, con la skill de reporte ejecutivo cargada.</td></tr>
+                <tr><td><b>Administración de proyectos</b></td><td>Diario 18:00 — <b>compuerta de tareas vencidas</b></td><td>Script que revisa el tablero y <b>solo despierta al agente si hay algo vencido</b>. Día sin pendientes, día sin costo.</td></tr>
+                <tr><td><b>Administración de proyectos</b></td><td>Viernes — <b>limpieza y respaldo</b> de notas y documentos</td><td>Solo-script: copia, ordena y reporta. Cero tokens, no hay nada que razonar.</td></tr>
+                <tr><td><b>Desarrollo de software</b></td><td>Cada 30 min — <b>compuerta de cambios en el repositorio</b></td><td>El script compara si hubo commits nuevos; si no hay, no despierta. Con cambios, el agente hace el resumen técnico.</td></tr>
+                <tr><td><b>Desarrollo de software</b></td><td>Al cerrar el día — <b>revisión de dependencias y alertas</b></td><td>Modelo económico, sin navegador. Solo avisa si aparece algo relevante.</td></tr>
+                <tr><td><b>Desarrollo de software</b></td><td>Lunes 8:00 — <b>informe de pruebas y entregas</b></td><td>Esfuerzo alto porque sí requiere criterio; es el único job caro de la semana y vale la pena.</td></tr>
+              </table>
+            </div>
+          </div>
+
+          <p class="uc-foot-src"><b>Fuente:</b> documentación oficial de Hermes Agent sobre cron (modos de ejecución, compuerta <span class="mono-sm">wakeAgent</span>, modo solo-script, resolución de modelo y esfuerzo de razonamiento). Comandos verificados contra las docs locales.</p>
+        </div>
+      </details>
+
+      <!-- ══ 03 PLUGINS Y MCP ══ -->
+      <details class="uc" id="plugins-mcp">
+        <summary>
+          <span class="s-ind" aria-hidden="true">+</span>
+          <h2>Plugins y MCP: darle herramientas nuevas a tu agente
+            <span class="s-line">La diferencia entre un plugin y un servidor MCP, cuándo elegir cada uno y las prácticas de seguridad.</span>
+          </h2>
+        </summary>
+        <div class="uc-body">
+          <p class="uc-intro">Hay dos formas de que tu Hermes haga algo que no traía de fábrica. <b>Un plugin</b> vive dentro de Hermes y le enseña herramientas nuevas. <b>Un MCP</b> conecta Hermes a un servidor de herramientas que ya existe afuera. Se parecen en el resultado y son distintos en todo lo demás.</p>
+          <ul class="chips" aria-label="Datos de plugins y MCP">
+            <li class="chip">Plugin = se instala dentro</li>
+            <li class="chip">MCP = se conecta afuera</li>
+            <li class="chip">Ambos amplían sin tocar el núcleo</li>
+          </ul>
+
+          <div class="uc-card c1">
+            <h3><span class="uc-num">01</span>La diferencia, en una mirada</h3>
+            <p class="uc-hint">Lo primero que hay que entender.</p>
+            <div class="uc-table-wrap">
+              <table class="uc-table">
+                <tr><th class="w150"></th><th class="colhead">Plugin</th><th class="colhead">Servidor MCP</th></tr>
+                <tr><td><b>Qué es</b></td><td>Código que <b>se añade a Hermes</b>: una carpeta con un manifiesto y Python.</td><td>Un <b>programa aparte</b> que expone herramientas por un protocolo estándar.</td></tr>
+                <tr><td><b>Dónde vive</b></td><td>Dentro de Hermes, en <span class="mono-sm">~/.hermes/plugins/</span></td><td>Fuera: en tu máquina o en un servidor remoto. Hermes solo se conecta.</td></tr>
+                <tr><td><b>Qué puedes añadir</b></td><td>Herramientas <b>y también ganchos</b>: interceptar llamadas, alterar comportamiento.</td><td>Herramientas, recursos y plantillas que el servidor decida exponer.</td></tr>
+                <tr><td><b>Se puede reutilizar</b></td><td>Solo con Hermes.</td><td>Sí: <b>cualquier cliente MCP</b> lo puede usar. Es un estándar abierto.</td></tr>
+                <tr><td><b>Cuándo elegirlo</b></td><td>Cuando la capacidad es <b>tuya o muy específica</b> y quieres que sea parte de tu agente.</td><td>Cuando la herramienta <b>ya existe</b> afuera y no quieres reescribirla.</td></tr>
+              </table>
+            </div>
+            <div class="uc-note"><p class="lb">La forma fácil de recordarlo</p><p><b>El plugin le enseña a Hermes un oficio nuevo. El MCP le da a Hermes un enchufe a una herramienta que ya funcionaba.</b></p></div>
+          </div>
+
+          <div class="uc-grid">
+            <div class="uc-card c2">
+              <h3><span class="uc-num">02</span>¿Qué es un plugin?</h3>
+              <p class="uc-lead">Una carpeta con un archivo de manifiesto y código que <b>registra herramientas nuevas</b> para tu agente. Al arrancar Hermes, esas herramientas aparecen junto a las de fábrica y el agente puede llamarlas de inmediato.</p>
+              <ul class="uc-list">
+                <li>Estructura típica: <b>plugin.yaml</b> (el manifiesto), <b>__init__.py</b> (el registro), los esquemas que ve el modelo y los manejadores que ejecutan.</li>
+                <li><b>No se modifica el núcleo.</b> El plugin vive a un lado; si lo borras, Hermes sigue igual.</li>
+                <li>También puede añadir <b>ganchos</b> que se disparan en eventos del agente.</li>
+                <li>Hermes ya trae plugins incorporados para memoria, contexto, proveedores de modelo, generación de imagen, tablero y más.</li>
+              </ul>
+            </div>
+            <div class="uc-card c3">
+              <h3><span class="uc-num">03</span>¿Qué es un servidor MCP?</h3>
+              <p class="uc-lead">MCP es el <b>protocolo</b> con el que Hermes habla con programas externos que ofrecen herramientas: GitHub, bases de datos, sistemas de archivos, APIs internas.</p>
+              <ul class="uc-list">
+                <li><b>Descubrimiento automático:</b> al conectar, Hermes ve qué herramientas ofrece y las registra como propias.</li>
+                <li><b>Dos tipos:</b> locales por <b>stdio</b> (un programa que Hermes arranca) y remotos por <b>HTTP</b> (un servidor al que se conecta, con o sin inicio de sesión).</li>
+                <li><b>Filtrado por servidor:</b> puedes elegir exactamente cuáles de sus herramientas ve Hermes.</li>
+                <li>Vienen de un <b>catálogo curado</b> e instalable con un clic, o los añades tú.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="uc-card c4">
+            <h3><span class="uc-num">04</span>Cómo se consiguen y se conectan</h3>
+            <div class="uc-rows">
+              <div class="uc-row"><div class="k">Plugin: carpeta + manifiesto</div><div class="v">Pones la carpeta en <span class="mono-sm">~/.hermes/plugins/</span>, arrancas Hermes y las herramientas nuevas ya están disponibles. No hay más pasos.</div></div>
+              <div class="uc-row"><div class="k">hermes plugins list / install</div><div class="v"><span class="uc-badge b-cli">CLI</span> Ver, instalar y quitar plugins.</div></div>
+              <div class="uc-row"><div class="k">MCP: desde el catálogo</div><div class="v"><span class="uc-badge b-desk">Desktop</span> Instalación de un clic de los MCP aprobados. También puedes pedirlo hablando: <i>«añade el MCP de Linear»</i>.</div></div>
+              <div class="uc-row"><div class="k">hermes mcp add &lt;nombre&gt;</div><div class="v"><span class="uc-badge b-cli">CLI</span> Añadir un servidor MCP por comando o por URL.</div></div>
+              <div class="uc-row"><div class="k">hermes mcp list / test</div><div class="v">Ver los conectados y <b>probar la conexión</b> antes de confiar en ella.</div></div>
+              <div class="uc-row"><div class="k">hermes mcp configure &lt;nombre&gt;</div><div class="v">Elegir cuáles de sus herramientas ve tu agente. Úsalo: menos herramientas, menos ruido y menos costo.</div></div>
+              <div class="uc-row"><div class="k">/reload-mcp</div><div class="v"><span class="uc-badge b-desk">Desktop</span> Recargar los servidores sin reiniciar toda la sesión.</div></div>
+            </div>
+          </div>
+
+          <div class="uc-card c1">
+            <h3><span class="uc-num">05</span>¿Cuándo son útiles?</h3>
+            <p class="uc-hint">Ejemplos concretos por caso.</p>
+            <div class="uc-table-wrap">
+              <table class="uc-table">
+                <tr><th class="w170">Si necesitas…</th><th class="w150">Elige</th><th>Ejemplo</th></tr>
+                <tr><td><b>Que tu agente revise y comente repositorios</b></td><td>MCP</td><td>Conectar el servidor de GitHub y que trabaje con issues, ramas y revisiones sin salir del chat.</td></tr>
+                <tr><td><b>Que lea y escriba en una base de datos</b></td><td>MCP</td><td>Un servidor de base de datos expone consultas seguras; tú decides qué herramientas ve Hermes.</td></tr>
+                <tr><td><b>Que hable con tu sistema interno</b></td><td>MCP</td><td>Tu API interna ya existe: la expones como MCP y reutilizas el trabajo hecho.</td></tr>
+                <tr><td><b>Una capacidad hecha a tu medida</b></td><td>Plugin</td><td>Una herramienta que consulta <i>tu</i> formato de datos con <i>tus</i> reglas y devuelve exactamente lo que necesitas.</td></tr>
+                <tr><td><b>Interceptar o auditar lo que hace el agente</b></td><td>Plugin</td><td>Un gancho que registra cada llamada de herramienta, o que bloquea una acción concreta.</td></tr>
+                <tr><td><b>Grupos de herramientas para un proyecto</b></td><td>Plugin</td><td>Empaquetar tres herramientas propias del proyecto y entregarlas juntas a tu equipo.</td></tr>
+              </table>
+            </div>
+          </div>
+
+          <div class="uc-card c5">
+            <h3><span class="uc-num">06</span>Buenas prácticas de seguridad y uso</h3>
+            <div class="uc-grid uc-grid-tight">
+              <div>
+                <ul class="uc-list">
+                  <li><b>Instalar es ejecutar.</b> Instalar un MCP corre lo que diga su manifiesto: descargas, instalaciones y finalmente el código del servidor. <b>Lee el manifiesto antes de instalar</b>, sobre todo el origen y los comandos de instalación.</li>
+                  <li><b>Ser un MCP aprobado no significa confiar a ciegas.</b> El catálogo está revisado, pero la revisión cubre que sea legítimo, no que tú necesites todo lo que ofrece.</li>
+                  <li><b>Abre solo lo que vas a usar.</b> Un MCP conectado con cuentas amplias es superficie de riesgo. Reconéctalo cuando lo necesites y ciérralo cuando no.</li>
+                </ul>
+              </div>
+              <div>
+                <ul class="uc-list">
+                  <li><b>Da el permiso mínimo.</b> Si el servidor solo necesita leer, no le des escritura. Si solo toca una carpeta, no le des toda la máquina.</li>
+                  <li><b>Credenciales en su lugar.</b> Las llaves de un MCP van en el archivo de variables, nunca dentro del manifiesto ni en el chat.</li>
+                  <li><b>Duda de lo que pide más de lo que necesita.</b> Un servidor que solicita permisos totales para una tarea pequeña es una bandera roja, aunque venga del catálogo.</li>
+                  <li><b>Prueba en pequeño primero.</b> Conéctalo contra una cuenta de prueba antes de apuntarlo a tus datos reales.</li>
+                </ul>
+              </div>
+            </div>
+            <div class="uc-note warn"><p class="lb">Nunca hagas esto</p><p>No conectes un MCP o plugin que no reconoces apuntando a tus cuentas principales, ni pegues las llaves de acceso de un servidor externo dentro del chat para «probarlo rápido». Si no puedes leer qué va a ejecutar antes de instalarlo, no lo instales.</p></div>
+          </div>
+
+          <p class="uc-foot-src"><b>Fuente:</b> documentación oficial de Hermes Agent sobre plugins y MCP (tipos de servidor, catálogo curado, modelo de confianza y filtrado por servidor). Comandos verificados contra las docs locales.</p>
+        </div>
+      </details>
+
+      <!-- ══ 04 MODELOS ══ -->
+      <details class="uc" id="modelos">
+        <summary>
+          <span class="s-ind" aria-hidden="true">+</span>
+          <h2>Modelos: cuál usar para cada trabajo
+            <span class="s-line">Líderes por dominio y alternativas económicas o abiertas, con benchmark y fecha.</span>
+          </h2>
+        </summary>
+        <div class="uc-body">
+          <p class="uc-intro">No existe «el mejor modelo». Existe el mejor modelo <b>para lo que vas a hacer</b>. Un modelo puede ganar en razonamiento y perder en costo, o brillar diseñando y ser inútil modelando piezas 3D. Aquí tienes los líderes por dominio y la alternativa económica u abierta de cada uno.</p>
+          <ul class="chips" aria-label="Datos de los modelos">
+            <li class="chip">5 dominios</li>
+            <li class="chip">Líderes + económicos/abiertos</li>
+            <li class="chip">Precios verificados 10-oct-2026</li>
+          </ul>
+
+          <div class="uc-card c1">
+            <h3><span class="uc-num">01</span>Cómo leer esto</h3>
+            <p class="uc-hint">Sin esto, la tabla engaña.</p>
+            <div class="uc-grid uc-grid-tight">
+              <div>
+                <ul class="uc-list">
+                  <li><b>No hay un ranking universal.</b> Cada leaderboard mide una cosa: preferencia humana en el chat, resolución de issues de software, preferencia de imágenes. Un puntaje alto en uno <b>no</b> significa alto en otro.</li>
+                  <li><b>El puntaje no es del modelo, es del sistema.</b> En tareas de agente, el resultado depende del modelo <i>más</i> las herramientas, la memoria y el bucle de ejecución. Cambiar el arnés cambia el número.</li>
+                  <li><b>Los precios cambian y varían por proveedor.</b> Son por millón de tokens, entrada/salida, y a menudo hay descuentos.</li>
+                </ul>
+              </div>
+              <div>
+                <div class="uc-note"><p class="lb">Compromiso de honestidad de este material</p><p>Todo puntaje de aquí lleva <b>benchmark y fecha</b>. Donde <b>no existe una medición pública comparable</b>, lo decimos en lugar de inventar una cifra. El modelado 3D es exactamente ese caso, y lo verás señalado.</p></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="uc-card c2">
+            <h3><span class="uc-num">02</span>Razonamiento</h3>
+            <p class="uc-hint">Análisis, matemáticas, decisión, investigación.</p>
+            <div class="uc-table-wrap">
+              <table class="uc-table">
+                <tr><th class="w210">Recomendación</th><th class="w300">Dato verificado</th><th>Por qué</th></tr>
+                <tr><td><b>Claude Opus 5.5</b><br><span class="ficha">Anthropic · $4 / $20 · 1M contexto</span></td><td><b>1505±3</b> en Text Arena, 2026-10-02 (77,636 votos)</td><td>La evidencia más completa del corte: puntaje alto con muchos votos y ficha de precio y contexto confirmadas.</td></tr>
+                <tr><td><b>Alternativa económica y abierta: Kimi K3</b><br><span class="ficha">Moonshot · $0.31 / $14.89 · 1M contexto</span></td><td><b>1488</b> en Text Arena, 2026-10-08</td><td>Queda a 17 puntos del líder costando <b>una fracción</b> en entrada. Es la mejor relación calidad/costo del eje.</td></tr>
+              </table>
+            </div>
+            <div class="uc-note"><p class="lb">Ojo con la trampa</p><p>Arena mide <b>preferencia humana en conversación abierta</b>, no razonamiento formal. Para matemáticas o lógica dura, mide con tus propios problemas antes de confiar en la tabla.</p></div>
+          </div>
+
+          <div class="uc-card c3">
+            <h3><span class="uc-num">03</span>Código</h3>
+            <p class="uc-hint">Implementación, refactor, depuración, agentes de software.</p>
+            <div class="uc-table-wrap">
+              <table class="uc-table">
+                <tr><th class="w210">Recomendación</th><th class="w300">Dato verificado</th><th>Por qué</th></tr>
+                <tr><td><b>Claude Opus 5.5</b><br><span class="ficha">Anthropic · $4 / $20 · 1M contexto</span></td><td>Ficha de precio y contexto <b>confirmadas</b>; <b>sin cifra de SWE-bench verificable</b> en este corte</td><td>Primera candidata a probar, pero <b>no la declares ganadora por el ranking de chat</b>: en código manda SWE-bench con arnés fijo.</td></tr>
+                <tr><td><b>Alternativa económica y abierta: Kimi K2 / Qwen3.8 27B</b><br><span class="ficha">$0.49 / $2.50 · 262K &nbsp;|&nbsp; $0.04 / $1.35 · 1M</span></td><td>Fichas de precio/contexto <b>confirmadas</b>; <b>sin puntaje de SWE-bench verificable</b></td><td>Las opciones de <b>control y costo</b>. Qwen3.8 27B es de las más baratas del mercado con 1M de contexto.</td></tr>
+              </table>
+            </div>
+            <div class="uc-note warn"><p class="lb">El dato que casi nunca te dicen</p><p><b>SWE-bench no es una propiedad del modelo.</b> El mismo modelo cambia de puntaje según el agente, las herramientas y cuántos intentos le des. Si vas a elegir para tu equipo, corre <b>tu</b> prueba sobre <b>tu</b> repositorio.</p></div>
+          </div>
+
+          <div class="uc-card c4">
+            <h3><span class="uc-num">04</span>Diseño</h3>
+            <p class="uc-hint">Imagen, UI/UX, dirección de arte.</p>
+            <div class="uc-table-wrap">
+              <table class="uc-table">
+                <tr><th class="w210">Recomendación</th><th class="w300">Dato verificado</th><th>Por qué</th></tr>
+                <tr><td><b>GPT Image 2.5 Sunburst</b><br><span class="ficha">OpenAI · ~$0.21 por imagen</span></td><td><b>1198±9 Elo</b> en AA-Image-T2I v2.0, 2026-10 (14,432 comparaciones)</td><td>Este eje <b>sí tiene medición directa y fuerte</b>: comparaciones humanas a ciegas sobre miles de casos. Lidera con holgura.</td></tr>
+                <tr><td><b>Alternativa económica y abierta: Qwen-Image-3.0 / Muse Image</b><br><span class="ficha">~$0.03 – $0.01 por imagen</span></td><td>Qwen-Image-3.0: <b>1075±9 Elo</b>. Muse Image (Meta): <b>1115±9 Elo</b></td><td>Muse Image queda 83 puntos abajo costando <b>veinte veces menos</b> que el líder. Para volumen, es la decisión obvia.</td></tr>
+              </table>
+            </div>
+            <div class="uc-note"><p class="lb">Lo que este puntaje NO mide</p><p>No mide criterio de diseño, consistencia de marca, ni edición con capas. Que un modelo genere la imagen más <i>preferida</i> no significa que sepa <b>diseñar</b>. El gusto sigue siendo tuyo.</p></div>
+          </div>
+
+          <div class="uc-card c5">
+            <h3><span class="uc-num">05</span>Modelado 3D</h3>
+            <p class="uc-hint">CAD, mallas, impresión 3D, geometría programática.</p>
+            <div class="uc-note warn flush"><p class="lb">Este eje no tiene ganador verificable — y es importante decirlo</p><p><b>No existe un benchmark público comparable</b> que mida a la vez geometría válida, mallas cerradas, tolerancias de CAD, exportación a STL/STEP, éxito de rebanado e iteración. Ordenar modelos aquí con puntajes de chat o de imágenes 2D sería <b>inventar</b>.</p></div>
+            <div class="uc-table-wrap">
+              <table class="uc-table">
+                <tr><th class="w210">Candidatos para probar</th><th>Qué se sabe de cierto</th></tr>
+                <tr><td><b>Kimi K3</b> · y <b>Qwen3.8 27B</b></td><td>Fichas de precio y contexto confirmadas; sirven como punto de partida <b>económico</b> para un piloto. <span class="uc-badge b-cost">Candidato</span></td></tr>
+                <tr><td><b>Claude Opus 5.5</b> · y <b>GPT-5.6 Sol</b></td><td>Fichas confirmadas; sin evidencia específica de CAD. <span class="uc-badge b-cost">Candidato</span></td></tr>
+              </table>
+            </div>
+            <div class="uc-note ok"><p class="lb">Cómo decidir de verdad</p><p>Arma <b>tu</b> prueba: cinco piezas con el mismo prompt, y mide validez geométrica, errores de malla, tolerancia y si el archivo <b>realmente se puede imprimir</b>. Eso vale más que cualquier tabla.</p></div>
+          </div>
+
+          <div class="uc-card c1">
+            <h3><span class="uc-num">06</span>Orquestación</h3>
+            <p class="uc-hint">Agentes multi-turno, uso de herramientas, delegación.</p>
+            <div class="uc-table-wrap">
+              <table class="uc-table">
+                <tr><th class="w210">Recomendación</th><th class="w300">Dato verificado</th><th>Por qué</th></tr>
+                <tr><td><b>Claude Opus 5.5</b><br><span class="ficha">1M de contexto · $4 / $20</span></td><td>Contexto y precio <b>confirmados</b>; la ficha lo posiciona para trabajo de horizonte largo <span class="uc-badge b-cost">afirmación del proveedor</span></td><td>El contexto de 1M es un hecho medible y, en orquestación, suele pesar más que el banco de pruebas de chat.</td></tr>
+                <tr><td><b>Alternativa económica y abierta: Kimi K3 / Qwen3.8 27B</b></td><td>1M de contexto <b>confirmado</b> en ambos; precios de $0.31/$14.89 y $0.04/$1.35</td><td>Contexto largo a costo bajo: lo que necesitas para experimentar con agentes sin quemar presupuesto.</td></tr>
+              </table>
+            </div>
+            <div class="uc-note"><p class="lb">La verdad incómoda</p><p><b>Orquestar es propiedad del sistema, no del modelo.</b> Herramientas, memoria, reintentos y permisos mandan tanto como el LLM. Elige el modelo y luego <b>mide tu bucle completo</b>, no el modelo aislado.</p></div>
+          </div>
+
+          <div class="uc-card c2">
+            <h3><span class="uc-num">07</span>Precios de los económicos y abiertos</h3>
+            <p class="uc-hint">USD por millón de tokens · verificado en vivo el 10-oct-2026.</p>
+            <div class="uc-table-wrap">
+              <table class="uc-table">
+                <tr><th class="w230">Modelo</th><th class="w120">Entrada</th><th class="w120">Salida</th><th class="w130">Contexto</th><th>Nota</th></tr>
+                <tr><td><b>Qwen3.8 27B</b> <span class="uc-badge b-free">abierto</span></td><td>$0.04</td><td>$1.35</td><td>1M</td><td>El más barato de la tabla. Imbatible para volumen y pruebas.</td></tr>
+                <tr><td><b>DeepSeek V4 Pro</b></td><td>$0.199</td><td>$4.20</td><td>—</td><td>Precio de entrada muy agresivo; salida más cara.</td></tr>
+                <tr><td><b>Kimi K3</b> <span class="uc-badge b-free">abierto</span></td><td>$0.31</td><td>$14.89</td><td>1M</td><td>Casi al nivel del líder en razonamiento. Salida premium.</td></tr>
+                <tr><td><b>Kimi K2</b> <span class="uc-badge b-free">abierto</span></td><td>$0.49</td><td>$2.50</td><td>262K</td><td>Salida baratísima; contexto menor. Buen caballo de batalla.</td></tr>
+                <tr><td><b>GLM 5.1</b> <span class="uc-badge b-free">abierto</span></td><td>$0.97</td><td>$3.04</td><td>—</td><td>Entrada y salida equilibradas para trabajo sostenido.</td></tr>
+                <tr><td><b>Qwen3.8 Max</b></td><td>$2.00</td><td>$6.00</td><td>1M</td><td>Versión de pago de la familia: más capacidad, aún barato frente a frontera.</td></tr>
+              </table>
+            </div>
+            <div class="uc-note ok"><p class="lb">Lo que significa en la práctica</p><p>La diferencia entre un modelo frontera y un abierto económico puede ser de <b>diez a cincuenta veces</b> el costo por el mismo trabajo. Para tareas rutinarias —resumir, clasificar, extraer, redactar borradores— el económico casi siempre gana. Reserva el caro para lo que de verdad requiere cabeza.</p></div>
+          </div>
+
+          <div class="uc-card c3">
+            <h3><span class="uc-num">08</span>Cómo elegir en la práctica</h3>
+            <p class="uc-hint">Cuatro reglas que te ahorran dinero y disgustos.</p>
+            <div class="uc-table-wrap">
+              <table class="uc-table">
+                <tr><th class="w230">Situación</th><th>Qué hacer</th></tr>
+                <tr><td><b>Trabajo rutinario y repetitivo</b></td><td>Modelo económico. Resumir, clasificar, extraer, borradores. Nunca justifiques un modelo caro aquí.</td></tr>
+                <tr><td><b>Una tarea difícil y puntual</b></td><td>Ahí sí el líder del dominio. Es donde el costo extra se paga solo.</td></tr>
+                <tr><td><b>Tarea de agente larga</b></td><td>Prioriza <b>contexto grande</b> y buena disposición a herramientas, no el puntaje del chat.</td></tr>
+                <tr><td><b>Cualquier decisión importante</b></td><td><b>Prueba tú mismo.</b> Un ranking es una pista, no un veredicto. Tu caso manda.</td></tr>
+              </table>
+            </div>
+            <div class="uc-note"><p class="lb">Lo más valioso de esta guía</p><p>No es la lista de nombres: es el hábito de preguntar <b>«¿con qué benchmark se midió esto, de cuándo es, y aplica a mi caso?»</b>. La mayoría de las malas decisiones con IA nacen de creer un ranking sin hacer esa pregunta.</p></div>
+          </div>
+
+          <p class="uc-foot-src"><b>Fuentes:</b> Text Arena (2026-10-02/08) · AA-Image-T2I v2.0 (2026-10) · SWE-bench oficial · fichas y precios de OpenRouter <b>verificados en vivo el 2026-10-10</b>. Los puntajes llevan benchmark y fecha; lo no verificable se marcó como tal en lugar de estimarse. Los rankings cambian: revalidar antes de decidir.</p>
+        </div>
+      </details>
+
+      <!-- ══ 05 SISTEMA DE MEMORIA (OBSIDIAN) ══ -->
+      <details class="uc" id="memoria">
+        <summary>
+          <span class="s-ind" aria-hidden="true">+</span>
+          <h2>Sistema de memoria: tu agente recuerda, tú decides
+            <span class="s-line">Una bóveda Obsidian conectada a tu Hermes, con reglas de quién escribe qué y un flujo diario de captura.</span>
+          </h2>
+        </summary>
+        <div class="uc-body">
+          <p class="uc-intro"><b>Qué construyes en este bloque:</b> una <b>bóveda Obsidian</b> conectada a tu Hermes, con reglas de quién escribe qué, un flujo de captura durante el día y un trabajo programado que la mantiene ordenada. Sales con tu agente recordando entre sesiones, no solo dentro de una conversación.</p>
+
+          <div class="uc-card c1">
+            <h3><span class="uc-num">01</span>El problema, dicho sin adornos</h3>
+            <p class="uc-lead">Tienes un agente capaz que <b>no recuerda lo que no le dijiste</b>.</p>
+            <p>Cada sesión empieza desde cero: <i>«¿de qué proyecto me hablaban? ¿cuál era el siguiente paso?»</i>. Tú vuelves a explicar. Él vuelve a preguntar. Las decisiones del martes no existen el jueves, y la idea que se te ocurrió en el camino se quedó en una nota suelta.</p>
+            <p>Hermes sí tiene memoria, pero es <b>corta a propósito</b>: está pensada para hechos pequeños y permanentes, no para el cuerpo de conocimiento de tu vida y tus proyectos. Por eso el sistema completo son tres capas, y solo la última es ilimitada.</p>
+          </div>
+
+          <div class="uc-card c2">
+            <h3><span class="uc-num">02</span>Las tres capas de memoria</h3>
+            <div class="uc-table-wrap">
+              <table class="uc-table">
+                <tr><th class="w190">Capa</th><th>Qué es</th><th class="w130">Tamaño</th><th class="w170">Quién la escribe</th></tr>
+                <tr><td><b>Memoria del agente</b> (MEMORY.md)</td><td>Notas propias de tu Hermes: cómo está armada tu máquina, convenciones, cosas que aprendió</td><td>~2.200 caracteres</td><td>Tu agente, solo</td></tr>
+                <tr><td><b>Perfil del usuario</b> (USER.md)</td><td>Quién eres, cómo trabajas, qué esperas. Se inyecta en cada sesión</td><td>~1.375 caracteres</td><td>Tu agente, a partir de lo que le dices</td></tr>
+                <tr><td><b>Bóveda de Obsidian</b></td><td>Tu conocimiento real: proyectos, decisiones, aprendizajes, ideas</td><td><b>Sin límite</b></td><td>Tú y tu agente, en zonas separadas</td></tr>
+              </table>
+            </div>
+            <p><b>La regla que lo hace funcionar:</b> las dos primeras son <b>cachés</b>, no archivos. Están dentro del prompt en cada llamada, así que cada carácter cuesta dinero en <b>todas</b> las conversaciones. Por eso son pequeñas y guardan solo lo que aplica siempre. Todo lo demás vive en la bóveda, que el agente lee <b>solo cuando lo necesita</b>.</p>
+            <div class="uc-note warn"><p class="lb">No confundas memoria con bóveda</p><p>Si metes el estado de tus proyectos en la memoria del agente, gastarás tokens en cada mensaje y acabarás sin espacio. La memoria guarda <b>cómo trabajar contigo</b>; la bóveda guarda <b>el trabajo</b>.</p></div>
+            <div class="uc-note ok"><p class="lb">Por qué esto importa para tu bolsillo</p><p>La memoria se paga en cada turno. La bóveda se lee bajo demanda, con el mismo principio que las skills: tu agente abre solo el archivo que la tarea necesita. Un sistema bien armado <b>ahorra dinero</b> además de darle memoria a tu agente.</p></div>
+          </div>
+
+          <div class="uc-grid">
+            <div class="uc-card c3">
+              <h3><span class="uc-num">03</span>Instala Obsidian</h3>
+              <ol class="uc-list">
+                <li>Descarga Obsidian desde <b>obsidian.md</b> y ejecútalo.</li>
+                <li>Elige <b>Crear bóveda nueva</b> y dale un nombre claro, por ejemplo <b>Mi Segundo Cerebro</b>.</li>
+                <li>Déjala en una ruta que sepas encontrar y, sobre todo, que esté dentro de tu respaldo. Un sistema de memoria sin respaldo se puede perder completo.</li>
+              </ol>
+              <div class="uc-note"><p class="lb">Sin plugins no pasa nada</p><p>Obsidian funciona perfecto en su modo normal. Los plugins son opcionales; algunos ayudan, pero no son requisito del sistema. Empieza simple.</p></div>
+            </div>
+            <div class="uc-card c4">
+              <h3><span class="uc-num">04</span>Conecta Hermes a tu bóveda</h3>
+              <p>Dos pasos: decirle <b>dónde</b> está tu bóveda, y darle <b>cómo</b> trabajar con ella.</p>
+              <p><b>Paso 1 — Decirle dónde.</b> Tu agente necesita la ruta absoluta de la bóveda. Guárdala en el archivo de variables de tu perfil de Hermes:</p>
+              <div class="uc-code"><code>OBSIDIAN_VAULT_PATH=/home/tu-usuario/Documents/Mi Segundo Cerebro</code></div>
+              <p>Si no la defines, Hermes buscará en <b>~/Documents/Obsidian Vault</b> por defecto. Definirla evita confusiones.</p>
+              <p><b>Paso 2 — Darle el manual.</b> La skill de Obsidian le enseña a tu agente a leer, buscar, crear y editar notas de forma correcta: usar las herramientas de archivo en vez de comandos frágiles, respetar rutas con espacios y crear enlaces entre notas. Pídele con naturalidad: <i>«guarda esto en mi bóveda de Obsidian»</i>. Él sabe cómo.</p>
+              <p><b>Paso 3 — Las reglas del juego.</b> Escribe en tu bóveda un archivo de reglas que tu agente debe seguir <b>antes</b> de responder o escribir: leer el estado del proyecto antes de afirmar, decir «no lo sé» en vez de inventar, nunca sobrescribir sin leer, respetar la zona de cada quien.</p>
+            </div>
+          </div>
+
+          <div class="uc-card c1">
+            <h3><span class="uc-num">05</span>La estructura de tu bóveda</h3>
+            <p>Tres zonas, y la pregunta que decide dónde va cada cosa:</p>
+            <div class="uc-code"><code>Mi Segundo Cerebro/
+├── Raw/          ← ideas sueltas, sin clasificar todavía
+├── Proyectos/    ← documentación de trabajo activo
+│   └── Nombre-del-Proyecto/
+│       ├── proyecto.md      ← estado, decisiones, próximo paso
+│       ├── decisiones.md    ← qué se decidió y por qué
+│       ├── aprendizajes.md  ← lo que salió bien y lo que no
+│       └── referencias.md   ← enlaces a notas relacionadas
+├── Wiki/         ← conocimiento que cruza proyectos
+│   ├── indice-general.md    ← el mapa de toda la bóveda
+│   ├── personas.md          ← contactos y su contexto
+│   ├── temas.md             ← temas transversales
+│   └── bitacora.md          ← registro cronológico de avances
+├── identity.md       ← quién eres, cómo trabajas
+├── projects.md       ← proyectos activos y su estado
+├── tasks.md          ← pendientes, prioridad, fecha límite
+└── context-rules.md  ← las reglas que tu agente sigue antes de responder</code></div>
+            <p><b>La regla de colocación:</b> ¿idea suelta y no sabes de qué proyecto es? → <b>Raw</b>. ¿Documentación de un proyecto en el que ya trabajas? → <b>Proyectos/[nombre]/</b>. ¿Un aprendizaje que conecta varios proyectos? → <b>Wiki/temas.md</b>.</p>
+            <div class="uc-table-wrap">
+              <table class="uc-table">
+                <tr><th class="colhead">Tú escribes</th><th class="colhead">Tu agente escribe</th></tr>
+                <tr><td><b>Raw/</b> (tus ideas en crudo)</td><td><b>Proyectos/</b> (documenta lo que hace)</td></tr>
+                <tr><td><b>identity.md</b> (quién eres)</td><td><b>Wiki/</b> (índice y referencias cruzadas)</td></tr>
+                <tr><td>Cualquier corrección a mano</td><td><b>projects.md</b>, <b>tasks.md</b>, <b>bitacora.md</b></td></tr>
+              </table>
+            </div>
+            <p><b>Un solo escritor por archivo.</b> Si los dos escriben el mismo documento, se pisan y ninguno confía en lo que lee. Tú eres dueño de la intención; tu agente es dueño del mantenimiento.</p>
+            <div class="uc-note ok"><p class="lb">Por qué esta separación te salva</p><p>Cuando tu agente escribe en <b>Proyectos/</b> y <b>Wiki/</b>, tu zona <b>Raw/</b> y tu <b>identity.md</b> quedan intactos. Puedes decirle <i>«documenta esto»</i> sin miedo a que reescriba tus notas personales. La frontera es lo que hace confiable delegarle.</p></div>
+          </div>
+
+          <div class="uc-grid">
+            <div class="uc-card c2">
+              <h3><span class="uc-num">06</span>El flujo diario: captura sin fricción</h3>
+              <p>Durante el día no organizas. <b>Capturas.</b> Le hablas a tu agente con lenguaje normal y él coloca cada cosa:</p>
+              <div class="uc-rows">
+                <div class="uc-row"><div class="k">«Guarda esta idea: …»</div><div class="v">La deja en <b>Raw/</b>, porque es una idea sin proyecto todavía.</div></div>
+                <div class="uc-row"><div class="k">«Anota que decidimos…»</div><div class="v">Lo escribe en <b>Proyectos/[el que corresponda]/decisiones.md</b>.</div></div>
+                <div class="uc-row"><div class="k">«¿Cómo va el proyecto X?»</div><div class="v">Lee <b>proyecto.md</b> y te responde con el estado real.</div></div>
+                <div class="uc-row"><div class="k">«¿Qué avancé esta semana?»</div><div class="v">Recorre <b>bitacora.md</b> y te resume.</div></div>
+              </div>
+              <p>La fricción es lo que mata los sistemas de notas. Si organizar cuesta trabajo, dejas de capturar. Por eso capturas en crudo y <b>el agente ordena</b>.</p>
+            </div>
+            <div class="uc-card c3">
+              <h3><span class="uc-num">07</span>El mantenimiento: que se ordene solo</h3>
+              <p>Un <b>cron job</b> revisa tu bóveda en horario muerto y la deja ordenada: convierte las notas sueltas de <b>Raw/</b> en conocimiento conectado, actualiza el índice de <b>Wiki/</b>, y te deja un resumen corto de lo que cambió mientras dormías.</p>
+              <div class="uc-prompt"><p><i>«Todas las noches a las 22:00, revisa mi bóveda de Obsidian: pasa las notas de Raw/ que ya tengan proyecto a su carpeta, actualiza el índice de Wiki/, y déjame un resumen de cinco líneas de lo que cambió.»</i></p></div>
+              <p>Y si quieres que <b>no te cueste todos los días</b>, aplica lo de la guía de cron jobs: haz que el trabajo primero revise si de verdad hay algo nuevo y <b>solo despierte al agente cuando haya algo que ordenar</b>. Día sin notas nuevas, noche sin costo.</p>
+              <div class="uc-note"><p class="lb">El resumen matutino</p><p>Pide también un job corto por la mañana que te entregue ese resumen donde lo vayas a leer. En cinco líneas sabes qué cambió en tus proyectos mientras no estabas mirando.</p></div>
+            </div>
+          </div>
+
+          <div class="uc-card c4">
+            <h3><span class="uc-num">08</span>Pídeselo a tu agente: el asistente de configuración</h3>
+            <p>No tienes que armar todo esto a mano. Copia este mensaje y mándaselo a tu Hermes. Él te va preguntando con palabras simples y configura el sistema contigo:</p>
+            <div class="uc-prompt"><p><b>Pásame por estas etapas, una a la vez:</b> 1) encontrar o crear mi bóveda de Obsidian y decirte su ruta, asegurándote de que quede dentro de mi respaldo; 2) crear la estructura: las carpetas Raw/, Proyectos/ y Wiki/, y los archivos identity.md, projects.md, tasks.md y context-rules.md; 3) configurar la ruta de mi bóveda para que siempre la encuentres; 4) preguntarme por mis proyectos activos y escribir el primero en Proyectos/, para probar el flujo completo; 5) dejarme listo el trabajo nocturno que ordena mi bóveda, con la compuerta para que solo te despierte si de verdad hay algo nuevo; 6) enseñarme a capturar: tres frases que puedo usar todos los días. La regla de oro: yo no programo, tú lo haces pidiéndome confirmación. Al final, muéstrame qué archivos creaste y hazme una prueba real: te doy una idea suelta y tú la colocas donde corresponde.</p></div>
+            <p><b>Lo que verás al terminar:</b> una carpeta con tu conocimiento, un agente que la conoce, y la costumbre de capturar sin esfuerzo.</p>
+          </div>
+
+          <div class="uc-grid">
+            <div class="uc-card c5">
+              <h3><span class="uc-num">09</span>Advertencias honestas</h3>
+              <div class="uc-note warn"><p class="lb">Lo que este sistema NO hace</p>
+              <p>■ <b>No lee tu mente.</b> Si no capturas, no hay nada que ordenar. El sistema reduce la fricción; no la elimina.</p>
+              <p>■ <b>No sustituye tu criterio.</b> Tu agente mantiene el orden y el índice, pero las decisiones y la intención siguen siendo tuyas.</p>
+              <p>■ <b>No rinde de un día para otro.</b> El valor aparece a las semanas, cuando tu agente empieza a responder con contexto que tú ya habías olvidado.</p></div>
+            </div>
+            <div class="uc-card c5">
+              <p class="lb">Nunca hagas esto — parte 2</p>
+              <p>■ <b>No metas contraseñas, llaves ni datos sensibles en la bóveda.</b> Es texto plano y tu agente la lee. Los secretos van en el archivo de variables, nunca en una nota.</p>
+              <p>■ <b>No dejes dos agentes escribiendo la misma bóveda.</b> Se pisan los unos a los otros y acabas con un archivo que nadie reconoce.</p>
+              <p>■ <b>No omitas el respaldo.</b> Una bóveda dentro de tu respaldo es conocimiento; fuera de él, es algo que puedes perder para siempre.</p></div>
+            </div>
+          </div>
+
+          <div class="uc-card c1">
+            <h3><span class="uc-num">10</span>Para recordar</h3>
+            <ul class="uc-list">
+              <li><b>La memoria del agente es caché; la bóveda es archivo.</b> Lo permanente y pequeño en la memoria; el trabajo real en la bóveda.</li>
+              <li><b>Captura sin fricción, ordena en automático.</b> Tú sueltas las ideas; tu agente las coloca.</li>
+              <li><b>Una zona por dueño.</b> Tú escribes la intención; tu agente, el mantenimiento. Nunca el mismo archivo.</li>
+              <li><b>Que ordene solo, y que casi no cueste.</b> El trabajo nocturno con compuerta mantiene tu bóveda viva sin gastar de más.</li>
+            </ul>
+          </div>
+
+          <p class="uc-foot-src"><b>Fuente:</b> material del taller 2 del Club SolarPunk Mx, verificado contra la documentación oficial de Hermes Agent (memoria por perfil, skill de Obsidian y compuertas de cron).</p>
+        </div>
+      </details>
+
+    </section>
+
+    <section class="uc-close">
+      <div class="wrap">
+        <p><a class="uc-back" href="/solarpunk/talleres/"><span aria-hidden="true">←</span> Volver al índice de talleres</a></p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site">
+    <div class="wrap cols">
+      <div>
+        <h3>Club SolarPunk Mx</h3>
+        <p>Club híbrido para convertir ideas en proyectos reales con IA profesional, acompañamiento y comunidad.</p>
+        <p><a href="/solarpunk/">Volver al inicio</a></p>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
