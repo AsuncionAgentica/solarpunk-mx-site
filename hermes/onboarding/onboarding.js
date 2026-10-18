@@ -191,15 +191,15 @@ function mostrarDespedida(){
         2. Entra a la carpeta y abre el archivo <b>LEEME</b>: ahí están los pasos
            para <b>Windows</b> y para <b>Mac</b>, con todo y qué hacer en cada clic.<br>
         3. Al terminar el LEEME, tu agente quedará abierto en tu navegador.
-        <div class="ayuda" style="margin-top:8px">
+        <div class="ayuda mt-8">
           Windows: doble clic en <code>instalar-docker.bat</code> ·
           Mac: doble clic en <code>instalar-docker.command</code>
         </div>
       </div>
-      <div class="row" style="margin-top:12px">
+      <div class="row mt-12">
         <a class="btnlink" href="${p.url}" download>⬇ ${esc(p.etiqueta)}</a>
       </div>
-      <div class="note warn" style="margin-top:12px">
+      <div class="note warn mt-12">
         <b>Y al terminar:</b> continúa con la configuración de tus agentes
         siguiendo el <b>material del curso</b>. Ahí verás cómo crear tu primer agente,
         darle su personalidad y conectarlo con tus herramientas.
@@ -212,10 +212,10 @@ function mostrarDespedida(){
         paso a paso (<b>EMPIEZA-AQUI</b>) y el script que conecta tu computadora
         con tu servidor de forma segura. Empieza por el archivo <b>EMPIEZA-AQUI</b>.
       </div>
-      <div class="row" style="margin-top:12px">
+      <div class="row mt-12">
         <a class="btnlink" href="${p.url}" download>⬇ Windows</a>
         <a class="btnlink" href="${p.mac}" download
-           style="background:transparent;color:var(--acid);border-color:var(--acid)">⬇ Mac</a>
+           class="pill-ghost">⬇ Mac</a>
       </div>`;
   } else {
     box.style.display = 'none';
@@ -379,7 +379,7 @@ function enviar(){
     codigo: estado.codigo||'',
     respuestas: resp
   };
-  const btn = document.querySelector('button.primary[onclick="enviar()"]');
+  const btn = document.querySelector('[data-spx-click="enviar()"], [data-spx-click="enviar"]');
   if(btn){ btn.disabled=true; btn.textContent='Enviando…'; }
   const terminar=(ok)=>{
     const o=document.getElementById('ok'); o.style.display='block';
@@ -484,12 +484,39 @@ function pasoValido(p){
 
 
 /* ── Cableado de eventos para CSP estricta ──
-   El sitio publica script-src 'self', así que no se permiten onclick=""
-   inline. Cada botón trae data-spx-click con la llamada completa —incluidos
-   sus argumentos, "go(1)" o "enviar()"— y aquí se ejecuta contra el scope
-   global. Se acepta con y sin paréntesis por si el HTML viene de una
-   versión anterior. */
+   El sitio publica script-src 'self' sin 'unsafe-eval', así que ni onclick=""
+   inline ni new Function() están permitidos: el navegador los bloquea y los
+   botones quedan muertos. Aquí se mapea cada acción a la función real, sin
+   evaluar cadenas. */
 (function(){
+  var ACCIONES = {
+    'go':               function(v){ go(v); },
+    'go(1)':            function(){ go(1); },
+    'go(2)':            function(){ go(2); },
+    'enviar':           function(){ enviar(); },
+    'enviar()':         function(){ enviar(); },
+    'elegirConfig':     function(){ elegirConfig(); },
+    'elegirConfig()':   function(){ elegirConfig(); },
+    'limpiarTodo':      function(){ limpiarTodo(); },
+    'limpiarTodo()':    function(){ limpiarTodo(); },
+    'volverDesdeCierre':  function(){ volverDesdeCierre(); },
+    'volverDesdeCierre()':function(){ volverDesdeCierre(); },
+    'validarClave':     function(){ validarClave(); },
+    'validarClave()':   function(){ validarClave(); }
+  };
+
+  function accionDe(valor){
+    if(!valor) return null;
+    if(ACCIONES[valor]) return ACCIONES[valor];
+    var m = /^([a-zA-Z_$][\w$]*)\s*\(\s*(\d+)?\s*\)$/.exec(valor);
+    if(m && typeof window[m[1]] === 'function'){
+      var n = m[2] === undefined ? undefined : Number(m[2]);
+      return function(){ window[m[1]](n); };
+    }
+    if(typeof window[valor] === 'function') return window[valor];
+    return null;
+  }
+
   var EVENTOS = {
     'data-spx-click':  'click',
     'data-spx-input':  'input',
@@ -498,16 +525,12 @@ function pasoValido(p){
   Object.keys(EVENTOS).forEach(function(atributo){
     var tipo = EVENTOS[atributo];
     document.querySelectorAll('[' + atributo + ']').forEach(function(el){
-      var llamada = el.getAttribute(atributo);
-      if (!llamada) return;
-      var cuerpo = /[()]/.test(llamada) ? llamada : llamada + '()';
-      el.addEventListener(tipo, function(ev){
-        try {
-          new Function('event', cuerpo).call(el, ev);
-        } catch (err) {
-          console.error('[onboarding] "' + cuerpo + '":', err);
-        }
-      });
+      var fn = accionDe(el.getAttribute(atributo));
+      if(!fn){
+        console.error('[onboarding] acción desconocida:', el.getAttribute(atributo));
+        return;
+      }
+      el.addEventListener(tipo, function(ev){ fn.call(el, ev); });
     });
   });
 })();

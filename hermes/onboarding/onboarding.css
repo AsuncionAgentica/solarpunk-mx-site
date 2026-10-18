@@ -108,3 +108,13 @@
 .spx-inl-3{margin:0}
 .spx-inl-4{margin:10px 0 0}
 .spx-inl-5{margin:8px 0 0;padding-left:20px}
+
+/* Utilidades: sustituyen los style="" que generaba el JS, prohibidos por
+   style-src 'self'. Misma apariencia, sin atributo inline. */
+.mt-8  { margin-top: 8px; }
+.mt-12 { margin-top: 12px; }
+.pill-ghost {
+  background: transparent;
+  color: var(--acid);
+  border-color: var(--acid);
+}
