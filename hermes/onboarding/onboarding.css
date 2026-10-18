@@ -101,7 +101,7 @@
     border-top:1px solid var(--line);min-height:0}}
 
 
-/* estilos inline migrados para cumplir CSP */
+/* estilos inline migrados para CSP */
 .spx-inl-0{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
 .spx-inl-1{display:none}
 .spx-inl-2{font-size:12.5px;padding:6px 11px}

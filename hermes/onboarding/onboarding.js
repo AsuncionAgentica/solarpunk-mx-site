@@ -483,17 +483,30 @@ function pasoValido(p){
 }
 
 
-/* Cableado de eventos: la CSP del sitio prohíbe handlers inline (onclick).
-   Los botones traen data-spx-click / data-spx-input y se enlazan aquí. */
-(function cablearEventos(){
-  const mapa = { 'data-spx-click':'click', 'data-spx-input':'input' };
-  Object.keys(mapa).forEach(function(atributo){
-    const evento = mapa[atributo];
-    document.querySelectorAll('['+atributo+']').forEach(function(el){
-      const nombre = el.getAttribute(atributo);
-      el.addEventListener(evento, function(ev){
-        const fn = window[nombre];
-        if (typeof fn === 'function') { fn.call(el, ev); }
+/* ── Cableado de eventos para CSP estricta ──
+   El sitio publica script-src 'self', así que no se permiten onclick=""
+   inline. Cada botón trae data-spx-click con la llamada completa —incluidos
+   sus argumentos, "go(1)" o "enviar()"— y aquí se ejecuta contra el scope
+   global. Se acepta con y sin paréntesis por si el HTML viene de una
+   versión anterior. */
+(function(){
+  var EVENTOS = {
+    'data-spx-click':  'click',
+    'data-spx-input':  'input',
+    'data-spx-change': 'change'
+  };
+  Object.keys(EVENTOS).forEach(function(atributo){
+    var tipo = EVENTOS[atributo];
+    document.querySelectorAll('[' + atributo + ']').forEach(function(el){
+      var llamada = el.getAttribute(atributo);
+      if (!llamada) return;
+      var cuerpo = /[()]/.test(llamada) ? llamada : llamada + '()';
+      el.addEventListener(tipo, function(ev){
+        try {
+          new Function('event', cuerpo).call(el, ev);
+        } catch (err) {
+          console.error('[onboarding] "' + cuerpo + '":', err);
+        }
       });
     });
   });
