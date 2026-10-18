@@ -471,124 +471,192 @@
       <div class="sec-head">
         <p class="kicker">Instala Hermes ahora</p>
         <h2>De cero a tu agente, paso a paso</h2>
-        <p class="lede">Sigue el orden. Toma entre 20 y 40 minutos y lo puedes hacer en cualquier computadora con terminal.</p>
+        <p class="lede">Son cinco bloques y en ese orden. Empieza eligiendo dónde va a vivir tu agente: de eso depende todo lo demás.</p>
       </div>
 
-      <!-- Paso 0: Nous Portal -->
-      <article class="card top-acid">
-        <h3>Paso 0. Tu cuenta gratuita en Nous Portal</h3>
-        <p>Crea tu cuenta en <a href="https://portal.nousresearch.com/r/solarpunk">portal.nousresearch.com/r/solarpunk</a>. La cuenta es gratis. Si decides suscribirte a sus modelos de IA, este enlace de invitación puede darte una promoción en tu primer mes; revisa las condiciones al crear la cuenta.</p>
-        <p class="micro">Nous Portal es la plataforma de Nous Research, la empresa que creo Hermes. Con una sola cuenta alcanzas más de 200 modelos y las herramientas integradas.</p>
-      </article>
+      <!-- ░░ BLOQUE 1 · DÓNDE INSTALAR ░░ -->
+      <h3 class="mt-xl">1. Elige dónde instalar</h3>
+      <p>La misma decisión cambia los pasos, lo que descargas y quién cuida la máquina. Elige una y despliega sus instrucciones.</p>
 
-      <!-- Paso 1: instalar segun OS -->
-      <h3 class="mt-xl">Paso 1. Instala Hermes en tu terminal</h3>
-      <p>Elige tu sistema operativo. El comando cambia, el resto es igual.</p>
       <div data-tabs>
-        <div class="tabs" role="tablist" aria-label="Sistema operativo">
-          <button role="tab" id="tab-mac" aria-controls="panel-mac" aria-selected="true">macOS</button>
-          <button role="tab" id="tab-linux" aria-controls="panel-linux" aria-selected="false">Linux</button>
-          <button role="tab" id="tab-win" aria-controls="panel-win" aria-selected="false">Windows</button>
+        <div class="tabs" role="tablist" aria-label="Dónde instalar Hermes">
+          <button role="tab" id="tab-ruta-local" aria-controls="panel-ruta-local" aria-selected="true">Local</button>
+          <button role="tab" id="tab-ruta-docker" aria-controls="panel-ruta-docker" aria-selected="false">Local con Docker</button>
+          <button role="tab" id="tab-ruta-vps-propio" aria-controls="panel-ruta-vps-propio" aria-selected="false">VPS de un tercero</button>
+          <button role="tab" id="tab-ruta-vps-curso" aria-controls="panel-ruta-vps-curso" aria-selected="false">VPS del curso</button>
         </div>
-        <div id="panel-mac" role="tabpanel" aria-labelledby="tab-mac">
-          <div class="code"><button class="copy" type="button">Copiar</button><code lang="en">curl -fsSL https://hermes-agent.nousresearch.com/install.sh | bash</code></div>
-          <div class="os-note"><b>macOS:</b> abre <b>Terminal</b> (Cmd + Espacio, escribe Terminal y Enter), pega el comando de arriba, Enter, y sigue las instrucciones en pantalla.</div>
+
+        <!-- RUTA · LOCAL directo -->
+        <div id="panel-ruta-local" role="tabpanel" aria-labelledby="tab-ruta-local">
+          <article class="card">
+            <p class="micro">Tu computadora, sin capas de por medio</p>
+            <h4>Local</h4>
+            <p>Hermes corre directo sobre tu sistema. Es la vía más corta y la que menos piezas tiene: si algo falla, el problema está en un solo lugar. La interfaz es <b>Hermes Desktop</b>, la app nativa.</p>
+            <p class="micro">Para quién: quien quiere empezar hoy, sin aprender Docker, y no le importa que el agente use las herramientas de su propia máquina.</p>
+            <ol class="steps">
+              <li><strong>Instala Hermes.</strong> Abre tu terminal y pega el comando de tu sistema. En Windows es PowerShell; en macOS y Linux es Terminal.</li>
+              <li><strong>Deja que termine.</strong> Descarga el agente y lo deja listo. Tarda unos minutos y no necesitas escribir nada más.</li>
+              <li><strong>Instala la interfaz.</strong> Descarga Hermes Desktop para tu sistema desde el sitio oficial. Es la app con la que vas a platicar con tu agente todos los días.</li>
+              <li><strong>Continúa en el bloque 2</strong> para configurar proveedor y modelo.</li>
+            </ol>
+            <div data-tabs>
+              <div class="tabs" role="tablist" aria-label="Sistema operativo para instalación local">
+                <button role="tab" id="tab-loc-mac" aria-controls="panel-loc-mac" aria-selected="true">macOS</button>
+                <button role="tab" id="tab-loc-linux" aria-controls="panel-loc-linux" aria-selected="false">Linux</button>
+                <button role="tab" id="tab-loc-win" aria-controls="panel-loc-win" aria-selected="false">Windows</button>
+              </div>
+              <div id="panel-loc-mac" role="tabpanel" aria-labelledby="tab-loc-mac">
+                <div class="code"><button class="copy" type="button">Copiar</button><code lang="en">curl -fsSL https://hermes-agent.nousresearch.com/install.sh | bash</code></div>
+                <div class="os-note"><b>macOS:</b> abre <b>Terminal</b> (Cmd + Espacio, escribe Terminal y Enter), pega el comando, Enter.</div>
+              </div>
+              <div id="panel-loc-linux" role="tabpanel" aria-labelledby="tab-loc-linux" class="hidden">
+                <div class="code"><button class="copy" type="button">Copiar</button><code lang="en">curl -fsSL https://hermes-agent.nousresearch.com/install.sh | bash</code></div>
+                <div class="os-note"><b>Linux:</b> abre <b>Terminal</b> (Ctrl + Alt + T en la mayoría de las distribuciones), pega el comando, Enter.</div>
+              </div>
+              <div id="panel-loc-win" role="tabpanel" aria-labelledby="tab-loc-win" class="hidden">
+                <div class="code"><button class="copy" type="button">Copiar</button><code lang="en">iex (irm https://hermes-agent.nousresearch.com/install.ps1)</code></div>
+                <div class="os-note"><b>Windows:</b> teclea la <b>tecla Windows</b>, escribe <b>PowerShell</b>, Enter, pega el comando, Enter.</div>
+              </div>
+            </div>
+            <p class="mt-sm"><b>La interfaz:</b> <a href="https://hermes-agent.nousresearch.com/">Hermes Desktop</a> — aplicación nativa para macOS, Windows y Linux.</p>
+          </article>
         </div>
-        <div id="panel-linux" role="tabpanel" aria-labelledby="tab-linux" class="hidden">
-          <div class="code"><button class="copy" type="button">Copiar</button><code lang="en">curl -fsSL https://hermes-agent.nousresearch.com/install.sh | bash</code></div>
-          <div class="os-note"><b>Linux:</b> abre <b>Terminal</b> (Ctrl + Alt + T en la mayoría de las distribuciones), pega el comando de arriba, Enter, y sigue las instrucciones en pantalla.</div>
+
+        <!-- RUTA · LOCAL CON DOCKER -->
+        <div id="panel-ruta-docker" role="tabpanel" aria-labelledby="tab-ruta-docker" class="hidden">
+          <article class="card eco">
+            <p class="micro">Tu computadora, con el agente encerrado en un contenedor</p>
+            <h4>Local con Docker</h4>
+            <p>El agente vive dentro de un contenedor y tú lo usas con <b>Hermes Desktop</b> desde fuera. Ganas dos cosas: el agente no toca tus archivos directamente y puedes borrarlo entero sin dejar rastro. El precio es que hay una pieza más que puede fallar.</p>
+            <p class="micro">Para quién: quien ya usa Docker o quiere probar cosas sin ensuciar su equipo.</p>
+            <ol class="steps">
+              <li><strong>Descarga el instalador.</strong> Es un paquete que hace todo solo. Elige tu sistema abajo.</li>
+              <li><strong>Descomprime y ejecuta.</strong> En Windows, doble clic en <b>instalar-docker.bat</b>. En Mac, doble clic en <b>instalar-docker.command</b>. Acepta el permiso de administrador cuando lo pida.</li>
+              <li><strong>Deja que trabaje.</strong> Instala Docker si falta, enciende el motor, descarga el agente, lo arranca y verifica que responde. En Windows puede pedir <b>un</b> reinicio: al volver, sigue solo.</li>
+              <li><strong>Abre la app.</strong> Al terminar tendrás un acceso directo <b>Hermes Desktop</b> en el Escritorio. Ese acceso también enciende el agente si estaba apagado.</li>
+            </ol>
+            <div class="dl-cards">
+              <div class="dl"><span class="tag-os">Windows 10/11</span><h4>Windows</h4><a class="pill pill-acid" href="/solarpunk/hermes/descargas/instalador-docker.zip" download>Descargar instalador</a></div>
+              <div class="dl"><span class="tag-os">macOS 12+</span><h4>macOS</h4><a class="pill pill-acid" href="/solarpunk/hermes/descargas/instalador-docker.zip" download>Descargar instalador</a></div>
+              <div class="dl"><span class="tag-os">Cualquier distro</span><h4>Linux</h4><a class="pill pill-ghost" href="/solarpunk/hermes/descargas/instalador-docker.zip" download>Descargar instalador</a></div>
+            </div>
+            <p class="micro mt-sm">El mismo paquete trae los tres caminos; el instalador detecta tu sistema solo. Incluye <b>LEEME.md</b> con las instrucciones en español.</p>
+            <div class="warn"><b>Una cosa importante:</b> el instalador guarda los datos de tu agente en un volumen aparte, no en tu carpeta personal. Si algún día montas tu carpeta de usuario dentro del contenedor, Docker le cambia el dueño a los archivos y tu Hermes de afuera deja de poder leerla. El instalador del curso ya evita eso.</div>
+          </article>
         </div>
-        <div id="panel-win" role="tabpanel" aria-labelledby="tab-win" class="hidden">
-          <div class="code"><button class="copy" type="button">Copiar</button><code lang="en">iex (irm https://hermes-agent.nousresearch.com/install.ps1)</code></div>
-          <div class="os-note"><b>Windows:</b> teclea la <b>tecla Windows</b>, escribe <b>PowerShell</b>, Enter, pega el comando de arriba, Enter, y sigue las instrucciones en pantalla.</div>
+
+        <!-- RUTA · VPS DE UN TERCERO -->
+        <div id="panel-ruta-vps-propio" role="tabpanel" aria-labelledby="tab-ruta-vps-propio" class="hidden">
+          <article class="card top-sun">
+            <p class="micro">Un servidor que tú contratas a tu nombre</p>
+            <h4>VPS de un tercero</h4>
+            <p>Tu agente vive en un servidor en la nube y lo usas desde el navegador de cualquier computadora. Aquí la interfaz <b>no</b> es Hermes Desktop: es <b>Hermes WebUI</b> con su panel de administración, ambos dentro del servidor y alcanzables por un túnel SSH.</p>
+            <p class="micro">Para quién: quien quiere que el agente trabaje aunque su computadora esté apagada.</p>
+            <ol class="steps">
+              <li><strong>Contrata el servidor.</strong> Uno con Ubuntu y al menos 4 GB de RAM. Te recomendamos <b>Contabo VPS 4</b>: <a href="https://contabo.com/en/hermes-ai-vps-hosting/">contabo.com/en/hermes-ai-vps-hosting</a>. Puedes contratar 1, 12 o 24 meses; si contratas 1 mes y no renuevas, pierdes lo que hayas hecho.</li>
+              <li><strong>Entra por SSH.</strong> Desde tu terminal: <code lang="en">ssh root@TU_IP</code>. Te pedirá la contraseña que te dio el proveedor.</li>
+              <li><strong>Instala Hermes en el servidor.</strong> Con el mismo comando de Linux del bloque anterior, pero ejecutado <b>dentro</b> del servidor.</li>
+              <li><strong>Instala la interfaz web.</strong> Dentro del servidor clona y arranca la WebUI.</li>
+              <li><strong>Abre el túnel.</strong> En <b>tu</b> computadora, no en el servidor: <code lang="en">ssh -N -L 8787:127.0.0.1:8787 root@TU_IP</code>, y abre <b>http://127.0.0.1:8787</b> en el navegador.</li>
+              <li><strong>Panel de administración.</strong> Dentro del servidor corre <code lang="en">hermes dashboard</code>. Escucha en <b>9119</b>; el mismo túnel lo alcanza cambiando el puerto.</li>
+            </ol>
+            <div data-tabs>
+              <div class="tabs" role="tablist" aria-label="Sistema operativo para la WebUI">
+                <button role="tab" id="tab-wl-mac2" aria-controls="panel-wl-mac2" aria-selected="true">macOS</button>
+                <button role="tab" id="tab-wl-linux2" aria-controls="panel-wl-linux2" aria-selected="false">Linux</button>
+                <button role="tab" id="tab-wl-win2" aria-controls="panel-wl-win2" aria-selected="false">Windows</button>
+              </div>
+              <div id="panel-wl-mac2" role="tabpanel" aria-labelledby="tab-wl-mac2">
+                <div class="code"><button class="copy" type="button">Copiar</button><code lang="en">git clone https://github.com/nesquena/hermes-webui.git hermes-webui
+cd hermes-webui
+python3 bootstrap.py</code></div>
+                <div class="os-note"><b>macOS:</b> corre esto <b>dentro del servidor</b>. Luego, en tu Terminal local: <code lang="en">ssh -N -L 8787:127.0.0.1:8787 root@TU_IP</code></div>
+              </div>
+              <div id="panel-wl-linux2" role="tabpanel" aria-labelledby="tab-wl-linux2" class="hidden">
+                <div class="code"><button class="copy" type="button">Copiar</button><code lang="en">git clone https://github.com/nesquena/hermes-webui.git hermes-webui
+cd hermes-webui
+python3 bootstrap.py</code></div>
+                <div class="os-note"><b>Linux:</b> mismo comando dentro del servidor. El túnel desde tu equipo: <code lang="en">ssh -N -L 8787:127.0.0.1:8787 root@TU_IP</code></div>
+              </div>
+              <div id="panel-wl-win2" role="tabpanel" aria-labelledby="tab-wl-win2" class="hidden">
+                <div class="code"><button class="copy" type="button">Copiar</button><code lang="en">git clone https://github.com/nesquena/hermes-webui.git hermes-webui
+cd hermes-webui
+python3 bootstrap.py</code></div>
+                <div class="os-note"><b>Windows:</b> el bloque va dentro del servidor. En PowerShell de tu equipo abre el túnel: <code lang="en">ssh -N -L 8787:127.0.0.1:8787 root@TU_IP</code></div>
+              </div>
+            </div>
+            <div class="note"><b>Seguridad:</b> no abras el panel a internet tal cual. Antes de exponerlo, pídele a tu agente que configure el servidor con prácticas de ciberseguridad y te conecte a tu computadora mediante un túnel SSH. Es más trabajo al principio y te evita un dolor de cabeza después.</div>
+          </article>
+        </div>
+
+        <!-- RUTA · VPS DEL CURSO -->
+        <div id="panel-ruta-vps-curso" role="tabpanel" aria-labelledby="tab-ruta-vps-curso" class="hidden">
+          <article class="card top-acid">
+            <p class="micro">El servidor que viene con tu suscripción al Club</p>
+            <h4>VPS del curso</h4>
+            <p>Nosotros levantamos el servidor, instalamos Hermes y te entregamos el acceso ya funcionando. Tú no contratas nada ni entras por SSH a instalar: recibes la dirección y tus credenciales, y desde ahí trabajas. La interfaz es <b>Hermes WebUI</b> con su panel.</p>
+            <p class="micro">Para quién: quien quiere el agente corriendo sin tocar un servidor, y valora que alguien más responda si se cae.</p>
+            <ol class="steps">
+              <li><strong>Ten lista tu cuenta de Nous Portal.</strong> Es el bloque 2; sin proveedor de modelo el agente no arranca.</li>
+              <li><strong>Llena el cuestionario del bloque 4.</strong> Con tus respuestas preparamos los agentes que van a vivir en el servidor.</li>
+              <li><strong>Recibe tus accesos.</strong> Te llega la dirección de tu WebUI y tus credenciales por correo. No compartas ese correo: son tus llaves.</li>
+              <li><strong>Entra y trabaja.</strong> Abre la dirección en cualquier navegador, desde cualquier computadora. Tu agente sigue vivo aunque apagues la tuya.</li>
+              <li><strong>Pide cambios por el mismo canal.</strong> Si necesitas una herramienta, una conexión o un ajuste, se lo pides a tu agente o nos lo pides a nosotros.</li>
+            </ol>
+            <div class="note"><b>Lo que este camino no incluye:</b> acceso root al servidor. Si necesitas control total de la máquina, el camino es <b>VPS de un tercero</b>. Aquí ganas comodidad y pierdes control del sistema operativo.</div>
+          </article>
         </div>
       </div>
 
-      <!-- Paso 2: wizard -->
-      <h3 class="mt-xl">Paso 2. El asistente de configuración</h3>
-      <p>Cuando la instalación termine, en la misma terminal arranca el asistente:</p>
+      <!-- ░░ BLOQUE 2 · ASISTENTE DE CONFIGURACIÓN ░░ -->
+      <h3 class="mt-xl">2. El asistente de configuración</h3>
+      <p>Con Hermes ya instalado, en la misma terminal arranca el asistente. Es el mismo en las cuatro rutas.</p>
       <div class="code"><button class="copy" type="button">Copiar</button><code lang="en">hermes setup</code></div>
       <p class="mt-sm">Te va a hacer una serie de preguntas. Estas son las respuestas del taller, en orden:</p>
       <ol class="steps">
-        <li><strong>Proveedor:</strong> elige <b>Nous Portal</b> y completa el inicio de sesión (OAuth) en tu navegador.</li>
+        <li><strong>Proveedor:</strong> elige <b>Nous Portal</b> y completa el inicio de sesión (OAuth) en tu navegador. Crea tu cuenta gratis en <a href="https://portal.nousresearch.com/r/solarpunk">portal.nousresearch.com/r/solarpunk</a>. Nous Portal es la plataforma de Nous Research, la empresa que creó Hermes; si decides suscribirte, el enlace de invitación puede darte una promoción en tu primer mes.</li>
         <li><strong>Modelo por defecto:</strong> busca uno que diga <b>free</b> y elígelo. Nota: elige un modelo gratis para empezar, a menos que ya tengas una suscripción activa de otro proveedor. La API de Anthropic cobra por uso de tokens; para conectar una suscripción de Claude existe una integración aparte, sujeta a compatibilidad.</li>
         <li><strong>Herramientas:</strong> deja todas seleccionadas y presiona Enter.</li>
         <li><strong>Nivel de esfuerzo:</strong> elige <b>medium</b> (el punto de equilibrio entre rapidez y profundidad).</li>
-        <li><strong>Terminal:</strong> elige <b>local</b>.</li>
+        <li><strong>Terminal:</strong> elige <b>local</b> si instalaste en tu computadora, o <b>docker</b> si usaste el instalador con contenedor.</li>
         <li><strong>Herramientas del CLI:</strong> deja seleccionado al menos <b>Kanban</b> y <b>A2A</b>.</li>
         <li><strong>Plataforma de mensajería:</strong> si no tienes una o no estás seguro, <b>omite este paso</b>.</li>
         <li><strong>Proveedor de navegador:</strong> elige <b>Local browser</b> si no quieres gastar en un servicio externo.</li>
-        <li><strong>Proveedor de búsqueda:</strong> elige <b>Skip</b>. Rota automáticamente entre planes gratuitos sin pedir cuenta ni tarjeta.</li>
+        <li><strong>Proveedor de búsqueda:</strong> elige <b>Skip</b>. Rota automáticamente entre planes gratuitos sin pedir cuenta ni tarjeta. Si después quieres búsqueda dedicada, <b>TinyFish</b> se conecta como plugin: da búsqueda y lectura de páginas gratis, y cobra sólo si usas su navegador remoto.</li>
         <li><strong>Reinicia el gateway:</strong> acepta.</li>
         <li><strong>Selección final:</strong> elige <b>Done</b>.</li>
       </ol>
       <div class="warn"><b>Atención en el paso de plataforma de mensajería:</b> para omitirla hay que presionar <b>Enter</b>. Si presionas <b>Esc</b> sales del asistente y tienes que empezar de nuevo, y si presionas <b>Espacio</b> seleccionas una opción en vez de omitirla.</div>
 
-      <!-- Paso 3: doctor -->
-      <h3 class="mt-xl">Paso 3. Diagnóstico y primer chat</h3>
-      <p>Revisa que todo quedo bien y habla con tu agente:</p>
+      <!-- ░░ BLOQUE 3 · CORREGIR PROBLEMAS ░░ -->
+      <h3 class="mt-xl">3. Corregir problemas</h3>
+      <p>Si algo no quedó bien, no adivines: pídele a Hermes que se revise a sí mismo. El diagnóstico te dice qué falta y el arreglo automático resuelve lo que puede resolver solo.</p>
       <div class="code"><button class="copy" type="button">Copiar</button><code lang="en">hermes doctor
 hermes --autofix
 hermes</code></div>
-      <p class="mt-sm">El último comando abre un chat con tu agente en la propia terminal. Cuando quieras salir, escribe <b>/exit</b>.</p>
+      <p class="mt-sm"><b>Qué hace cada uno:</b></p>
+      <ul>
+        <li><b>hermes doctor</b> — revisa configuración, dependencias y credenciales, y te dice qué está roto.</li>
+        <li><b>hermes --autofix</b> — corrige lo que se puede corregir sin decidir por ti.</li>
+        <li><b>hermes</b> — abre un chat con tu agente en la propia terminal. Para salir, escribe <b>/exit</b>.</li>
+      </ul>
+      <div class="note"><b>Si el diagnóstico no alcanza:</b> pídele a tu propio agente que te guíe. Dale una captura de pantalla y el texto exacto del error; él sabe repararlo desde adentro.</div>
 
-      <!-- Paso 4: interfaz -->
-      <h3 class="mt-xl">Paso 4. Elige tu interfaz</h3>
-      <p>Ya tienes agente. Ahora elige con que pantalla lo vas a usar todos los días.</p>
-      <div class="split">
-        <article class="card">
-          <p class="micro">Lo corres en tu propia computadora</p>
-          <h3>Hermes Desktop</h3>
-          <p>Aplicación nativa para macOS, Windows y Linux. Corre el mismo agente que la terminal, con una interfaz visual. Disponible para todas las computadoras.</p>
-          <div class="dl-cards">
-            <div class="dl"><span class="tag-os">macOS 12+</span><h4>MacOS</h4><a class="pill pill-acid" href="https://hermes-agent.nousresearch.com/">Descargar</a></div>
-            <div class="dl"><span class="tag-os">Windows 10/11</span><h4>Windows</h4><a class="pill pill-acid" href="https://hermes-agent.nousresearch.com/">Descargar</a></div>
-            <div class="dl"><span class="tag-os">Cualquier distro</span><h4>Linux</h4><a class="pill pill-ghost" href="https://hermes-agent.nousresearch.com/">Instalar por terminal</a></div>
-          </div>
-        </article>
-        <article class="card eco">
-          <p class="micro">Lo corres en un servidor remoto (VPS)</p>
-          <h3>Hermes WebUI y Hermes Dashboard</h3>
-          <p>Cuando tu agente vive en un servidor, lo usas desde el navegador de cualquier computadora. Estas dos interfaces te dan esa ventana.</p>
-          <div data-tabs>
-            <div class="tabs" role="tablist" aria-label="Sistema operativo para WebUI">
-              <button role="tab" id="tab-wl-mac" aria-controls="panel-wl-mac" aria-selected="true">macOS</button>
-              <button role="tab" id="tab-wl-linux" aria-controls="panel-wl-linux" aria-selected="false">Linux</button>
-              <button role="tab" id="tab-wl-win" aria-controls="panel-wl-win" aria-selected="false">Windows</button>
-            </div>
-            <div id="panel-wl-mac" role="tabpanel" aria-labelledby="tab-wl-mac">
-              <div class="code"><button class="copy" type="button">Copiar</button><code lang="en">git clone https://github.com/nesquena/hermes-webui.git hermes-webui
-cd hermes-webui
-python3 bootstrap.py</code></div>
-              <div class="os-note"><b>macOS:</b> en tu Terminal local, abre el túnel hacia el servidor: <code>ssh -N -L 8787:127.0.0.1:8787 usuario@TU_IP</code> y abre <b>http://127.0.0.1:8787</b> en el navegador.</div>
-            </div>
-            <div id="panel-wl-linux" role="tabpanel" aria-labelledby="tab-wl-linux" class="hidden">
-              <div class="code"><button class="copy" type="button">Copiar</button><code lang="en">git clone https://github.com/nesquena/hermes-webui.git hermes-webui
-cd hermes-webui
-python3 bootstrap.py</code></div>
-              <div class="os-note"><b>Linux:</b> abre el túnel con <code>ssh -N -L 8787:127.0.0.1:8787 usuario@TU_IP</code> y entra a <b>http://127.0.0.1:8787</b>.</div>
-            </div>
-            <div id="panel-wl-win" role="tabpanel" aria-labelledby="tab-wl-win" class="hidden">
-              <div class="code"><button class="copy" type="button">Copiar</button><code lang="en">git clone https://github.com/nesquena/hermes-webui.git hermes-webui
-cd hermes-webui
-python3 bootstrap.py</code></div>
-              <div class="os-note"><b>Windows:</b> en PowerShell abre el túnel con <code>ssh -N -L 8787:127.0.0.1:8787 usuario@TU_IP</code> y entra a <b>http://127.0.0.1:8787</b>. Para el panel de administración, dentro del servidor corre <code lang="en">hermes dashboard</code>.</div>
-            </div>
-          </div>
-        </article>
-      </div>
+      <!-- ░░ BLOQUE 4 · TU EQUIPO AGÉNTICO ░░ -->
+      <h3 class="mt-xl">4. Crea tu equipo agéntico</h3>
+      <p>Un solo agente sirve hasta que tu trabajo se parte en varios frentes. Aquí defines cuántos necesitas, qué hace cada uno y cómo se hablan entre ellos.</p>
+      <p>Llena el cuestionario. Toma entre 10 y 15 minutos, son 7 secciones y puedes guardar y seguir después. No pegues contraseñas, llaves ni datos confidenciales: no hacen falta para diseñar tu equipo.</p>
+      <p><b>Qué recibes:</b> una carpeta con un perfil por agente. Cada perfil trae su <b>SOUL.md</b> —la personalidad y los límites— y su <b>agente.json</b> —rol, casos de uso, skills y conexiones—. Tu agente instala esa carpeta y los perfiles quedan creados.</p>
+      <div class="note"><b>El cuestionario se entrega por el canal del Club.</b> No está publicado como página abierta porque guarda tus respuestas y las asocia a tu inscripción. Pídelo en <a href="https://solarpunk.empresaagentica.com/">solarpunk.empresaagentica.com</a> y te llega el enlace personal: ahí lo llenas y de ahí sale tu carpeta de agentes.</div>
+      <p class="micro mt-sm">Ten a mano cuando lo llenes: a qué te dedicas, qué tareas te quitan más tiempo, para qué quieres el agente, qué no quieres delegar nunca, y qué computadora usas.</p>
 
-      <div class="note"><b>Si algo se atora:</b> pídele a tu propio agente que te guíe. Dale una captura de pantalla y los detalles directos de la terminal; él sabe repararlo desde adentro.</div>
-
-      <!-- VPS -->
-      <article class="card mt-xl top-sun">
-        <h3>¿Quieres instalar Hermes en un VPS?</h3>
-        <p>Te recomendamos <b>Contabo VPS 4</b> con el instalador de Hermes incluido: <a href="https://contabo.com/en/hermes-ai-vps-hosting/">contabo.com/en/hermes-ai-vps-hosting</a>. Puedes contratar 1, 12 o 24 meses. Ten en cuenta que si contratas 1 mes y no renuevas, perderás todo lo que has hecho.</p>
-        <p>Para conectar tu agente al VPS te sugerimos pedirle a tu agente local que se instale en el servidor y te guíe en el proceso que él no pueda hacer de manera autónoma. También sugerimos pedirle que configure el VPS con prácticas de ciberseguridad y te conecte a tu computadora mediante un túnel SSH.</p>
-      </article>
+      <!-- ░░ BLOQUE 5 · SIGUIENTE TALLER ░░ -->
+      <h3 class="mt-xl">5. Sigue con el taller 2</h3>
+      <p>Ya tienes agente. Lo que sigue es aprender a sacarle todo: las skills que le enseñan oficios, las tareas que corren solas mientras duermes y el trabajo en equipo entre agentes.</p>
+      <p><a class="pill pill-ghost" href="/solarpunk/uso-correcto/">Ir al taller 2 · Capacidades de tu agente</a></p>
 
       <!-- Modelos gratis -->
-      <article class="card mt-md top-acid">
+      <article class="card mt-xl top-acid">
         <h3>Obtén acceso a modelos TOP gratis</h3>
         <p>Además de Nous Portal, tienes dos caminos para correr modelos potentes sin gastar de tu bolsillo:</p>
         <ul>

@@ -7,8 +7,12 @@
   if(list){list.querySelectorAll('a').forEach(function(a){a.addEventListener('click',closeMenu);});}
 
   // tabs (con navegacion por teclado: flechas, Home, End)
+  // Los tabs se toman SOLO del tablist propio del grupo (:scope). Sin esto, un
+  // grupo con tabs anidados se queda con los botones del nieto y ambos grupos
+  // comparten teclado y estado.
   document.querySelectorAll('[data-tabs]').forEach(function(group){
-    var tabs=Array.prototype.slice.call(group.querySelectorAll('[role="tab"]'));
+    var tabs=Array.prototype.slice.call(group.querySelectorAll(':scope > .tabs > [role="tab"]'));
+    if(!tabs.length)return;
     function activate(tab){
       tabs.forEach(function(t){t.setAttribute('aria-selected','false');t.setAttribute('tabindex','-1');var p=document.getElementById(t.getAttribute('aria-controls'));if(p)p.classList.add('hidden');});
       tab.setAttribute('aria-selected','true');tab.setAttribute('tabindex','0');
