@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="es-MX">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Club SolarPunk Mx — Arma tu agente</title>
+<link rel="stylesheet" href="/solarpunk/hermes/onboarding/onboarding.css">
+</head>
+<body>
+<div class="top"><div class="mark">SolarPunk <span>Mx</span></div>
+  <span class="sub">· Armado de tu agente</span>
+  <span class="prog" id="progTxt"></span></div>
+
+<div class="app" id="app">
+  <main>
+    <div class="steps" id="steps"></div>
+
+    <!-- 1 · DÓNDE INSTALAR -->
+    <section class="screen active" data-n="1">
+      <h1>Selecciona dónde instalarás Hermes</h1>
+      <p>Elige una vez. Todo lo demás lo hago yo.</p>
+
+      <div class="opt" data-id="A" data-nombre="VPS incluido en tu suscripción"
+           data-precio="Incluido">
+        <div class="t"><b>A · En el VPS incluido en tu suscripción</b><span class="price">Incluido</span></div>
+        <div class="d">Incluida en tu membresía, seguro, sin complicaciones.
+          <span class="chip free">Sin costo extra</span></div>
+        <div class="priv">🔒 Si necesitas privacidad, elige Local.</div>
+      </div>
+
+      <div class="opt" data-id="B" data-nombre="Mi propio VPS" data-precio="$0 MXN">
+        <div class="t"><b>B · En mi propio VPS</b><span class="price">$0 MXN</span></div>
+        <div class="d">Tú lo pagas y configuras. Te entrego los archivos y las instrucciones
+          para que tu agente los lleve a cabo. <span class="chip gray">Tú lo provees</span></div>
+        <div class="priv">🔒 Si necesitas privacidad, elige Local.</div>
+      </div>
+
+      <div class="opt" data-id="C" data-nombre="Local en mi computadora (Docker)" data-precio="Gratis">
+        <div class="t"><b>C · Local en mi computadora en un contenedor seguro</b><span class="price">Gratis</span></div>
+        <div class="d">Gratis, requiere pasos extras, con protecciones para tu computadora,
+          y el nivel de privacidad lo administras tú.</div>
+        <div class="priv">🔒 Máxima privacidad: nada sale de tu equipo salvo lo que tú decidas.</div>
+      </div>
+
+      <div class="row"><button class="primary" id="b1" disabled data-spx-click="go(2">Continuar</button></div>
+    </section>
+
+    <!-- 2 · ¿QUIÉN CONFIGURA? -->
+    <section class="screen" data-n="2">
+      <h1>¿Quién configura tus agentes?</h1>
+      <p>Tu agente necesita personalidad, reglas, habilidades y conexiones. Elige cómo lo resolvemos.</p>
+
+      <div class="opt" data-id="servicio" data-nombre="Servicio de Configuración" data-precio="$500 MXN">
+        <div class="t"><b>Servicio de Configuración</b><span class="price">$500 MXN</span></div>
+        <div class="d">Nosotros lo diseñamos y dejamos funcionando. Incluye el cuestionario de diagnóstico,
+          el diseño de tu SOUL.md, skills, MCPs, modelo y la puesta a punto.</div>
+        <div class="note hard" class="spx-inl-4">Te ahorras aproximadamente unas 20 horas de
+          investigación, configuración y pruebas para llegar al resultado que te damos en el servicio de configuración.</div>
+        <!--SOLO_INSTALACION-->
+        <div id="bloqueClave" class="spx-inl-1">
+          <div class="note warn">El Servicio de Configuración se paga al contratar tu membresía.
+            Cuando lo hayas hecho, Stripe te entrega un <b>código único</b>. Escríbelo aquí para continuar.</div>
+          <div class="clave">
+            <input type="text" id="codigoStripe" placeholder="Código único (ej. SPX-XXXX-XXXX)"
+                   data-spx-input="validarClave" autocomplete="off" spellcheck="false">
+          </div>
+          <div class="ayuda" id="msgClave">Formato esperado: SPX-XXXX-XXXX</div>
+        </div>
+        <!--/SOLO_INSTALACION-->
+      </div>
+
+      <div class="opt" data-id="propio" data-nombre="Lo configuro yo mismo" data-precio="Sin costo">
+        <div class="t"><b>Lo configuro yo mismo</b><span class="price">Sin costo</span></div>
+        <div class="d">Te entregamos Hermes listo y una guía. Tú creas tus agentes, sus reglas y su
+          personalidad. No incluye el cuestionario de diagnóstico.</div>
+      </div>
+
+      <div class="row"><button class="ghost" data-spx-click="go(1">Atrás</button>
+        <button class="primary" id="b2" disabled data-spx-click="elegirConfig">Continuar</button></div>
+    </section>
+
+    <!-- 3 · CUESTIONARIO -->
+    <section class="screen" data-n="3">
+      <h1>Diagnóstico de tu Agente Orquestador</h1>
+      <p id="introCuest"></p>
+      <div class="note warn"><b>Antes de empezar:</b>
+        <ul class="spx-inl-5">
+          <li>No pegues contraseñas, API keys ni datos confidenciales en este formulario.</li>
+          <li>Tiempo estimado: 10 a 15 minutos, en 7 secciones.</li>
+          <li>Se guarda solo: puedes cerrar y volver después; retomamos donde ibas.</li>
+        </ul></div>
+      <div id="cuestionario"></div>
+      <div class="sticky">
+        <div class="spx-inl-0">
+          <span class="guardado" id="guardado"></span>
+          <button class="ghost" id="btnLimpiar" class="spx-inl-2">Limpiar borrador</button>
+        </div>
+        <div class="row" class="spx-inl-3">
+          <button class="ghost" data-spx-click="go(2">Atrás</button>
+          <button class="primary" data-spx-click="enviar">Enviar mi diagnóstico</button>
+        </div>
+      </div>
+      <div class="ok" id="ok"></div>
+    </section>
+
+    
+
+    <!-- CIERRE · DESPEDIDA -->
+    <section class="screen" data-n="9">
+      <div class="despedida">
+        <h1 id="desp_titulo"></h1>
+        <div id="desp_texto"></div>
+        <div class="note" id="desp_siguiente"></div>
+        <div id="desp_instalador" class="spx-inl-1"></div>
+        <div class="note" id="desp_renombrar" class="spx-inl-1">
+          <b>Sus nombres.</b> Tus agentes se llaman por lo que hacen —«Orquestador»,
+          «Vendedor», «Creadora de contenido»— para que sepas de un vistazo quién es quién.
+          Si más adelante quieres ponerles un nombre propio, pídeselo al agente que quieras
+          nombrar. Él te dirá cómo dejarlo escrito.
+        </div>
+        <div class="row">
+          <button class="ghost" data-spx-click="volverDesdeCierre">← Atrás, quiero modificar algo</button>
+          <button class="ghost" data-spx-click="limpiarTodo">Empezar de nuevo</button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  
+</div>
+
+<script src="/solarpunk/hermes/onboarding/onboarding.js" defer></script>
+</body>
+</html>
