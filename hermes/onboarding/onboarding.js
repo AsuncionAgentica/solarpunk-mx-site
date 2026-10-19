@@ -1,7 +1,7 @@
 
 /* ═══════════════ DATOS GENERADOS DESDE TALLY ═══════════════ */
 const CUESTIONARIO = [{"titulo": "Datos de contacto", "campos": [{"label": "Nombre completo o alias", "req": false, "tipo": "texto", "opts": [], "tipo_raw": "INPUT_TEXT", "multiple": false}, {"label": "Correo electrónico", "req": false, "tipo": "email", "opts": [], "tipo_raw": "INPUT_EMAIL", "multiple": false}, {"label": "WhatsApp", "req": false, "tipo": "tel", "opts": [], "tipo_raw": "INPUT_PHONE_NUMBER", "multiple": false}, {"label": "Ciudad", "req": false, "tipo": "texto", "opts": [], "tipo_raw": "INPUT_TEXT", "multiple": false}], "textos": []}, {"titulo": "Parte 1. Quién eres y a qué te dedicas", "textos": [], "campos": [{"label": "¿A qué te dedicas? Cuéntanos en 2 o 3 líneas.", "req": false, "tipo": "textarea", "opts": [], "tipo_raw": "TEXTAREA", "multiple": false}, {"label": "¿Cuál es tu rol principal?", "req": false, "tipo": "opciones", "opts": ["Fundador/a o dueño/a", "Freelance o independiente", "Gerente o director/a", "Empleado/a", "Estudiante", "Otro"], "tipo_raw": "MULTIPLE_CHOICE_OPTION", "multiple": false}, {"label": "¿Cómo opera tu trabajo hoy?", "req": false, "tipo": "opciones", "opts": ["Trabajo solo/a", "Yo con 1 a 3 personas", "Equipo de 4 a 10", "Equipo de 11 o más", "Otro"], "tipo_raw": "MULTIPLE_CHOICE_OPTION", "multiple": false}, {"label": "¿Cuál es tu giro o industria?", "req": false, "tipo": "opciones", "opts": ["Servicios profesionales", "Comercio y retail", "Industria y manufactura", "Procesos industriales", "Investigación y Desarrollo (I+D)", "Salud", "Educación", "Construcción y obra", "Tecnología y software", "Alimentos y bebidas", "Creativo y marketing", "ONG e impacto social", "Turismo y hospitalidad", "Logística y transporte", "Agro y campo", "Otro"], "tipo_raw": "DROPDOWN_OPTION", "multiple": false}, {"label": "¿Cuántas veces usas una IA al día hoy?", "req": false, "tipo": "opciones", "opts": ["Nunca", "Menos de 1 vez al día", "1 a 3 veces", "4 a 10 veces", "Más de 10 veces", "Todo el día"], "tipo_raw": "MULTIPLE_CHOICE_OPTION", "multiple": false}, {"label": "¿Qué herramientas usas a diario? Elige todas las que apliquen.", "req": false, "tipo": "opciones", "opts": ["WhatsApp", "Correo (Gmail u Outlook)", "Google Workspace (Docs, Sheets, Drive)", "Microsoft 365 (Word, Excel)", "Notion u Obsidian", "CRM (HubSpot, Zoho u otro)", "Trello, Asana o Monday", "Slack o Discord", "Shopify o WooCommerce", "WordPress", "Stripe, Mercado Pago o PayPal", "Instagram, TikTok o Meta Ads", "Otro"], "tipo_raw": "CHECKBOX", "multiple": true}, {"label": "¿Qué otras herramientas o sistemas usas que no estén en la lista?", "req": false, "tipo": "textarea", "opts": [], "tipo_raw": "TEXTAREA", "multiple": false}]}, {"titulo": "Parte 2. Tu día a día y tus procesos", "textos": [], "campos": [{"label": "Describe un día típico de trabajo, de la mañana a la noche.", "req": false, "tipo": "textarea", "opts": [], "tipo_raw": "TEXTAREA", "multiple": false}, {"label": "¿Qué procesos haces a mano y te gustaría automatizar o que te asistan?", "req": false, "tipo": "textarea", "opts": [], "tipo_raw": "TEXTAREA", "multiple": false}, {"label": "Ordena tus tareas según cuánto tiempo o desgaste te quitan. La primera es la que más.", "req": false, "tipo": "ranking", "opts": ["Comunicación con clientes", "Cotizaciones y propuestas", "Facturación y cobranza", "Contenido y redes sociales", "Investigación y búsqueda de información", "Reportes y seguimiento", "Agenda y coordinación", "Soporte y postventa", "Datos y hojas de cálculo", "Trámites y documentación"], "tipo_raw": "RANKING_OPTION", "multiple": false}, {"label": "¿Cuántas horas a la semana dedicas hoy a tareas repetitivas o manuales?", "req": false, "tipo": "escala", "opts": [], "tipo_raw": "LINEAR_SCALE", "multiple": false, "escala": {"min": 0, "max": 10, "izq": "0 h", "der": "40 h o más"}}, {"label": "¿Qué te impide delegar o automatizar esas tareas hoy? Elige todas las que apliquen.", "req": false, "tipo": "opciones", "opts": ["No tengo tiempo para configurarlo", "No sé cómo hacerlo", "Es costoso", "No confío en la IA", "Mis herramientas no se conectan", "Dudas legales o de privacidad", "Prefiero hacerlo yo", "Otro"], "tipo_raw": "CHECKBOX", "multiple": true}, {"label": "¿Dónde vive hoy tu información de trabajo? Elige todas las que apliquen.", "req": false, "tipo": "opciones", "opts": ["WhatsApp", "Correo electrónico", "Nube (Drive, OneDrive o Dropbox)", "Archivos en mi computadora", "Papel", "CRM o sistema interno", "Notas (Notion u Obsidian)", "Otro"], "tipo_raw": "CHECKBOX", "multiple": true}]}, {"titulo": "Parte 3. Para qué usarás tu agente", "textos": [], "campos": [{"label": "¿Para qué usarás tu agente? Describe el objetivo central.", "req": false, "tipo": "textarea", "opts": [], "tipo_raw": "TEXTAREA", "multiple": false}, {"label": "Enumera de 3 a 5 casos de uso específicos que quieres resolver.", "req": false, "tipo": "textarea", "opts": [], "tipo_raw": "TEXTAREA", "multiple": false}, {"label": "¿Qué resultado esperas en los primeros 30 días?", "req": false, "tipo": "textarea", "opts": [], "tipo_raw": "TEXTAREA", "multiple": false}, {"label": "¿Qué tareas NO quieres delegar nunca a un agente?", "req": false, "tipo": "textarea", "opts": [], "tipo_raw": "TEXTAREA", "multiple": false}]}, {"titulo": "Parte 4. No-negociables, límites y riesgos", "textos": ["Ejemplos que suelen mencionarse: fuga de datos o secretos, pérdida de archivos, cobros no autorizados, mensajes enviados sin aprobación, información falsa presentada como cierta, suplantación de identidad, quedar mal con un cliente, o acceder a sistemas sin permiso. Escribe lo que para ti sería grave, aunque coincida con estos ejemplos.", "Nada de autonomía significa que tu agente te propone cada acción y no mueve nada hasta que apruebas. Es lo más seguro y también lo más lento: sirve cuando hay dinero, clientes o archivos delicados de por medio. El punto medio deja que resuelva solo lo rutinario y te pregunte en lo que tenga consecuencias. Mucha autonomía ejecuta varias cosas sin preguntar: avanza rapidísimo, pero un error tuyo de configuración se multiplica igual de rápido."], "campos": [{"label": "¿Cuáles son tus NO-NEGOCIABLES de un asistente? Elige todos los que apliquen.", "req": false, "tipo": "opciones", "opts": ["Nunca compartir mis datos o secretos", "Nunca enviar mensajes o correos sin mi revisión", "Nunca gastar dinero sin autorización", "Nunca borrar archivos o datos sin mi permiso", "Nunca tomar decisiones legales, médicas o financieras por mí", "Nunca hablar en mi nombre sin aprobación", "Nunca inventar información (siempre debe citar fuentes)", "Respetar la privacidad de mis clientes", "Otro"], "tipo_raw": "CHECKBOX", "multiple": true}, {"label": "¿Qué escenarios considerarías graves si tu agente los provocara? Cuéntanos con tus palabras.", "req": false, "tipo": "textarea", "opts": [], "tipo_raw": "TEXTAREA", "multiple": false}, {"label": "¿Qué acciones deben pedir tu aprobación antes de ejecutarse?", "req": false, "tipo": "textarea", "opts": [], "tipo_raw": "TEXTAREA", "multiple": false}, {"label": "¿Qué nivel de autonomía quieres para tu agente?", "req": false, "tipo": "escala", "opts": [], "tipo_raw": "LINEAR_SCALE", "multiple": false, "escala": {"min": 0, "max": 10, "izq": "Pregúntame todo", "der": "Muy autónomo"}}, {"label": "Cuando tu agente no sepa qué hacer, ¿qué prefieres que haga?", "req": false, "tipo": "opciones", "opts": ["Detenerse y preguntarme", "Elegir la opción más segura y avisarme", "Proponer un plan y esperar mi OK", "Otro"], "tipo_raw": "MULTIPLE_CHOICE_OPTION", "multiple": false}]}, {"titulo": "Parte 5. Gran valor y éxito", "textos": [], "campos": [{"label": "¿Qué escenarios te darían el mayor valor o considerarías un gran éxito?", "req": false, "tipo": "textarea", "opts": [], "tipo_raw": "TEXTAREA", "multiple": false}, {"label": "¿Cómo sabrás que tu agente está funcionando bien?", "req": false, "tipo": "textarea", "opts": [], "tipo_raw": "TEXTAREA", "multiple": false}, {"label": "¿Qué tendría que pasar para que consideraras que no valió la pena?", "req": false, "tipo": "textarea", "opts": [], "tipo_raw": "TEXTAREA", "multiple": false}]}, {"titulo": "Parte 6. Tu agente y su configuración", "textos": ["Con el modelo y el sistema de tu computadora cargamos la guía técnica correcta para instalarte las herramientas."], "campos": [{"label": "¿Qué debe saber siempre tu agente sobre ti y tu proyecto? Esto define tu SOUL.md.", "req": false, "tipo": "textarea", "opts": [], "tipo_raw": "TEXTAREA", "multiple": false}, {"label": "¿Qué tono quieres que tenga tu agente? Elige todos los que apliquen.", "req": false, "tipo": "opciones", "opts": ["Profesional y formal", "Cercano y cálido", "Directo y conciso", "Técnico y detallado", "Con humor", "Otro"], "tipo_raw": "CHECKBOX", "multiple": true}, {"label": "¿En qué idioma debe trabajar por defecto?", "req": false, "tipo": "opciones", "opts": ["Español (México)", "Español neutro", "Inglés", "Bilingüe", "Otro"], "tipo_raw": "MULTIPLE_CHOICE_OPTION", "multiple": false}, {"label": "¿Qué debería saber hacer tu agente? Elige todo lo que aplique a tu trabajo.", "req": false, "tipo": "opciones", "opts": ["Redacción: correos, propuestas, publicaciones", "Hojas de cálculo: presupuestos, inventario, reportes", "Documentos: contratos, manuales, reportes", "Trato con clientes: seguimiento, recordatorios, respuestas", "Compras y proveedores: cotizaciones, comparación de precios", "Redes sociales: contenido, calendario, respuestas", "Facturación y cobranza", "Investigación: buscar fuentes, resumir, verificar datos", "Análisis de datos y reportes", "Diseño: imágenes, presentaciones", "Video y audio", "Trámites y papeleo", "Agenda y coordinación", "Otro"], "tipo_raw": "CHECKBOX", "multiple": true}, {"label": "¿Cómo te gustaría que se comunicaran tus agentes? Elige todas las que veas útiles.", "req": false, "tipo": "opciones", "opts": ["Un solo agente que hace todo", "Varios agentes que se pasan la tarea por mensajes directos entre ellos (A2A)", "Varios agentes en un grupo donde conversan entre sí", "Agentes que coordino yo desde un solo chat", "Otro"], "tipo_raw": "CHECKBOX", "multiple": true}, {"label": "¿Qué modelo de IA usas hoy o te gustaría usar? Elige todos los que apliquen.", "req": false, "tipo": "opciones", "opts": ["ChatGPT (OpenAI)", "Claude (Anthropic)", "Gemini (Google)", "DeepSeek", "Kimi", "Grok (xAI)", "Un modelo local en mi computadora", "No lo sé todavía", "Otro"], "tipo_raw": "CHECKBOX", "multiple": true}, {"label": "¿Qué computadora usas? Marca, modelo y sistema operativo.", "req": false, "tipo": "texto", "opts": [], "tipo_raw": "INPUT_TEXT", "multiple": false}]}, {"titulo": "Parte 7. Presupuesto y cierre", "textos": [], "campos": [{"label": "¿Qué presupuesto mensual tienes pensado para IA y herramientas?", "req": false, "tipo": "opciones", "opts": ["Menos de $500 MXN", "$500 a $1,500 MXN", "$1,500 a $3,000 MXN", "Más de $3,000 MXN", "Aún no lo defino"], "tipo_raw": "MULTIPLE_CHOICE_OPTION", "multiple": false}, {"label": "¿Qué te gustaría aprender o lograr en el taller?", "req": false, "tipo": "textarea", "opts": [], "tipo_raw": "TEXTAREA", "multiple": false}, {"label": "¿Algo más que debamos saber para diseñar tu agente?", "req": false, "tipo": "textarea", "opts": [], "tipo_raw": "TEXTAREA", "multiple": false}, {"label": "Consentimiento", "req": false, "tipo": "opciones", "opts": ["Acepto que SolarPunk MX me contacte por WhatsApp o correo para dar seguimiento a este diagnóstico y a las clases."], "tipo_raw": "CHECKBOX", "multiple": true}]}];
-const DESPEDIDA    = {"titulo": "¡Listo! Gracias por tu tiempo", "textos": ["Con tus respuestas diseñamos tu SOUL.md y tu configuración inicial: los agentes que necesitas, sus skills, sus MCPs, sus modelos y cómo se van a comunicar. Te contactamos pronto."]};
+const DESPEDIDA    = {"titulo": "¡Listo!", "textos": ["Con tus respuestas diseñamos tu SOUL.md y tu configuración inicial: los agentes que necesitas, sus skills, sus MCPs, sus modelos y cómo se van a comunicar."]};
 const INTRO        = "Este cuestionario nos ayuda a diseñar tu equipo de agentes IAs. Tus respuestas nos dicen qué necesitas, cómo trabajas y qué límites quieres.";
 /* Origen del servicio.
    El cuestionario vive en empresaagentica.com (sitio estático en Vercel) y el
@@ -134,13 +134,19 @@ function aceptarPropio(){
 }
 
 /* ═══ CIERRE: la despedida cambia según ruta + quién configura ═══ */
+const DESCARGAS = 'https://empresaagentica.com/solarpunk/hermes/descargas/';
+
+/* Cada ruta entrega lo suyo. A y B son el mismo tipo de paquete
+   —conector de escritorio al servidor— porque en ambas el agente vive en
+   un VPS; lo único que cambia es quién es dueño del servidor. C instala
+   Hermes en la computadora, así que lleva el instalador de Docker. */
 const PAQUETES = {
-  A: { archivo:'', url:'', etiqueta:'' },
-  B: { archivo:'SolarPunk-conexion-Windows.zip', url:'SolarPunk-conexion-Windows.zip',
-       etiqueta:'Descargar los archivos de conexión',
-       mac:'SolarPunk-conexion-Mac.zip' },
-  C: { archivo:'instalador-docker.zip', url:'instalador-docker.zip',
-       etiqueta:'Descargar el instalador de Hermes (Docker)' }
+  A: { tipo:'conector', win: DESCARGAS+'conexion-windows.zip',
+       mac: DESCARGAS+'instalador-vps-curso-mac-linux.zip' },
+  B: { tipo:'conector', win: DESCARGAS+'conexion-windows.zip',
+       mac: DESCARGAS+'instalador-vps-curso-mac-linux.zip' },
+  C: { tipo:'local',    win: DESCARGAS+'instalador-docker.zip',
+       mac: DESCARGAS+'instalador-docker.zip' }
 };
 
 function volverDesdeCierre(){
@@ -158,72 +164,74 @@ function mostrarDespedida(){
   // texto principal: sólo el del Tally describe lo que hacemos NOSOTROS
   document.getElementById('desp_texto').innerHTML = conServicio
     ? DESPEDIDA.textos.map(t=>`<p class="grave">${esc(t)}</p>`).join('')
-    : `<p class="grave">Gracias por tu tiempo. Te entregamos Hermes listo y una guía
-       para que crees tus agentes a tu manera: su personalidad, sus reglas y sus conexiones.</p>`;
+    : `<p class="grave">Tus respuestas quedaron guardadas. Abajo está lo que sigue
+       para dejar tus agentes funcionando.</p>`;
 
   // siguiente paso: depende de DÓNDE se instala
   const pasos = {
     A: {
-      servicio:'Te enviamos un enlace de notificación para conectarte y dejar tus agentes instalados en tu VPS incluido.',
-      propio:'Te enviamos un enlace de notificación para conectarte a tu VPS incluido y crear ahí tus agentes.'
+      servicio:'Descarga el conector de tu sistema y ábrelo: te lleva a tus agentes ya creados en tu VPS del curso.',
+      propio:'Descarga el conector de tu sistema y ábrelo: te lleva a tus agentes ya creados en tu VPS del curso.'
     },
     B: {
-      servicio:'Te compartimos una carpeta con los archivos y las instrucciones para que tu agente los lleve a cabo en tu propio VPS.',
-      propio:'Te compartimos los archivos y la guía para que instales y configures tus agentes en tu propio VPS.'
+      servicio:'Descarga el conector de tu sistema y ábrelo: conecta tu computadora con tu VPS y ahí viven tus agentes.',
+      propio:'Descarga el conector de tu sistema y ábrelo: conecta tu computadora con tu VPS y ahí viven tus agentes.'
     },
     C: {
-      servicio:'Descarga el instalador, ejecútalo y tus agentes quedarán configurados dentro del contenedor seguro en tu computadora.',
+      servicio:'Descarga el instalador, ejecútalo y tus agentes quedan dentro del contenedor seguro en tu computadora.',
       propio:'Descarga el instalador y ejecútalo. Con eso tu agente queda listo en tu computadora.'
     }
   };
   const siguiente = (pasos[A] || pasos.A)[conServicio ? 'servicio' : 'propio'];
   document.getElementById('desp_siguiente').innerHTML = '<b>Tu siguiente paso:</b> ' + esc(siguiente);
 
-  // cómo ponerle nombre a tus agentes (siempre visible, no interrumpe el flujo)
-  const rn = document.getElementById('desp_renombrar');
-  if (rn) rn.style.display = 'block';
-
-  // bloque del instalador (ruta C, o descarga de archivos en ruta B)
+  // ── Bloque de descarga: según ruta, con elección de sistema operativo ──
   const box = document.getElementById('desp_instalador');
-  const p = PAQUETES[A];
-  if (A === 'C') {
+  const p = PAQUETES[A] || PAQUETES.A;
+
+  if (p.tipo === 'conector') {
+    // A y B: el agente vive en un VPS. El alumno conecta su computadora.
+    box.style.display = 'block';
+    box.innerHTML = `
+      <div class="note hard">
+        <b>Descarga el conector de tu computadora</b><br>
+        Abre el túnel seguro a tu servidor y te deja los agentes en el navegador.
+        No instalas nada en tu equipo.
+        <div class="ayuda mt-8">
+          Windows: abre <code>conectar.bat</code> ·
+          macOS y Linux: abre la Terminal y corre <code>bash conectar.sh</code>
+        </div>
+      </div>
+      <p class="lbl mt-12">Elige tu sistema</p>
+      <div class="row mt-8">
+        <a class="btnlink" href="${p.win}" download>&#11015; Windows</a>
+        <a class="btnlink" href="${p.mac}" download>⬇ macOS y Linux</a>
+      </div>
+      <div class="note warn mt-12">
+        <b>Antes de abrirlo:</b> el paquete trae un archivo <code>config.txt</code>.
+        Escribe ahí la IP de tu servidor. Es lo único que hay que llenar.
+      </div>`;
+  } else {
+    // C: Hermes se instala en la computadora del alumno.
     box.style.display = 'block';
     box.innerHTML = `
       <div class="note hard">
         <b>Instala Hermes en tu computadora</b><br>
-        1. Descarga el paquete y descomprímelo (clic derecho → Extraer todo).<br>
+        1. Descarga el paquete y descomprímelo.<br>
         2. Entra a la carpeta y abre el archivo <b>LEEME</b>: ahí están los pasos
-           para <b>Windows</b> y para <b>Mac</b>, con todo y qué hacer en cada clic.<br>
-        3. Al terminar el LEEME, tu agente quedará abierto en tu navegador.
+           para <b>Windows</b>, <b>Mac</b> y <b>Linux</b>.<br>
+        3. Al terminar, tu agente queda abierto en tu navegador.
         <div class="ayuda mt-8">
-          Windows: doble clic en <code>instalar-docker.bat</code> ·
-          Mac: doble clic en <code>instalar-docker.command</code>
+          Windows: <code>instalar-docker.bat</code> ·
+          Mac: <code>instalar-docker.command</code> ·
+          Linux: <code>instalar-docker.sh</code>
         </div>
       </div>
-      <div class="row mt-12">
-        <a class="btnlink" href="${p.url}" download>⬇ ${esc(p.etiqueta)}</a>
-      </div>
-      <div class="note warn mt-12">
-        <b>Y al terminar:</b> continúa con la configuración de tus agentes
-        siguiendo el <b>material del curso</b>. Ahí verás cómo crear tu primer agente,
-        darle su personalidad y conectarlo con tus herramientas.
+      <p class="lbl mt-12">Elige tu sistema</p>
+      <div class="row mt-8">
+        <a class="btnlink" href="${p.win}" download>&#11015; Windows</a>
+        <a class="btnlink" href="${p.mac}" download>⬇ macOS y Linux</a>
       </div>`;
-  } else if (A === 'B') {
-    box.style.display = 'block';
-    box.innerHTML = `
-      <div class="note hard"><b>Archivos para tu VPS</b><br>
-        Descarga el paquete de conexión de tu computadora. Dentro viene la guía
-        paso a paso (<b>EMPIEZA-AQUI</b>) y el script que conecta tu computadora
-        con tu servidor de forma segura. Empieza por el archivo <b>EMPIEZA-AQUI</b>.
-      </div>
-      <div class="row mt-12">
-        <a class="btnlink" href="${p.url}" download>⬇ Windows</a>
-        <a class="btnlink" href="${p.mac}" download
-           class="pill-ghost">⬇ Mac</a>
-      </div>`;
-  } else {
-    box.style.display = 'none';
-    box.innerHTML = '';
   }
 
   go(9);
